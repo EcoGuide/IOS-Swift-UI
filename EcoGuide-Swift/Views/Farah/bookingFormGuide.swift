@@ -124,8 +124,8 @@ struct SelectCardsView: View {
     @Binding var discountCode: Double
     
     var body: some View {
-        VStack{
-            
+        VStack(alignment : .leading,spacing:20){
+           
             ZStack {
                 RoundedRectangle(cornerRadius: 8)
                     .foregroundColor(Color.white)
@@ -138,11 +138,11 @@ struct SelectCardsView: View {
                     Image("paypal")
                         .font(.system(size: 24))
                         .padding(.leading, 16)
-                    VStack{
+                
                         Text("Email: example@example.com")
                             .padding(.trailing, 16)
                         
-                    }
+                    
                     Spacer()
                 }
             }
@@ -150,7 +150,7 @@ struct SelectCardsView: View {
             
             
             
-            ZStack {
+            ZStack(alignment: .leading) {
                 RoundedRectangle(cornerRadius: 8)
                     .foregroundColor(Color.white)
                     .cornerRadius(20)
@@ -158,23 +158,134 @@ struct SelectCardsView: View {
                     .frame(height: 100)
                     .frame(maxWidth: .infinity) // Make the field wider
                 
-                HStack {
-                    Image("mastercard")
+                HStack (spacing: 20){
+                        Image("mastercard")
+                            .font(.system(size: 24))
+                        
+                        
+                        VStack(alignment: .leading,spacing:15){
+                            Text("*****35322565")
+                                .padding(.trailing, 16)
+                            
+                            Text("Email: express on 21")
+                                .foregroundColor(.gray)
+                                .padding(.bottom, 16)
+                        }
+                        
+                        
+                    }.padding()
+                
+                    
+                
+            }
+            Button(action: {
+                // Handle the action when the button is tapped
+            }) {
+                Text("Add Card +")
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 44)
+                    .background(Color.blue.opacity(0.25)) // Light blue background with opacity
+                    .foregroundColor(Color.blue) // Blue text color
+                    .cornerRadius(20)
+            }
+           
+                Text("Other methods")
+                    .font(.system(size: 16, weight: .semibold))
+            
+            
+            
+            ZStack (alignment: .leading){
+                RoundedRectangle(cornerRadius: 8)
+                    .foregroundColor(Color.white)
+                    .cornerRadius(20)
+                    .shadow(radius: 5)
+                    .frame(height: 100)
+                    .frame(maxWidth: .infinity) // Make the field wider
+                
+                HStack (spacing:20){
+                    Image("cash")
                         .font(.system(size: 24))
-                        .padding(.leading, 16)
-                    VStack{
-                        Text("*****35322565")
+                        .padding(16)
+                    VStack(alignment: .leading,spacing:15){
+                        Text("Cash Payment")
                             .padding(.trailing, 16)
-                        Text("Email: express on 21")
+                       
+                        Text("default method")
                             .foregroundColor(.gray)
                             .padding(.bottom, 16)
                     }
-                    Spacer()
-                }
+                   
+
+                }.padding()
+                
+                
             }
-        }.padding(20)
+            
+            ZStack {
+                RoundedRectangle(cornerRadius: 8)
+                    .foregroundColor(Color.gray.opacity(0.15))
+                    .cornerRadius(20)
+                    .shadow(radius: 5)
+                    .frame(height: 130)
+                    .frame(maxWidth: .infinity) // Make the field wider
+                
+               
+                VStack{
+                    HStack{
+                        Text("Basket Total")
+                            .foregroundColor(.gray)
+                           Spacer()
+                        Text("+ TND 32.00")
+                            .foregroundColor(.gray)
+                         
+                    }
+                        Divider()
+                            
+                    HStack{
+                        Text("Discount ")
+                            .foregroundColor(.gray)
+                           Spacer()
+                        Text("- TND 32.00")
+                            .foregroundColor(.blue)
+                        
+                    }
+                    
+                    Divider()
+                    HStack{
+                        Text(" Total")
+                            .foregroundColor(.gray)
+                           Spacer()
+                        Text(" TND 32.00")
+                            .foregroundColor(.gray)
+                        
+                    }
+                    
+                
+                    
+                }.padding()
+
+                
+               
+              
+                
+            }
+            
+            Section {
+                NavigationLink(destination: SelectCardsView(user: $user, selectedPhoneNumber: $selectedPhoneNumber, discountCode: $discountCode)) {
+                    Text("Continue")
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 44)
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(20)
+                }}
+        }.padding(20).navigationTitle("Payment method")
+       
+       
+           
         
     }
+    
 }
         
     

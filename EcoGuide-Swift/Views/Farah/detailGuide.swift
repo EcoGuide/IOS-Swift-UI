@@ -138,7 +138,7 @@ struct detailGuide: View {
                         .padding()
                         .background(Color.blue)
                         .foregroundColor(.white)
-                        .cornerRadius(8)
+                        .cornerRadius(15)
                     }
                 }
                 .padding(.horizontal, 16)
