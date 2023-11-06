@@ -1,0 +1,627 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		11EA7D282AF96DF400141117 /* EcoGuide_SwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EA7D272AF96DF400141117 /* EcoGuide_SwiftApp.swift */; };
+		11EA7D2A2AF96DF400141117 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EA7D292AF96DF400141117 /* ContentView.swift */; };
+		11EA7D2C2AF96DF500141117 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11EA7D2B2AF96DF500141117 /* Assets.xcassets */; };
+		11EA7D2F2AF96DF500141117 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11EA7D2E2AF96DF500141117 /* Preview Assets.xcassets */; };
+		11EA7D312AF96DF500141117 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EA7D302AF96DF500141117 /* Persistence.swift */; };
+		11EA7D342AF96DF500141117 /* EcoGuide_Swift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11EA7D322AF96DF500141117 /* EcoGuide_Swift.xcdatamodeld */; };
+		11EA7D3E2AF96DF500141117 /* EcoGuide_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EA7D3D2AF96DF500141117 /* EcoGuide_SwiftTests.swift */; };
+		11EA7D482AF96DF500141117 /* EcoGuide_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EA7D472AF96DF500141117 /* EcoGuide_SwiftUITests.swift */; };
+		11EA7D4A2AF96DF500141117 /* EcoGuide_SwiftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EA7D492AF96DF500141117 /* EcoGuide_SwiftUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		11EA7D3A2AF96DF500141117 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 11EA7D1C2AF96DF400141117 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 11EA7D232AF96DF400141117;
+			remoteInfo = "EcoGuide-Swift";
+		};
+		11EA7D442AF96DF500141117 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 11EA7D1C2AF96DF400141117 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 11EA7D232AF96DF400141117;
+			remoteInfo = "EcoGuide-Swift";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		11EA7D242AF96DF400141117 /* EcoGuide-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EcoGuide-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		11EA7D272AF96DF400141117 /* EcoGuide_SwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcoGuide_SwiftApp.swift; sourceTree = "<group>"; };
+		11EA7D292AF96DF400141117 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		11EA7D2B2AF96DF500141117 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		11EA7D2E2AF96DF500141117 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		11EA7D302AF96DF500141117 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		11EA7D332AF96DF500141117 /* EcoGuide_Swift.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EcoGuide_Swift.xcdatamodel; sourceTree = "<group>"; };
+		11EA7D392AF96DF500141117 /* EcoGuide-SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EcoGuide-SwiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		11EA7D3D2AF96DF500141117 /* EcoGuide_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcoGuide_SwiftTests.swift; sourceTree = "<group>"; };
+		11EA7D432AF96DF500141117 /* EcoGuide-SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EcoGuide-SwiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		11EA7D472AF96DF500141117 /* EcoGuide_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcoGuide_SwiftUITests.swift; sourceTree = "<group>"; };
+		11EA7D492AF96DF500141117 /* EcoGuide_SwiftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcoGuide_SwiftUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		11EA7D212AF96DF400141117 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11EA7D362AF96DF500141117 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11EA7D402AF96DF500141117 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		11EA7D1B2AF96DF400141117 = {
+			isa = PBXGroup;
+			children = (
+				11EA7D262AF96DF400141117 /* EcoGuide-Swift */,
+				11EA7D3C2AF96DF500141117 /* EcoGuide-SwiftTests */,
+				11EA7D462AF96DF500141117 /* EcoGuide-SwiftUITests */,
+				11EA7D252AF96DF400141117 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		11EA7D252AF96DF400141117 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				11EA7D242AF96DF400141117 /* EcoGuide-Swift.app */,
+				11EA7D392AF96DF500141117 /* EcoGuide-SwiftTests.xctest */,
+				11EA7D432AF96DF500141117 /* EcoGuide-SwiftUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		11EA7D262AF96DF400141117 /* EcoGuide-Swift */ = {
+			isa = PBXGroup;
+			children = (
+				11EA7D582AF96E0D00141117 /* ViewModels */,
+				11EA7D572AF96E0500141117 /* Views */,
+				11EA7D562AF96DFD00141117 /* Models */,
+				11EA7D272AF96DF400141117 /* EcoGuide_SwiftApp.swift */,
+				11EA7D292AF96DF400141117 /* ContentView.swift */,
+				11EA7D2B2AF96DF500141117 /* Assets.xcassets */,
+				11EA7D302AF96DF500141117 /* Persistence.swift */,
+				11EA7D322AF96DF500141117 /* EcoGuide_Swift.xcdatamodeld */,
+				11EA7D2D2AF96DF500141117 /* Preview Content */,
+			);
+			path = "EcoGuide-Swift";
+			sourceTree = "<group>";
+		};
+		11EA7D2D2AF96DF500141117 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				11EA7D2E2AF96DF500141117 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		11EA7D3C2AF96DF500141117 /* EcoGuide-SwiftTests */ = {
+			isa = PBXGroup;
+			children = (
+				11EA7D3D2AF96DF500141117 /* EcoGuide_SwiftTests.swift */,
+			);
+			path = "EcoGuide-SwiftTests";
+			sourceTree = "<group>";
+		};
+		11EA7D462AF96DF500141117 /* EcoGuide-SwiftUITests */ = {
+			isa = PBXGroup;
+			children = (
+				11EA7D472AF96DF500141117 /* EcoGuide_SwiftUITests.swift */,
+				11EA7D492AF96DF500141117 /* EcoGuide_SwiftUITestsLaunchTests.swift */,
+			);
+			path = "EcoGuide-SwiftUITests";
+			sourceTree = "<group>";
+		};
+		11EA7D562AF96DFD00141117 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		11EA7D572AF96E0500141117 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		11EA7D582AF96E0D00141117 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		11EA7D232AF96DF400141117 /* EcoGuide-Swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11EA7D4D2AF96DF500141117 /* Build configuration list for PBXNativeTarget "EcoGuide-Swift" */;
+			buildPhases = (
+				11EA7D202AF96DF400141117 /* Sources */,
+				11EA7D212AF96DF400141117 /* Frameworks */,
+				11EA7D222AF96DF400141117 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "EcoGuide-Swift";
+			productName = "EcoGuide-Swift";
+			productReference = 11EA7D242AF96DF400141117 /* EcoGuide-Swift.app */;
+			productType = "com.apple.product-type.application";
+		};
+		11EA7D382AF96DF500141117 /* EcoGuide-SwiftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11EA7D502AF96DF500141117 /* Build configuration list for PBXNativeTarget "EcoGuide-SwiftTests" */;
+			buildPhases = (
+				11EA7D352AF96DF500141117 /* Sources */,
+				11EA7D362AF96DF500141117 /* Frameworks */,
+				11EA7D372AF96DF500141117 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				11EA7D3B2AF96DF500141117 /* PBXTargetDependency */,
+			);
+			name = "EcoGuide-SwiftTests";
+			productName = "EcoGuide-SwiftTests";
+			productReference = 11EA7D392AF96DF500141117 /* EcoGuide-SwiftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		11EA7D422AF96DF500141117 /* EcoGuide-SwiftUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11EA7D532AF96DF500141117 /* Build configuration list for PBXNativeTarget "EcoGuide-SwiftUITests" */;
+			buildPhases = (
+				11EA7D3F2AF96DF500141117 /* Sources */,
+				11EA7D402AF96DF500141117 /* Frameworks */,
+				11EA7D412AF96DF500141117 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				11EA7D452AF96DF500141117 /* PBXTargetDependency */,
+			);
+			name = "EcoGuide-SwiftUITests";
+			productName = "EcoGuide-SwiftUITests";
+			productReference = 11EA7D432AF96DF500141117 /* EcoGuide-SwiftUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		11EA7D1C2AF96DF400141117 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1410;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					11EA7D232AF96DF400141117 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+					11EA7D382AF96DF500141117 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = 11EA7D232AF96DF400141117;
+					};
+					11EA7D422AF96DF500141117 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = 11EA7D232AF96DF400141117;
+					};
+				};
+			};
+			buildConfigurationList = 11EA7D1F2AF96DF400141117 /* Build configuration list for PBXProject "EcoGuide-Swift" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 11EA7D1B2AF96DF400141117;
+			productRefGroup = 11EA7D252AF96DF400141117 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				11EA7D232AF96DF400141117 /* EcoGuide-Swift */,
+				11EA7D382AF96DF500141117 /* EcoGuide-SwiftTests */,
+				11EA7D422AF96DF500141117 /* EcoGuide-SwiftUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		11EA7D222AF96DF400141117 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11EA7D2F2AF96DF500141117 /* Preview Assets.xcassets in Resources */,
+				11EA7D2C2AF96DF500141117 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11EA7D372AF96DF500141117 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11EA7D412AF96DF500141117 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		11EA7D202AF96DF400141117 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11EA7D342AF96DF500141117 /* EcoGuide_Swift.xcdatamodeld in Sources */,
+				11EA7D312AF96DF500141117 /* Persistence.swift in Sources */,
+				11EA7D2A2AF96DF400141117 /* ContentView.swift in Sources */,
+				11EA7D282AF96DF400141117 /* EcoGuide_SwiftApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11EA7D352AF96DF500141117 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11EA7D3E2AF96DF500141117 /* EcoGuide_SwiftTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11EA7D3F2AF96DF500141117 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11EA7D482AF96DF500141117 /* EcoGuide_SwiftUITests.swift in Sources */,
+				11EA7D4A2AF96DF500141117 /* EcoGuide_SwiftUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		11EA7D3B2AF96DF500141117 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 11EA7D232AF96DF400141117 /* EcoGuide-Swift */;
+			targetProxy = 11EA7D3A2AF96DF500141117 /* PBXContainerItemProxy */;
+		};
+		11EA7D452AF96DF500141117 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 11EA7D232AF96DF400141117 /* EcoGuide-Swift */;
+			targetProxy = 11EA7D442AF96DF500141117 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		11EA7D4B2AF96DF500141117 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		11EA7D4C2AF96DF500141117 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		11EA7D4E2AF96DF500141117 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"EcoGuide-Swift/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "EcoVentura.EcoGuide-Swift";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		11EA7D4F2AF96DF500141117 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"EcoGuide-Swift/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "EcoVentura.EcoGuide-Swift";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		11EA7D512AF96DF500141117 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "EcoVentura.EcoGuide-SwiftTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EcoGuide-Swift.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EcoGuide-Swift";
+			};
+			name = Debug;
+		};
+		11EA7D522AF96DF500141117 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "EcoVentura.EcoGuide-SwiftTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EcoGuide-Swift.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EcoGuide-Swift";
+			};
+			name = Release;
+		};
+		11EA7D542AF96DF500141117 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "EcoVentura.EcoGuide-SwiftUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "EcoGuide-Swift";
+			};
+			name = Debug;
+		};
+		11EA7D552AF96DF500141117 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "EcoVentura.EcoGuide-SwiftUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "EcoGuide-Swift";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		11EA7D1F2AF96DF400141117 /* Build configuration list for PBXProject "EcoGuide-Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11EA7D4B2AF96DF500141117 /* Debug */,
+				11EA7D4C2AF96DF500141117 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		11EA7D4D2AF96DF500141117 /* Build configuration list for PBXNativeTarget "EcoGuide-Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11EA7D4E2AF96DF500141117 /* Debug */,
+				11EA7D4F2AF96DF500141117 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		11EA7D502AF96DF500141117 /* Build configuration list for PBXNativeTarget "EcoGuide-SwiftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11EA7D512AF96DF500141117 /* Debug */,
+				11EA7D522AF96DF500141117 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		11EA7D532AF96DF500141117 /* Build configuration list for PBXNativeTarget "EcoGuide-SwiftUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11EA7D542AF96DF500141117 /* Debug */,
+				11EA7D552AF96DF500141117 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		11EA7D322AF96DF500141117 /* EcoGuide_Swift.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				11EA7D332AF96DF500141117 /* EcoGuide_Swift.xcdatamodel */,
+			);
+			currentVersion = 11EA7D332AF96DF500141117 /* EcoGuide_Swift.xcdatamodel */;
+			path = EcoGuide_Swift.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 11EA7D1C2AF96DF400141117 /* Project object */;
+}
