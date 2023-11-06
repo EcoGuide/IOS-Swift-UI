@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11CEEBDC2AF9746000175E74 /* HomeViewGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CEEBDB2AF9746000175E74 /* HomeViewGuide.swift */; };
+		11CEEBDF2AF9753D00175E74 /* RecentlyBookedGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CEEBDE2AF9753D00175E74 /* RecentlyBookedGuide.swift */; };
+		11CEEBE12AF9755D00175E74 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CEEBE02AF9755D00175E74 /* TestModel.swift */; };
+		11CEEBE32AF9756800175E74 /* TestVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CEEBE22AF9756800175E74 /* TestVM.swift */; };
+		11CEEBE52AF9761F00175E74 /* bookingFormGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CEEBE42AF9761F00175E74 /* bookingFormGuide.swift */; };
+		11CEEBE72AF9768D00175E74 /* bookmarksGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CEEBE62AF9768D00175E74 /* bookmarksGuide.swift */; };
+		11CEEBE92AF976D300175E74 /* detailGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CEEBE82AF976D300175E74 /* detailGuide.swift */; };
 		11EA7D282AF96DF400141117 /* EcoGuide_SwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EA7D272AF96DF400141117 /* EcoGuide_SwiftApp.swift */; };
 		11EA7D2A2AF96DF400141117 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EA7D292AF96DF400141117 /* ContentView.swift */; };
 		11EA7D2C2AF96DF500141117 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11EA7D2B2AF96DF500141117 /* Assets.xcassets */; };
@@ -36,6 +43,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		11CEEBDB2AF9746000175E74 /* HomeViewGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewGuide.swift; sourceTree = "<group>"; };
+		11CEEBDE2AF9753D00175E74 /* RecentlyBookedGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyBookedGuide.swift; sourceTree = "<group>"; };
+		11CEEBE02AF9755D00175E74 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
+		11CEEBE22AF9756800175E74 /* TestVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVM.swift; sourceTree = "<group>"; };
+		11CEEBE42AF9761F00175E74 /* bookingFormGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookingFormGuide.swift; sourceTree = "<group>"; };
+		11CEEBE62AF9768D00175E74 /* bookmarksGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookmarksGuide.swift; sourceTree = "<group>"; };
+		11CEEBE82AF976D300175E74 /* detailGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailGuide.swift; sourceTree = "<group>"; };
 		11EA7D242AF96DF400141117 /* EcoGuide-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EcoGuide-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		11EA7D272AF96DF400141117 /* EcoGuide_SwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcoGuide_SwiftApp.swift; sourceTree = "<group>"; };
 		11EA7D292AF96DF400141117 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -75,6 +89,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11CEEBDD2AF9752B00175E74 /* Farah */ = {
+			isa = PBXGroup;
+			children = (
+				11CEEBDB2AF9746000175E74 /* HomeViewGuide.swift */,
+				11CEEBDE2AF9753D00175E74 /* RecentlyBookedGuide.swift */,
+				11CEEBE42AF9761F00175E74 /* bookingFormGuide.swift */,
+				11CEEBE62AF9768D00175E74 /* bookmarksGuide.swift */,
+				11CEEBE82AF976D300175E74 /* detailGuide.swift */,
+			);
+			path = Farah;
+			sourceTree = "<group>";
+		};
 		11EA7D1B2AF96DF400141117 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +165,7 @@
 		11EA7D562AF96DFD00141117 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				11CEEBE02AF9755D00175E74 /* TestModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -146,6 +173,7 @@
 		11EA7D572AF96E0500141117 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				11CEEBDD2AF9752B00175E74 /* Farah */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -153,6 +181,7 @@
 		11EA7D582AF96E0D00141117 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				11CEEBE22AF9756800175E74 /* TestVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -287,9 +316,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11CEEBE72AF9768D00175E74 /* bookmarksGuide.swift in Sources */,
 				11EA7D342AF96DF500141117 /* EcoGuide_Swift.xcdatamodeld in Sources */,
 				11EA7D312AF96DF500141117 /* Persistence.swift in Sources */,
+				11CEEBE32AF9756800175E74 /* TestVM.swift in Sources */,
+				11CEEBE92AF976D300175E74 /* detailGuide.swift in Sources */,
+				11CEEBDF2AF9753D00175E74 /* RecentlyBookedGuide.swift in Sources */,
+				11CEEBE12AF9755D00175E74 /* TestModel.swift in Sources */,
 				11EA7D2A2AF96DF400141117 /* ContentView.swift in Sources */,
+				11CEEBDC2AF9746000175E74 /* HomeViewGuide.swift in Sources */,
+				11CEEBE52AF9761F00175E74 /* bookingFormGuide.swift in Sources */,
 				11EA7D282AF96DF400141117 /* EcoGuide_SwiftApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
