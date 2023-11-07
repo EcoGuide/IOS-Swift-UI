@@ -181,12 +181,16 @@ struct SelectCardsView: View {
             Button(action: {
                 // Handle the action when the button is tapped
             }) {
-                Text("Add Card +")
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 44)
-                    .background(Color.blue.opacity(0.25)) // Light blue background with opacity
-                    .foregroundColor(Color.blue) // Blue text color
-                    .cornerRadius(20)
+                
+                Section {
+                    NavigationLink(destination: addCardview()) {
+                        Text("Add Card +")
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 44)
+                            .background(Color.blue.opacity(0.25)) // Light blue background with opacity
+                            .foregroundColor(Color.blue) // Blue text color
+                            .cornerRadius(20)
+                    }}
             }
            
                 Text("Other methods")
@@ -271,8 +275,8 @@ struct SelectCardsView: View {
             }
             
             Section {
-                NavigationLink(destination: SelectCardsView(user: $user, selectedPhoneNumber: $selectedPhoneNumber, discountCode: $discountCode)) {
-                    Text("Continue")
+                NavigationLink(destination: secondPaymentView()) {
+                    Text("Book now")
                         .frame(maxWidth: .infinity)
                         .frame(height: 44)
                         .background(Color.blue)
@@ -288,20 +292,234 @@ struct SelectCardsView: View {
     
 }
         
-    
+struct addCardview: View {
+    @State private var fullName = ""
+    @State private var cardNumber = ""
+    @State private var date = Date()
+    @State private var cvv = ""
 
-enum PaymentMethod: String, Equatable, CaseIterable {
-    case creditCard = "Credit Card"
-    case cash = "Cash"
-    case amen = "Amen"
-}
-    
-struct BookingGuide_Previews: PreviewProvider {
-    @State private static var discountCode: Double = 0.0
-    static var previews: some View {
-        bookingformGuide(discountCode: $discountCode)
+    var body: some View {
+        Image("mastercard1")
+            .font(.system(size: 24))
+
+        VStack(alignment: .leading, spacing: 15) {
+           
+            Form {
+                Section {
+                    TextField("Full Name", text: $fullName)
+                    TextField("Card Number", text: $cardNumber)
+                    HStack(alignment: .center){
+                       
+                        TextField("Cvv", text: $cvv)
+                        DatePicker("Date", selection: $date, displayedComponents: .date).padding(2)
+                      
+                     
+                    }
+                 
+                                  
+                                  }
+                Text("Add New Card")
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 44)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(20)
+            }
+            
+            
+            
+        }
     }
 }
 
-    
 
+struct secondPaymentView: View {
+    @State private var fullName = ""
+    @State private var cardNumber = ""
+    @State private var date = Date()
+    @State private var cvv = ""
+    @State private var showAlert = false
+    
+    var body: some View {
+        VStack(alignment : .leading,spacing:20){
+            
+            HStack{
+                Text("Payment Methods")
+                    .font(.system(size: 16, weight: .semibold))
+                
+                
+                
+                Spacer()
+                
+                Button("Add New Card") {
+                    // Action to show the map
+                }
+                .foregroundColor(Color.pink)
+                
+                
+            }.padding()
+            
+            
+            ZStack {
+                RoundedRectangle(cornerRadius: 8)
+                    .foregroundColor(Color.blue.opacity(0.1))
+                    .cornerRadius(20)
+                    .shadow(radius: 5)
+                    .frame(height: 400)
+                    .frame(maxWidth: .infinity) // Make the field wider
+                VStack(alignment: .leading,spacing:30){
+                    HStack {
+                        
+                        Image("paypal")
+                            .padding(.leading, 16)
+                        Text("Paypal")
+                        
+                        
+                        
+                        Spacer()
+                        
+                        Button(action: {
+                            // Handle checkbox toggle logic here
+                        }) {
+                            
+                            Circle()
+                                .stroke(Color.blue , lineWidth: 2)
+                                .frame(width: 24, height: 24)
+                                .foregroundColor(.blue)
+                                .padding(.trailing, 16)
+                            
+                        }
+                    }.padding(5)
+                        .frame(width: UIScreen.main.bounds.width  - 50 ,height:60)
+                    
+                    
+                        .background(Color.white).cornerRadius(20)
+                    
+                    
+                    HStack {
+                        
+                        Image("paypal")
+                            .padding(.leading, 16)
+                        Text("Paypal")
+                        
+                        
+                        
+                        Spacer()
+                        
+                        Button(action: {
+                            // Handle checkbox toggle logic here
+                        }) {
+                            
+                            Circle()
+                                .stroke(Color.blue , lineWidth: 2)
+                                .frame(width: 24, height: 24)
+                                .foregroundColor(.blue)
+                                .padding(.trailing, 16)
+                            
+                        }
+                    }.padding(5)
+                        .frame(width: UIScreen.main.bounds.width  - 50 ,height:60)
+                    
+                    
+                        .background(Color.white).cornerRadius(20)
+                    HStack {
+                        
+                        Image("paypal")
+                            .padding(.leading, 16)
+                        Text("Paypal")
+                        
+                        
+                        
+                        Spacer()
+                        
+                        Button(action: {
+                            // Handle checkbox toggle logic here
+                        }) {
+                            
+                            Circle()
+                                .stroke(Color.blue , lineWidth: 2)
+                                .frame(width: 24, height: 24)
+                                .foregroundColor(.blue)
+                                .padding(.trailing, 16)
+                            
+                        }
+                    }.padding(5)
+                        .frame(width: UIScreen.main.bounds.width  - 50 ,height:60)
+                    
+                    
+                        .background(Color.white).cornerRadius(20)
+                    
+                    Text("Pay with Debit/Credit Card")
+                        .font(.system(size: 18, weight: .semibold))
+                    
+                    HStack {
+                        
+                        Image("mastercard")
+                            .padding(.leading, 16)
+                        Text("master card")
+                        
+                        
+                        
+                        Spacer()
+                        
+                        Button(action: {
+                            // Handle checkbox toggle logic here
+                        }) {
+                            
+                            Circle()
+                                .stroke(Color.blue , lineWidth: 2)
+                                .frame(width: 24, height: 24)
+                                .foregroundColor(.blue)
+                                .padding(.trailing, 16)
+                            
+                        }
+                    }.padding(5)
+                        .frame(width: UIScreen.main.bounds.width  - 50 ,height:60)
+                    
+                    
+                        .background(Color.white).cornerRadius(20)
+                    
+                }
+            }.padding()
+            
+            Button(action: {
+                // Handle payment logic here
+                showAlert = true
+            }) {
+                Text("Continue")
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 44)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(50)
+            }
+            .navigationTitle("Payment method")
+            .alert(isPresented: $showAlert) {
+                Alert(
+                    title: Text("Payment Successful"),
+                    message: Text("Your payment has been processed."),
+                    dismissButton: .default(Text("OK"))
+                )
+            }
+            
+            
+            
+        }
+    }
+    
+    
+    enum PaymentMethod: String, Equatable, CaseIterable {
+        case creditCard = "Credit Card"
+        case cash = "Cash"
+        case amen = "Amen"
+    }
+    
+    struct BookingGuide_Previews: PreviewProvider {
+        @State private static var discountCode: Double = 0.0
+        static var previews: some View {
+            bookingformGuide(discountCode: $discountCode)
+        }
+    }
+    
+    
+}
