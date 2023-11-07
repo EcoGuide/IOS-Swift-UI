@@ -117,7 +117,8 @@ struct listBookmarkItemView: View {
     var body: some View {
         ZStack {
             Color(hex: "F3F8FE")
-                .frame(height: 150).frame(width: 350)
+                .frame(height: 150)
+                .frame(width: 350)
                 .cornerRadius(20)
             HStack(spacing: 5) {
                 Image(imageInfo.imageName)

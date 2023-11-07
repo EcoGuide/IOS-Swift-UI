@@ -31,6 +31,7 @@
 		4A5070C32AFA4B8B00A797D8 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5070C22AFA4B8B00A797D8 /* Login.swift */; };
 		4A5070C52AFA7AFA00A797D8 /* Welcome_User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5070C42AFA7AFA00A797D8 /* Welcome_User.swift */; };
 		4A5070C72AFA839600A797D8 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5070C62AFA839600A797D8 /* Register.swift */; };
+		6F60E9B82AFAFB1E00E851A9 /* HomeViewAccomodation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F60E9B72AFAFB1E00E851A9 /* HomeViewAccomodation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		4A5070C22AFA4B8B00A797D8 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		4A5070C42AFA7AFA00A797D8 /* Welcome_User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Welcome_User.swift; sourceTree = "<group>"; };
 		4A5070C62AFA839600A797D8 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		6F60E9B72AFAFB1E00E851A9 /* HomeViewAccomodation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewAccomodation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 		11EA7D572AF96E0500141117 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6F60E9B62AFAF9FD00E851A9 /* Achref */,
 				4A5070C12AFA4B6F00A797D8 /* User_interface  */,
 				11CEEBDD2AF9752B00175E74 /* Farah */,
 			);
@@ -224,6 +227,14 @@
 				4A5070C62AFA839600A797D8 /* Register.swift */,
 			);
 			path = "User_interface ";
+			sourceTree = "<group>";
+		};
+		6F60E9B62AFAF9FD00E851A9 /* Achref */ = {
+			isa = PBXGroup;
+			children = (
+				6F60E9B72AFAFB1E00E851A9 /* HomeViewAccomodation.swift */,
+			);
+			path = Achref;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,6 +369,7 @@
 			files = (
 				11CEEBE72AF9768D00175E74 /* bookmarksGuide.swift in Sources */,
 				11EA7D342AF96DF500141117 /* EcoGuide_Swift.xcdatamodeld in Sources */,
+				6F60E9B82AFAFB1E00E851A9 /* HomeViewAccomodation.swift in Sources */,
 				11EA7D312AF96DF500141117 /* Persistence.swift in Sources */,
 				4A5070C52AFA7AFA00A797D8 /* Welcome_User.swift in Sources */,
 				4A5070C72AFA839600A797D8 /* Register.swift in Sources */,
