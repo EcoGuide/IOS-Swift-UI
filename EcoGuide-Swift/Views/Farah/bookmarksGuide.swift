@@ -150,21 +150,7 @@ struct listBookmarkItemView: View {
                      .foregroundColor(Color.black)
              }
                 Spacer()
-                VStack {
-                    
-                    Button(action: {
-                        //selectedBookmark = imageInfo
-                        // showingAlert = true
-                    }) {
-                        Image(systemName: "trash")
-                            .foregroundColor(.red)
-                            .imageScale(.large)
-                    }
-                    .padding(.trailing, 10)
-                    .padding(.bottom, 10)
-                    .buttonStyle(BorderlessButtonStyle())
-                    
-                }
+             
                 
                 
          }
