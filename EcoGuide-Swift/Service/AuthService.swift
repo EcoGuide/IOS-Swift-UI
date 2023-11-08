@@ -8,8 +8,19 @@
 import Foundation
 
 class AuthService {
+    private let session: URLSession
+
+    init() {
+            let configuration = URLSessionConfiguration.default
+            configuration.timeoutIntervalForRequest = 30 // seconds
+            configuration.timeoutIntervalForResource = 60 // seconds
+            self.session = URLSession(configuration: configuration)
+        }
+
+    
+    
     func signUp(email: String, password: String,name:String ,completion: @escaping (Bool, Error?) -> Void) {
-        let url = URL(string: "http://192.168.8.131:3000/signupA")!
+        let url = URL(string: "http://192.168.1.129:3000/signupA")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         
@@ -38,13 +49,62 @@ class AuthService {
         task.resume()
     }
     
-    func signIn(email: String, password: String,completion: @escaping (Bool, Error?) -> Void) {
-        let url = URL(string: "http://192.168.8.131:3000/SignIn")!
+    func signInadmin(email: String, password: String, completion: @escaping (Result<String, Error>) -> Void) {
+        guard let url = URL(string: "http://192.168.1.129:3000/SignIn") else {
+            completion(.failure(URLError(.badURL)))
+            return
+        }
+
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
+
+        let parameters: [String: Any] = [
+            "email": email,
+            "password": password,
+        ]
         
-         
-        
+        request.httpBody = try? JSONSerialization.data(withJSONObject: parameters)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                completion(.failure(URLError(.badServerResponse)))
+                return
+            }
+            
+            guard let mimeType = httpResponse.mimeType, mimeType == "application/json",
+                  let data = data else {
+                completion(.failure(URLError(.cannotParseResponse)))
+                return
+            }
+            
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+                   let token = json["Token"] as? String {  // Make sure this key matches what your API sends
+                    completion(.success(token))
+                } else {
+                    completion(.failure(URLError(.cannotParseResponse)))
+                }
+            } catch {
+                completion(.failure(error))
+            }
+        }
+
+        task.resume()
+    }
+
+    
+    func signIn(email: String, password: String,completion: @escaping (Bool, Error?) -> Void) {
+        let url = URL(string: "http://192.168.1.129:3000/SignIn")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+
         let parameters: [String: Any] = [
             "email": email,
             "password": password,
@@ -53,7 +113,7 @@ class AuthService {
         let jsonData = try? JSONSerialization.data(withJSONObject: parameters)
         request.httpBody = jsonData
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
+
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
             if let error = error {
@@ -61,16 +121,16 @@ class AuthService {
                 return
             }
             if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
-                 completion(true, nil)
                 print(httpResponse.statusCode)
-                print(httpResponse.allHeaderFields)
- 
+                print(httpResponse.self)
+                completion(true, nil)
+
             } else {
                 completion(false, nil)
             }
         }
-        
-        
+
+
         task.resume()
     }
 

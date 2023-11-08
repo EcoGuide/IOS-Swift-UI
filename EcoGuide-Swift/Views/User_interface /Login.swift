@@ -71,41 +71,41 @@ struct Login: View {
                                 .padding(.leading, 35), // Cette valeur doit correspondre au padding horizontal de votre SecureField
                             alignment: .leading
                         )
-                    
-                    
                     Button(action: {
-                        // Logique de connexion
-                        let authService = AuthService()
-                        authService.signIn(email: self.email, password: self.password) { success, error in
-                            if success {
-                                print("Logged succesfully")
-                                self.showingAlert = true
-                            } else {
-                                print("an error was occured while signing Up")
-                                
-                                print(error?.localizedDescription ?? "Unknown error")
+                        let authService = AuthService()  // Assurez-vous que cette classe existe et contient la fonction signIn
+                        authService.signInadmin(email: self.email, password: self.password) { result in
+                            DispatchQueue.main.async {
+                                switch result {
+                                case .success(let token):
+                                    print("Logged in successfully, token: \(token)")
+                                    self.showingAlert = true
+                                    // Vous pouvez maintenant utiliser le token comme nécessaire
+                                case .failure(let error):
+                                    print("An error occurred while signing in: \(error.localizedDescription)")
+                                    self.showingAlert = true
+                                }
                             }
                         }
                     }) {
-                        Text("Sign In")
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .padding()
-                            .background(Color.blue)
-                            .cornerRadius(20)
-                            .padding(.horizontal, 32)
-                    }
-                    .padding(.top, 20)
-                    .shadow(color: .black, radius: 70, x: 1, y: 30)
-                    .alert(isPresented: $showingAlert) {
                         
+                                                Text("Sign In")
+                                                    .fontWeight(.bold)
+                                                    .foregroundColor(.white)
+                                                    .frame(minWidth: 0, maxWidth: .infinity)
+                                                    .padding()
+                                                    .background(Color.blue)
+                                                    .cornerRadius(20)
+                                                    .padding(.horizontal, 32)
+                                             
+                    }
+                    .alert(isPresented: $showingAlert) {
                         Alert(
-                            title: Text("You are Successfully Looged"),
-                            
+                            title: Text("Authentication"),
+                            message: Text("Logged in successfully. Token received."),
                             dismissButton: .default(Text("OK"))
                         )
                     }
+
                     Button(action: {
                         // Logique pour oublier le mot de passe
                     }) {
