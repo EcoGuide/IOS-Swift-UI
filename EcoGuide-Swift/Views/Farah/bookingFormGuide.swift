@@ -26,7 +26,7 @@ struct bookingformGuide: View {
     @Binding var discountCode: Double
 
         var body: some View {
-            NavigationView {
+            NavigationStack {
                 Form {
                     Section {
                         DatePicker("Select Date", selection: $selectedDate, displayedComponents: .date)
@@ -55,7 +55,6 @@ struct bookingformGuide: View {
                         }
                     }
                 }
-                .navigationBarTitle("Booking Guide")
             }
         }
         

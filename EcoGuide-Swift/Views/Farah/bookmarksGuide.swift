@@ -12,6 +12,9 @@ struct ImageInfos: Identifiable {
 struct bookmarksGuide: View {
     @State private var isGridViewSelected = true
     @State private var isListViewSelected = false
+    @State private var discountCode: Double = 0.0
+    
+    var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
 
     @State private var imageInfoList: [ImageInfo] = [
         ImageInfo(imageName: "guide1", title: "Flen Fouleni", location: "tunis, France", price: "$29 / day", rating: "String"),
@@ -19,32 +22,51 @@ struct bookmarksGuide: View {
         ImageInfo(imageName: "guide3", title: "Flen Fouleni", location: "Paris, France", price: "$29 / day", rating: "string"),
         ImageInfo(imageName: "guide3", title: "Flen Fouleni", location: "Paris, France", price: "$29 / day", rating: "string"),// Add more image info items for each image// Add more image info items for each image
      ]
+    
+    @State private var guideInfoList: [GuideInfo1] = [
+        GuideInfo1(name: "Flen Fouleni", location: "tunis, France", imageName: "guide1", description: "Guide Description", reviews: "String", price: "$29 / day"),
+        GuideInfo1(name: "Flen Fouleni", location: "tunis,s France", imageName: "guide2", description: "Guide Descriptions", reviews: "String", price: "$29 / day"),
+        GuideInfo1(name: "Flen Fouleni", location: "tunis, France", imageName: "guide3", description: "Guide Description", reviews: "String", price: "$29 / day"),
+        // Add more image info items for each image
+    ]
 
     @State private var showingAlert = false
-    @State private var selectedBookmark: ImageInfo?
+    @State private var selectedBookmark: GuideInfo1?
 
     var body: some View {
-        NavigationView {
-            VStack {
-                Picker("", selection: $isGridViewSelected) {
-                    Image(systemName: "rectangle.grid.2x2.fill")
-                        .tag(true)
-                        .foregroundColor(isGridViewSelected ? Color.blue : Color.blue)
-
-                    Image(systemName: "list.bullet")
-                        .tag(false)
-                        .foregroundColor( Color.blue)
+        NavigationStack {
+            ScrollView{
+                HStack {
+                    Image(systemName: "arrow.left")
+                        .font(.system(size: 22, weight: .semibold))
+                    Text("Bookmark")
+                        .font(.system(size: 22, weight: .semibold))
+                    Spacer()
+                    HStack {
+                        Image(systemName: "doc.fill") // list view item
+                            .font(.system(size: 24))
+                            .foregroundColor(Color.blue)
+                        Button(action: {
+                            isGridViewSelected.toggle()
+                        }) {
+                            Image(systemName: isGridViewSelected ? "list.dash" : "square.grid.2x2")
+                                .font(.system(size: 24))
+                                .foregroundColor(.black)
+                        }
+                    }
+                    
+                    
                 }
-                .pickerStyle(SegmentedPickerStyle())
-                .padding()
 
                 if isGridViewSelected {
                     gridView
+                    
                 } else {
-                    listView
+                   listView
+                    
                 }
             }
-            .navigationTitle("My Bookmarks")
+            .padding()
             .alert(isPresented: $showingAlert) {
                 Alert(
                     title: Text("Remove Bookmark"),
@@ -61,28 +83,28 @@ struct bookmarksGuide: View {
     }
 
     var gridView: some View {
-        ScrollView {
-            LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 2), spacing: 10) {
-                ForEach(imageInfoList) { imageInfo in
-                    NavigationLink(destination: ImageDetailView(imageInfo: imageInfo)) {
-                        BookmarkItemView(imageInfo: imageInfo)
-                            .contextMenu {
-                                Button(action: {
-                                    selectedBookmark = imageInfo
-                                    showingAlert = true
-                                }) {
-                                    Label("Remove Bookmark", systemImage: "delete")
-                                }
+        
+        LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 2), spacing: 10) {
+            ForEach(guideInfoList) { imageInfo in
+                NavigationLink(destination: detailGuide(guideInfo: imageInfo, discountcode: $discountCode ))
+                                                        {
+                    BookmarkItemView(imageInfo: imageInfo)
+                        .contextMenu {
+                            Button(action: {
+                                selectedBookmark = imageInfo
+                                showingAlert = true
+                            }) {
+                                Label("Remove Bookmark", systemImage: "delete")
                             }
-                    }
+                        }
                 }
             }
-            .padding()
         }
+        .padding()
     }
+    
 
     var listView: some View {
-        List {
             ForEach(imageInfoList) { imageInfo in
                 HStack {
                     NavigationLink(destination: ImageDetailView(imageInfo: imageInfo)) {
@@ -94,7 +116,6 @@ struct bookmarksGuide: View {
                 }
             }.onDelete(perform: deleteItem)
             
-        }
     }
     
     func deleteItem(at offsets: IndexSet) {
@@ -105,7 +126,7 @@ struct bookmarksGuide: View {
     
     
 
-      func removeBookmark(bookmark: ImageInfo) {
+      func removeBookmark(bookmark: GuideInfo1) {
           if let index = imageInfoList.firstIndex(where: { $0.id == bookmark.id }) {
               imageInfoList.remove(at: index)
           }
@@ -163,7 +184,7 @@ struct listBookmarkItemView: View {
 
 
 struct BookmarkItemView: View {
-    var imageInfo: ImageInfo
+    var imageInfo: GuideInfo1
     
     var body: some View {
         VStack {
@@ -178,13 +199,13 @@ struct BookmarkItemView: View {
                         .resizable()
                         .frame(width: 150, height: 120)
                         .cornerRadius(20)
-                    Text(imageInfo.title)
+                    Text(imageInfo.name)
                         .font(.system(size: 23, weight: .semibold))
                     
                     HStack {
                         Image(systemName: "star.fill")
                             .foregroundColor(.yellow)
-                        Text(imageInfo.rating)
+                        Text(imageInfo.reviews)
                             .font(.system(size: 15))
                     }
                     Text(imageInfo.location)
