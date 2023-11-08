@@ -31,6 +31,7 @@
 		4A5070C32AFA4B8B00A797D8 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5070C22AFA4B8B00A797D8 /* Login.swift */; };
 		4A5070C52AFA7AFA00A797D8 /* Welcome_User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5070C42AFA7AFA00A797D8 /* Welcome_User.swift */; };
 		4A5070C72AFA839600A797D8 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5070C62AFA839600A797D8 /* Register.swift */; };
+		FD5C47132AFC1A8E00393069 /* WelcomeMsgActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5C47122AFC1A8E00393069 /* WelcomeMsgActivities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		4A5070C22AFA4B8B00A797D8 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		4A5070C42AFA7AFA00A797D8 /* Welcome_User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Welcome_User.swift; sourceTree = "<group>"; };
 		4A5070C62AFA839600A797D8 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		FD5C47122AFC1A8E00393069 /* WelcomeMsgActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeMsgActivities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 		11EA7D572AF96E0500141117 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FD5C47112AFC16A800393069 /* Activities */,
 				4A5070C12AFA4B6F00A797D8 /* User_interface  */,
 				11CEEBDD2AF9752B00175E74 /* Farah */,
 			);
@@ -224,6 +227,14 @@
 				4A5070C62AFA839600A797D8 /* Register.swift */,
 			);
 			path = "User_interface ";
+			sourceTree = "<group>";
+		};
+		FD5C47112AFC16A800393069 /* Activities */ = {
+			isa = PBXGroup;
+			children = (
+				FD5C47122AFC1A8E00393069 /* WelcomeMsgActivities.swift */,
+			);
+			path = Activities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,6 +380,7 @@
 				11CEEBDF2AF9753D00175E74 /* RecentlyBookedGuide.swift in Sources */,
 				11CEEBE12AF9755D00175E74 /* TestModel.swift in Sources */,
 				1182A5972AFA8795007F994E /* MessageGuideField.swift in Sources */,
+				FD5C47132AFC1A8E00393069 /* WelcomeMsgActivities.swift in Sources */,
 				11EA7D2A2AF96DF400141117 /* ContentView.swift in Sources */,
 				11CEEBDC2AF9746000175E74 /* HomeViewGuide.swift in Sources */,
 				1182A5932AFA796D007F994E /* MessageGuide.swift in Sources */,
