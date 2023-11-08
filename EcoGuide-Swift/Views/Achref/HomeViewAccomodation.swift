@@ -14,16 +14,19 @@ struct ImageInfoA: Identifiable {
     let location: String
     let price: String
     let rating: String
+    let nbrating: String
+    
+   
 }
 
 struct HomeViewAccomodation: View {
     @State private var username: String = ""
-    var image = ["guide1", "guide2", "guide3"]
-    @State private var imageInfoList: [ImageInfo] = [
-        ImageInfo(imageName: "home1", title: "Flen Fouleni", location: "tunis, France", price: "$29 / day", rating: "3.6"),
-        ImageInfo(imageName: "home2", title: "Flen Fouleni", location: "Paris, France", price: "$29 / day", rating: "string"),
-        ImageInfo(imageName: "hotel1", title: "Flen Fouleni", location: "Paris, France", price: "$29 / day", rating: "string"),
-        ImageInfo(imageName: "hotel2", title: "Flen Fouleni", location: "Paris, France", price: "$29 / day", rating: "string"),// Add more image info items for each image// Add more image info items for each image
+    var image = ["home1", "home2", "hotel1"]
+    @State private var imageInfoList: [ImageInfoA] = [
+        ImageInfoA(imageName: "home1", title: "Flen Fouleni", location: "tunis, France", price: "$29 / day",rating: "3.6", nbrating: "(3.67 reviews)"),
+        ImageInfoA(imageName: "home2", title: "Flen Fouleni", location: "Paris, France", price: "$29 / day", rating: "4.0", nbrating: "(4.07 reviews)"),
+        ImageInfoA(imageName: "hotel1", title: "Flen Fouleni", location: "Paris, France", price: "$29 / day", rating: "4.5", nbrating: "(4.57 reviews)"),
+        ImageInfoA(imageName: "hotel2", title: "Flen Fouleni", location: "Paris, France", price: "$29 / day", rating: "5.0", nbrating: "(5.07 reviews)"),// Add more image info items for each image// Add more image info items for each image
      ]
     
     
@@ -84,21 +87,25 @@ struct HomeViewAccomodation: View {
                                                 Text(imageInfo.price)
                                                     .font(.headline)
                                                     .foregroundColor(.white)
+                                               
                                             }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
                                             .padding()
                                             Spacer()
                                             HStack {
-                                                                        Text(imageInfo.rating)
-                                                                            .padding(.horizontal, 8)
-                                                                            .padding(.vertical, 4)
-                                                                            .background(Color(hex: "196EEE"))
-                                                                            .foregroundColor(.white)
-                                                                            .cornerRadius(8)
-                                                                        
-                                                                        // Star icon
-                                                                        Image(systemName: "star.fill")
-                                                                            .foregroundColor(.yellow)
-                                                                    }
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.white)
+                                                Text(imageInfo.rating)
+                                                    .font(.system(size: 17, weight: .semibold))
+                                                    .foregroundColor(.white)
+                                                    .padding(5)
+                                                    
+                                            }.background(Color(hex: "196EEE"))
+                                                
+                                                .cornerRadius(150)
+                                                
+                                                .frame(maxWidth: 280, maxHeight: .infinity, alignment: .topTrailing)
+                                                .padding(15)
+                                            
                                         }
                                     
                                     }
@@ -127,15 +134,26 @@ struct HomeViewAccomodation: View {
                                     Image(imageInfo.imageName)
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(width: 100, height: 100)
+                                        .cornerRadius(15)
+                                        .frame(width: 110, height: 150)
+                                       
                                     VStack(alignment: .leading, spacing: 15) {
                                         Text(imageInfo.imageName)
                                             .font(.system(size: 23, weight: .semibold))
                                         Text(imageInfo.location)
                                             .font(.system(size: 16))
                                             .foregroundColor(Color.gray)
-                                        Text(imageInfo.rating)
-                                            .font(.system(size: 15))
+                                        HStack{ 
+                                            Image(systemName: "star.fill")
+                                                .foregroundColor(.yellow)
+                                            Text(imageInfo.rating)
+                                                .font(.system(size: 15,weight: .semibold))
+                                                .foregroundColor(Color(hex: "196EEE"))
+                                            Text(imageInfo.nbrating)
+                                                .font(.system(size: 12))
+                                                .foregroundColor(Color(hex: "BDBDBD"))
+                                           }
+                                        
                                     }
                                     .frame(maxWidth: .infinity) // Expand to fill the available space
                                     Spacer()
@@ -144,7 +162,8 @@ struct HomeViewAccomodation: View {
                                             .font(.system(size: 23, weight: .semibold))
                                             .foregroundColor(Color.blue)
                                         Text("/ day")
-                                        Text("Buttonn")
+                                        Image(systemName: "bookmark")
+                                        
                                         
                                     }
                                 }
