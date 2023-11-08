@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct Register: View {
-    @State private var username: String = ""
+    @State private var email: String = ""
     @State private var password: String = ""
+    @State private var name: String = ""
+
+    @State private var showingAlert = false
+
     var body: some View {
         ZStack {
             // Fond d'écran
@@ -29,7 +33,7 @@ struct Register: View {
                     .foregroundColor(.white)
                     .padding(.bottom, 50)
 
-                TextField("Email", text: $username)
+                TextField("Email", text: $email)
                     .padding(.vertical)
                     .padding(.leading, 35)
                     .background(Color.white.opacity(0.6))
@@ -47,7 +51,7 @@ struct Register: View {
                         .padding(.leading, 35), // Cette valeur doit correspondre au padding horizontal de votre TextField
                         alignment: .leading
                     )
-                TextField("Firstname", text: $username)
+                TextField("Firstname", text: $password)
                     .padding(.vertical)
                     .padding(.leading, 35)
                     .background(Color.white.opacity(0.6))
@@ -66,25 +70,25 @@ struct Register: View {
                         alignment: .leading
                     )
                 
-                TextField("Phone", text: $username)
-                    .padding(.vertical)
-                    .padding(.leading, 35)
-                    .background(Color.white.opacity(0.6))
-                    .cornerRadius(20)
-                    .padding(.horizontal, 32)
-                    .frame(minWidth: 0, maxWidth: .infinity)
-
-                    .overlay(
-                        HStack {
-                            Image(systemName: "phone.fill")
-                                .foregroundColor(.black)
-                                .padding(.leading, 10)
-                            Spacer()
-                        }
-                        .padding(.leading, 35), // Cette valeur doit correspondre au padding horizontal de votre TextField
-                        alignment: .leading
-                    )
-                SecureField("Password", text: $password)
+//                TextField("Phone", text: $username)
+//                    .padding(.vertical)
+//                    .padding(.leading, 35)
+//                    .background(Color.white.opacity(0.6))
+//                    .cornerRadius(20)
+//                    .padding(.horizontal, 32)
+//                    .frame(minWidth: 0, maxWidth: .infinity)
+//
+//                    .overlay(
+//                        HStack {
+//                            Image(systemName: "phone.fill")
+//                                .foregroundColor(.black)
+//                                .padding(.leading, 10)
+//                            Spacer()
+//                        }
+//                        .padding(.leading, 35), // Cette valeur doit correspondre au padding horizontal de votre TextField
+//                        alignment: .leading
+//                    )
+                SecureField("Password", text: $name)
                     .padding(.vertical)
                     .padding(.leading, 35)
                     .background(Color.white.opacity(0.7))
@@ -107,6 +111,18 @@ struct Register: View {
 
                 Button(action: {
                     // Logique de connexion
+//                    self.showingAlert = true
+                    let authService = AuthService()
+                    authService.signUp(email: self.email, password: self.password,name: self.name) { success, error in
+                           if success {
+                                print("success")
+                               self.showingAlert = true
+                           } else {
+                               print("failed")
+
+                               print(error?.localizedDescription ?? "Unknown error")
+                           }
+                       }
                 }) {
                     Text("Sign Up")
                         .fontWeight(.bold)
@@ -116,10 +132,18 @@ struct Register: View {
                         .background(Color.blue)
                         .cornerRadius(20)
                         .padding(.horizontal, 32)
+                        
                 }
                 .padding(.top, 20)
                 .shadow(color: .black, radius: 70, x: 1, y: 30)
- 
+                    .alert(isPresented: $showingAlert) {
+                        
+                               Alert(
+                                   title: Text("You are Successfully Registered"),
+                                   message: Text("Thank you for checking your Mail! We have sent a confirmation to your email."),
+                                   dismissButton: .default(Text("OK"))
+                                )
+                           }
                 
                 Button(action: {
                     // Logique pour oublier le mot de passe
@@ -163,6 +187,42 @@ struct Register: View {
              }
         }
      }
+}
+
+
+
+struct CustomAlertView: View {
+    @Binding var isShowing: Bool
+
+    var body: some View {
+        VStack(spacing: 20) {
+            Text("You are Successfully Registered")
+                .bold()
+                .font(.title)
+
+            Text("Thank you for checking your Mail! We have sent a confirmation to your email.")
+                .multilineTextAlignment(.center)
+
+            Button(action: {
+                self.isShowing = false
+            }) {
+                Text("OK")
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .background(Color.blue)
+                    .cornerRadius(20)
+            }
+        }
+        .padding()
+        .background(Color.white)
+        .cornerRadius(20)
+        .shadow(radius: 20)
+        .frame(maxWidth: 300)
+        // Ajoutez une transition si vous voulez une animation
+        .transition(.scale)
+        .zIndex(1)
+    }
 }
 
 // Vue personnalisée pour le contenu des boutons de connexion

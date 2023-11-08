@@ -26,6 +26,11 @@
 		4A5070C32AFA4B8B00A797D8 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5070C22AFA4B8B00A797D8 /* Login.swift */; };
 		4A5070C52AFA7AFA00A797D8 /* Welcome_User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5070C42AFA7AFA00A797D8 /* Welcome_User.swift */; };
 		4A5070C72AFA839600A797D8 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5070C62AFA839600A797D8 /* Register.swift */; };
+		4A5070C92AFAD60D00A797D8 /* VerifMail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5070C82AFAD60D00A797D8 /* VerifMail.swift */; };
+		4AF065882AFB87B300F529A1 /* Reset_Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF065872AFB87B300F529A1 /* Reset_Password.swift */; };
+		4AF0658A2AFB87CF00F529A1 /* Forget_Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF065892AFB87CF00F529A1 /* Forget_Password.swift */; };
+		4AF0658C2AFB926700F529A1 /* OTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF0658B2AFB926700F529A1 /* OTP.swift */; };
+		4AF065902AFBA31C00F529A1 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF0658F2AFBA31C00F529A1 /* AuthService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +73,11 @@
 		4A5070C22AFA4B8B00A797D8 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		4A5070C42AFA7AFA00A797D8 /* Welcome_User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Welcome_User.swift; sourceTree = "<group>"; };
 		4A5070C62AFA839600A797D8 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		4A5070C82AFAD60D00A797D8 /* VerifMail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifMail.swift; sourceTree = "<group>"; };
+		4AF065872AFB87B300F529A1 /* Reset_Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reset_Password.swift; sourceTree = "<group>"; };
+		4AF065892AFB87CF00F529A1 /* Forget_Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forget_Password.swift; sourceTree = "<group>"; };
+		4AF0658B2AFB926700F529A1 /* OTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTP.swift; sourceTree = "<group>"; };
+		4AF0658F2AFBA31C00F529A1 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +140,8 @@
 		11EA7D262AF96DF400141117 /* EcoGuide-Swift */ = {
 			isa = PBXGroup;
 			children = (
+				4AF0658E2AFBA2C800F529A1 /* Service */,
+				4AF0658D2AFBA2C200F529A1 /* New Group */,
 				11EA7D582AF96E0D00141117 /* ViewModels */,
 				11EA7D572AF96E0500141117 /* Views */,
 				11EA7D562AF96DFD00141117 /* Models */,
@@ -199,8 +211,27 @@
 				4A5070C22AFA4B8B00A797D8 /* Login.swift */,
 				4A5070C42AFA7AFA00A797D8 /* Welcome_User.swift */,
 				4A5070C62AFA839600A797D8 /* Register.swift */,
+				4A5070C82AFAD60D00A797D8 /* VerifMail.swift */,
+				4AF065872AFB87B300F529A1 /* Reset_Password.swift */,
+				4AF065892AFB87CF00F529A1 /* Forget_Password.swift */,
+				4AF0658B2AFB926700F529A1 /* OTP.swift */,
 			);
 			path = "User_interface ";
+			sourceTree = "<group>";
+		};
+		4AF0658D2AFBA2C200F529A1 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		4AF0658E2AFBA2C800F529A1 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4AF0658F2AFBA31C00F529A1 /* AuthService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,14 +367,19 @@
 				11CEEBE72AF9768D00175E74 /* bookmarksGuide.swift in Sources */,
 				11EA7D342AF96DF500141117 /* EcoGuide_Swift.xcdatamodeld in Sources */,
 				11EA7D312AF96DF500141117 /* Persistence.swift in Sources */,
+				4AF0658C2AFB926700F529A1 /* OTP.swift in Sources */,
 				4A5070C52AFA7AFA00A797D8 /* Welcome_User.swift in Sources */,
+				4AF065882AFB87B300F529A1 /* Reset_Password.swift in Sources */,
+				4AF065902AFBA31C00F529A1 /* AuthService.swift in Sources */,
 				4A5070C72AFA839600A797D8 /* Register.swift in Sources */,
 				4A5070C32AFA4B8B00A797D8 /* Login.swift in Sources */,
 				11CEEBE32AF9756800175E74 /* TestVM.swift in Sources */,
+				4A5070C92AFAD60D00A797D8 /* VerifMail.swift in Sources */,
 				11CEEBE92AF976D300175E74 /* detailGuide.swift in Sources */,
 				11CEEBDF2AF9753D00175E74 /* RecentlyBookedGuide.swift in Sources */,
 				11CEEBE12AF9755D00175E74 /* TestModel.swift in Sources */,
 				11EA7D2A2AF96DF400141117 /* ContentView.swift in Sources */,
+				4AF0658A2AFB87CF00F529A1 /* Forget_Password.swift in Sources */,
 				11CEEBDC2AF9746000175E74 /* HomeViewGuide.swift in Sources */,
 				11CEEBE52AF9761F00175E74 /* bookingFormGuide.swift in Sources */,
 				11EA7D282AF96DF400141117 /* EcoGuide_SwiftApp.swift in Sources */,
