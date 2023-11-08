@@ -23,6 +23,7 @@
 		11EA7D3E2AF96DF500141117 /* EcoGuide_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EA7D3D2AF96DF500141117 /* EcoGuide_SwiftTests.swift */; };
 		11EA7D482AF96DF500141117 /* EcoGuide_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EA7D472AF96DF500141117 /* EcoGuide_SwiftUITests.swift */; };
 		11EA7D4A2AF96DF500141117 /* EcoGuide_SwiftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EA7D492AF96DF500141117 /* EcoGuide_SwiftUITestsLaunchTests.swift */; };
+		122CDE4A2AFC4441009B4B84 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122CDE492AFC4441009B4B84 /* SwiftUIView.swift */; };
 		4A5070C32AFA4B8B00A797D8 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5070C22AFA4B8B00A797D8 /* Login.swift */; };
 		4A5070C52AFA7AFA00A797D8 /* Welcome_User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5070C42AFA7AFA00A797D8 /* Welcome_User.swift */; };
 		4A5070C72AFA839600A797D8 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5070C62AFA839600A797D8 /* Register.swift */; };
@@ -65,6 +66,7 @@
 		11EA7D432AF96DF500141117 /* EcoGuide-SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EcoGuide-SwiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		11EA7D472AF96DF500141117 /* EcoGuide_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcoGuide_SwiftUITests.swift; sourceTree = "<group>"; };
 		11EA7D492AF96DF500141117 /* EcoGuide_SwiftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcoGuide_SwiftUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		122CDE492AFC4441009B4B84 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		4A5070C22AFA4B8B00A797D8 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		4A5070C42AFA7AFA00A797D8 /* Welcome_User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Welcome_User.swift; sourceTree = "<group>"; };
 		4A5070C62AFA839600A797D8 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 		11EA7D572AF96E0500141117 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				122CDE482AFC433F009B4B84 /* Tranport_interface */,
 				4A5070C12AFA4B6F00A797D8 /* User_interface  */,
 				11CEEBDD2AF9752B00175E74 /* Farah */,
 			);
@@ -191,6 +194,14 @@
 				11CEEBE22AF9756800175E74 /* TestVM.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		122CDE482AFC433F009B4B84 /* Tranport_interface */ = {
+			isa = PBXGroup;
+			children = (
+				122CDE492AFC4441009B4B84 /* SwiftUIView.swift */,
+			);
+			path = Tranport_interface;
 			sourceTree = "<group>";
 		};
 		4A5070C12AFA4B6F00A797D8 /* User_interface  */ = {
@@ -347,6 +358,7 @@
 				11CEEBDC2AF9746000175E74 /* HomeViewGuide.swift in Sources */,
 				11CEEBE52AF9761F00175E74 /* bookingFormGuide.swift in Sources */,
 				11EA7D282AF96DF400141117 /* EcoGuide_SwiftApp.swift in Sources */,
+				122CDE4A2AFC4441009B4B84 /* SwiftUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
