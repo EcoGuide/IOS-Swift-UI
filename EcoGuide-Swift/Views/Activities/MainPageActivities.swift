@@ -203,6 +203,8 @@ struct MainPageActivities: View {
                     {
                         HStack {
                             Image(systemName: "bookmark")
+                                .font(.system(size: 25))
+
                         }
                     }
                     .foregroundColor(Color(.blue))

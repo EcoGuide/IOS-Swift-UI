@@ -35,6 +35,7 @@
 		FD5C47152AFC1CFC00393069 /* MainPageActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5C47142AFC1CFC00393069 /* MainPageActivities.swift */; };
 		FD5C47172AFC667200393069 /* RecommendedActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5C47162AFC667200393069 /* RecommendedActivities.swift */; };
 		FD5C47192AFC6CE900393069 /* SeeAllActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5C47182AFC6CE900393069 /* SeeAllActivities.swift */; };
+		FD5C471B2AFC700600393069 /* BucketlistActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5C471A2AFC700600393069 /* BucketlistActivities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		FD5C47142AFC1CFC00393069 /* MainPageActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageActivities.swift; sourceTree = "<group>"; };
 		FD5C47162AFC667200393069 /* RecommendedActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedActivities.swift; sourceTree = "<group>"; };
 		FD5C47182AFC6CE900393069 /* SeeAllActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllActivities.swift; sourceTree = "<group>"; };
+		FD5C471A2AFC700600393069 /* BucketlistActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketlistActivities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +244,7 @@
 				FD5C47142AFC1CFC00393069 /* MainPageActivities.swift */,
 				FD5C47162AFC667200393069 /* RecommendedActivities.swift */,
 				FD5C47182AFC6CE900393069 /* SeeAllActivities.swift */,
+				FD5C471A2AFC700600393069 /* BucketlistActivities.swift */,
 			);
 			path = Activities;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				11CEEBDC2AF9746000175E74 /* HomeViewGuide.swift in Sources */,
 				1182A5932AFA796D007F994E /* MessageGuide.swift in Sources */,
 				FD5C47152AFC1CFC00393069 /* MainPageActivities.swift in Sources */,
+				FD5C471B2AFC700600393069 /* BucketlistActivities.swift in Sources */,
 				11CEEBE52AF9761F00175E74 /* bookingFormGuide.swift in Sources */,
 				11EA7D282AF96DF400141117 /* EcoGuide_SwiftApp.swift in Sources */,
 				1182A58D2AFA6944007F994E /* TitleRow.swift in Sources */,

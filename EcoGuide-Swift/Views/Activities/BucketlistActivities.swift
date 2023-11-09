@@ -1,5 +1,5 @@
 //
-//  SeeAllActivities.swift
+//  BucketlistActivities.swift
 //  EcoGuide-Swift
 //
 //  Created by Copper_Orka on 9/11/2023.
@@ -7,7 +7,15 @@
 
 import SwiftUI
 
-struct SeeAllActivities: View {
+struct BucketlistActivities: View {
+    
+    @State private var isGridViewSelected = true
+    @State private var isListViewSelected = false
+    @State private var discountCode: Double = 0.0
+    
+    @State private var isGridView = false
+    var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2) // 2 columns
+    
     @State private var username: String = ""
     var image = ["cappadocia", "safari", "art", "fish"]
     @State private var imageInfoList: [ImageInfo] = [
@@ -21,7 +29,6 @@ struct SeeAllActivities: View {
     
     @State private var selectedFilter = "Recommended"
 
-        let filters = ["Recommended", "Popular", "Trending", "Testing"]
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -31,18 +38,21 @@ struct SeeAllActivities: View {
                         HStack{
                             Image(systemName: "arrow.left")
                                 .font(.system(size: 22, weight: .semibold))
-                            Text("Recommended activities")
-                                .font(.system(size: 22, weight: .bold))
+                            Text("Bucket List")
+                                .font(.system(size: 20, weight: .bold))
+                            
+                            Spacer()
+                            
+                           Image(systemName: isGridViewSelected ? "list.dash" : "square.grid.2x2")
+                                .font(.system(size: 24))
+                                .foregroundColor(.blue)
+                            Image(systemName: isGridView ? "list.dash" : "square.grid.2x2")
+                                .font(.system(size: 24))
+                                .foregroundColor(.black)
+                            
                         }
                         
-                        TextField(
-                            "Search",
-                            text: $username
-                            
-                        )
-                        .padding(.trailing, 20)
-                        .textFieldStyle(CustomTextFieldStyle())
-                    
+                    Spacer()
                         
                         ForEach(imageInfoList) { imageInfo in
                             ZStack {
@@ -68,7 +78,10 @@ struct SeeAllActivities: View {
                                    // Spacer()
                                     VStack(alignment: .trailing, spacing: 10) {
                                  
-                                        Image(systemName: "bookmark")
+                                        Image(systemName: "bookmark.fill")
+                                            .font(.system(size: 25))
+                                            .foregroundColor(Color.blue)
+
                                         
                                     }
                                 }
@@ -99,8 +112,9 @@ struct SeeAllActivities: View {
                     })
                     {
                         HStack {
-                            Image(systemName: "bookmark")
+                            Image(systemName: "bookmark.fill")
                                 .font(.system(size: 25))
+                                .foregroundColor(Color.blue)
 
                         }
                     }
@@ -112,8 +126,8 @@ struct SeeAllActivities: View {
     }
 }
 
-struct SeeAllActivities_Previews: PreviewProvider {
+struct BucketlistActivities_Previews: PreviewProvider {
     static var previews: some View {
-        SeeAllActivities()
+        BucketlistActivities()
     }
 }

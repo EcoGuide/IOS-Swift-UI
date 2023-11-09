@@ -163,6 +163,8 @@ struct RecommendedActivities: View {
                     {
                         HStack {
                             Image(systemName: "bookmark")
+                                .font(.system(size: 25))
+
                         }
                     }
                     .foregroundColor(Color(.blue))
