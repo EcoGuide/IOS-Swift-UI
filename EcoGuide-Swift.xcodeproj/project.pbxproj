@@ -33,6 +33,8 @@
 		4A5070C72AFA839600A797D8 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5070C62AFA839600A797D8 /* Register.swift */; };
 		FD5C47132AFC1A8E00393069 /* WelcomeMsgActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5C47122AFC1A8E00393069 /* WelcomeMsgActivities.swift */; };
 		FD5C47152AFC1CFC00393069 /* MainPageActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5C47142AFC1CFC00393069 /* MainPageActivities.swift */; };
+		FD5C47172AFC667200393069 /* RecommendedActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5C47162AFC667200393069 /* RecommendedActivities.swift */; };
+		FD5C47192AFC6CE900393069 /* SeeAllActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5C47182AFC6CE900393069 /* SeeAllActivities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,8 @@
 		4A5070C62AFA839600A797D8 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		FD5C47122AFC1A8E00393069 /* WelcomeMsgActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeMsgActivities.swift; sourceTree = "<group>"; };
 		FD5C47142AFC1CFC00393069 /* MainPageActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageActivities.swift; sourceTree = "<group>"; };
+		FD5C47162AFC667200393069 /* RecommendedActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedActivities.swift; sourceTree = "<group>"; };
+		FD5C47182AFC6CE900393069 /* SeeAllActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllActivities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +240,8 @@
 			children = (
 				FD5C47122AFC1A8E00393069 /* WelcomeMsgActivities.swift */,
 				FD5C47142AFC1CFC00393069 /* MainPageActivities.swift */,
+				FD5C47162AFC667200393069 /* RecommendedActivities.swift */,
+				FD5C47182AFC6CE900393069 /* SeeAllActivities.swift */,
 			);
 			path = Activities;
 			sourceTree = "<group>";
@@ -372,9 +378,11 @@
 			files = (
 				11CEEBE72AF9768D00175E74 /* bookmarksGuide.swift in Sources */,
 				11EA7D342AF96DF500141117 /* EcoGuide_Swift.xcdatamodeld in Sources */,
+				FD5C47172AFC667200393069 /* RecommendedActivities.swift in Sources */,
 				11EA7D312AF96DF500141117 /* Persistence.swift in Sources */,
 				4A5070C52AFA7AFA00A797D8 /* Welcome_User.swift in Sources */,
 				4A5070C72AFA839600A797D8 /* Register.swift in Sources */,
+				FD5C47192AFC6CE900393069 /* SeeAllActivities.swift in Sources */,
 				4A5070C32AFA4B8B00A797D8 /* Login.swift in Sources */,
 				11CEEBE32AF9756800175E74 /* TestVM.swift in Sources */,
 				1182A58F2AFA789D007F994E /* ContentChatView.swift in Sources */,

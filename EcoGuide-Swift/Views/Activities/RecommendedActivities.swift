@@ -1,13 +1,13 @@
 //
-//  MainPageActivities.swift
+//  RecommendedActivities.swift
 //  EcoGuide-Swift
 //
-//  Created by Copper_Orka on 8/11/2023.
+//  Created by Copper_Orka on 9/11/2023.
 //
 
 import SwiftUI
 
-struct MainPageActivities: View {
+struct RecommendedActivities: View {
     @State private var username: String = ""
     var image = ["cappadocia", "safari", "art", "fish"]
     @State private var imageInfoList: [ImageInfo] = [
@@ -17,15 +17,7 @@ struct MainPageActivities: View {
         ImageInfo(imageName: "fish", title: "Scubadiving", location: "Oceania, Australia", price: "Coral Reef", rating: "string"),// Add more image info items for each image// Add more image info items for each image
      ]
     
-    var imagecat = ["wildlife", "marine", "artt", "artt","taj","sal"]
-    @State private var imageInfoCat: [ImageInfos] = [
-        ImageInfos(imageName: "wildlife",  title: "Wild Life", location: "Europe, Turkey", price: "Cappadocia", rating: "String"),
-        ImageInfos(imageName: "marine", title: "Marine Life", location: "Europe, Turkey", price: "Cappadocia", rating: "String"),
-        ImageInfos(imageName: "adrenaline", title: "Adrenaline", location: "Europe, Turkey", price: "Cappadocia", rating: "String"),
-        ImageInfos(imageName: "artt", title: "Art Venues", location: "Europe, Turkey", price: "Cappadocia", rating: "String"),
-        ImageInfos(imageName: "taj", title: "Sightseeing", location: "Europe, Turkey", price: "Cappadocia", rating: "String"),
-        ImageInfos(imageName: "sal", title: "Gastronomy", location: "Europe, Turkey", price: "Cappadocia", rating: "String"),// Add more image info items for each image// Add more image info items for each image
-     ]
+    
     
     @State private var selectedFilter = "Recommended"
 
@@ -92,7 +84,9 @@ struct MainPageActivities: View {
                                                 Text("Rating")
                                                     .padding()
                                                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
+                                                Image(systemName: "bookmark")
                                             }
+                                            
                                         }
                                     
                                     
@@ -105,80 +99,46 @@ struct MainPageActivities: View {
                         }
                         
                         HStack {
-                            Text("Categories")
-                                .font(.system(size: 28, weight: .bold))
+                            Text("Other Recommended Activities")
+                                .font(.system(size: 18, weight: .semibold))
+                            Spacer()
+                            Text("See all")
+                                .font(.system(size: 22, weight: .semibold))
+                                .foregroundColor(Color.blue)
                         }.padding(.trailing, 20)
                         
-                        
-                        
-                        
-                        
-                      
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack(spacing: 20) {
-                                ForEach(imageInfoCat) { imageInfos in
-                                    ZStack {
-                                        Image(imageInfos.imageName)
-                                            .resizable()
-                                            .scaledToFill()
-                                            .frame(width: 300, height: 180)
-                                            .cornerRadius(25)
+                        ForEach(imageInfoList) { imageInfo in
+                            ZStack {
+                                Color(hex: "F3F8FE") // Set your desired background color here
+                                    .frame(width: 350, height: 150)
+                                    .cornerRadius(20)
+                                HStack(spacing: 5) {
+                                    Image(imageInfo.imageName)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 120, height: 150)
+                                    VStack(alignment: .leading, spacing: 5) {
+                                        Text(imageInfo.title)
+                                            .font(.system(size: 23, weight: .semibold))
+                                        Text(imageInfo.location)
+                                            .font(.system(size: 15))
+                                            .foregroundColor(Color.gray)
+                                        Text(imageInfo.price)
+                                            .font(.system(size: 18))
                                         
-                                   
-                                        Text(imageInfos.title)
-                                        
-                                            .font(.title)
-                                            .multilineTextAlignment(.center)
-                                            .foregroundColor(.white)
-                                            
-                                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-                                            .padding()
-                                
-                                    
                                     }
-                                    
-                                    .frame(width: 300, height: 180)
-                                    
+                                    .frame(maxWidth: .infinity) // Expand to fill the available space
+                                    Spacer()
+                                    VStack(alignment: .trailing, spacing: 10) {
+                                 
+                                        Image(systemName: "bookmark")
+                                        
+                                    }
                                 }
+                                .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
                             }
-                        }
-                        
-                        
-                        
-                        Spacer()
-                        
-                        Button(action: {
-                            // Logique de connexion
-         
-                        }) {
-                            Text("Plan a Trip")
-                                .fontWeight(.bold)
-                                .foregroundColor(.white)
-                                .frame(minWidth: 0, maxWidth: .infinity)
-                                .padding()
-                                .background(Color.blue)
-                                .cornerRadius(20)
-                                .padding(.horizontal, 32)
-                        }
-                        .padding(.top, 20)
-                       // .shadow(color: .black, radius: 70, x: 1, y: 30)
-                        
-                        
-                        Button(action: {
-                            // Logique de connexion
-         
-                        }) {
-                            Text("Plan a Trip")
-                                .fontWeight(.bold)
-                                .foregroundColor(.blue)
-                                .frame(minWidth: 0, maxWidth: .infinity)
-                                .padding()
-                                .background(Color.init(hex:"F1F6FE"))
-                                .cornerRadius(20)
-                                .padding(.horizontal, 32)
-                        }
-                        .shadow(color: .black, radius: 70, x: 1, y: 30)
-                        
+                            
+                        }.padding(.trailing, 20)
                         
                     }.padding(.leading, 20)
                     
@@ -213,8 +173,8 @@ struct MainPageActivities: View {
     }
 }
 
-struct MainPageActivities_Previews: PreviewProvider {
+struct RecommendedActivities_Previews: PreviewProvider {
     static var previews: some View {
-        MainPageActivities()
+        RecommendedActivities()
     }
 }
