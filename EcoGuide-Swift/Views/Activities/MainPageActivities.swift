@@ -160,7 +160,6 @@ struct MainPageActivities: View {
                                 .cornerRadius(20)
                                 .padding(.horizontal, 32)
                         }
-                        .padding(.top, 20)
                        // .shadow(color: .black, radius: 70, x: 1, y: 30)
                         
                         
@@ -168,7 +167,7 @@ struct MainPageActivities: View {
                             // Logique de connexion
          
                         }) {
-                            Text("Plan a Trip")
+                            Text("Take an Errand")
                                 .fontWeight(.bold)
                                 .foregroundColor(.blue)
                                 .frame(minWidth: 0, maxWidth: .infinity)

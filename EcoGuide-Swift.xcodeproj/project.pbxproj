@@ -36,6 +36,12 @@
 		FD5C47172AFC667200393069 /* RecommendedActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5C47162AFC667200393069 /* RecommendedActivities.swift */; };
 		FD5C47192AFC6CE900393069 /* SeeAllActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5C47182AFC6CE900393069 /* SeeAllActivities.swift */; };
 		FD5C471B2AFC700600393069 /* BucketlistActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5C471A2AFC700600393069 /* BucketlistActivities.swift */; };
+		FD5C471F2AFC7B9500393069 /* BucketListGridActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5C471E2AFC7B9500393069 /* BucketListGridActivity.swift */; };
+		FD5C47212AFC935A00393069 /* DetailActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5C47202AFC935A00393069 /* DetailActivity.swift */; };
+		FD5C47232AFCA0AE00393069 /* PlanActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5C47222AFCA0AE00393069 /* PlanActivity.swift */; };
+		FD5C47252AFCA79900393069 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5C47242AFCA79900393069 /* test.swift */; };
+		FD5C47292AFCC29B00393069 /* RadioButtonTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5C47282AFCC29B00393069 /* RadioButtonTest.swift */; };
+		FD5C472B2AFCC87C00393069 /* CategorieActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5C472A2AFCC87C00393069 /* CategorieActivities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +94,12 @@
 		FD5C47162AFC667200393069 /* RecommendedActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedActivities.swift; sourceTree = "<group>"; };
 		FD5C47182AFC6CE900393069 /* SeeAllActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllActivities.swift; sourceTree = "<group>"; };
 		FD5C471A2AFC700600393069 /* BucketlistActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketlistActivities.swift; sourceTree = "<group>"; };
+		FD5C471E2AFC7B9500393069 /* BucketListGridActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListGridActivity.swift; sourceTree = "<group>"; };
+		FD5C47202AFC935A00393069 /* DetailActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailActivity.swift; sourceTree = "<group>"; };
+		FD5C47222AFCA0AE00393069 /* PlanActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanActivity.swift; sourceTree = "<group>"; };
+		FD5C47242AFCA79900393069 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
+		FD5C47282AFCC29B00393069 /* RadioButtonTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonTest.swift; sourceTree = "<group>"; };
+		FD5C472A2AFCC87C00393069 /* CategorieActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorieActivities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +257,12 @@
 				FD5C47162AFC667200393069 /* RecommendedActivities.swift */,
 				FD5C47182AFC6CE900393069 /* SeeAllActivities.swift */,
 				FD5C471A2AFC700600393069 /* BucketlistActivities.swift */,
+				FD5C471E2AFC7B9500393069 /* BucketListGridActivity.swift */,
+				FD5C47202AFC935A00393069 /* DetailActivity.swift */,
+				FD5C47222AFCA0AE00393069 /* PlanActivity.swift */,
+				FD5C47242AFCA79900393069 /* test.swift */,
+				FD5C47282AFCC29B00393069 /* RadioButtonTest.swift */,
+				FD5C472A2AFCC87C00393069 /* CategorieActivities.swift */,
 			);
 			path = Activities;
 			sourceTree = "<group>";
@@ -381,20 +399,26 @@
 			files = (
 				11CEEBE72AF9768D00175E74 /* bookmarksGuide.swift in Sources */,
 				11EA7D342AF96DF500141117 /* EcoGuide_Swift.xcdatamodeld in Sources */,
+				FD5C472B2AFCC87C00393069 /* CategorieActivities.swift in Sources */,
 				FD5C47172AFC667200393069 /* RecommendedActivities.swift in Sources */,
 				11EA7D312AF96DF500141117 /* Persistence.swift in Sources */,
+				FD5C47292AFCC29B00393069 /* RadioButtonTest.swift in Sources */,
 				4A5070C52AFA7AFA00A797D8 /* Welcome_User.swift in Sources */,
+				FD5C47212AFC935A00393069 /* DetailActivity.swift in Sources */,
 				4A5070C72AFA839600A797D8 /* Register.swift in Sources */,
 				FD5C47192AFC6CE900393069 /* SeeAllActivities.swift in Sources */,
+				FD5C47232AFCA0AE00393069 /* PlanActivity.swift in Sources */,
 				4A5070C32AFA4B8B00A797D8 /* Login.swift in Sources */,
 				11CEEBE32AF9756800175E74 /* TestVM.swift in Sources */,
 				1182A58F2AFA789D007F994E /* ContentChatView.swift in Sources */,
 				1182A5952AFA7A06007F994E /* MessageBubbleGuide.swift in Sources */,
+				FD5C47252AFCA79900393069 /* test.swift in Sources */,
 				11CEEBE92AF976D300175E74 /* detailGuide.swift in Sources */,
 				11CEEBDF2AF9753D00175E74 /* RecentlyBookedGuide.swift in Sources */,
 				11CEEBE12AF9755D00175E74 /* TestModel.swift in Sources */,
 				1182A5972AFA8795007F994E /* MessageGuideField.swift in Sources */,
 				FD5C47132AFC1A8E00393069 /* WelcomeMsgActivities.swift in Sources */,
+				FD5C471F2AFC7B9500393069 /* BucketListGridActivity.swift in Sources */,
 				11EA7D2A2AF96DF400141117 /* ContentView.swift in Sources */,
 				11CEEBDC2AF9746000175E74 /* HomeViewGuide.swift in Sources */,
 				1182A5932AFA796D007F994E /* MessageGuide.swift in Sources */,
