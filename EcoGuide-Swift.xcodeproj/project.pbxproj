@@ -32,6 +32,7 @@
 		4A5070C52AFA7AFA00A797D8 /* Welcome_User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5070C42AFA7AFA00A797D8 /* Welcome_User.swift */; };
 		4A5070C72AFA839600A797D8 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5070C62AFA839600A797D8 /* Register.swift */; };
 		FD5C47132AFC1A8E00393069 /* WelcomeMsgActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5C47122AFC1A8E00393069 /* WelcomeMsgActivities.swift */; };
+		FD5C47152AFC1CFC00393069 /* MainPageActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5C47142AFC1CFC00393069 /* MainPageActivities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		4A5070C42AFA7AFA00A797D8 /* Welcome_User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Welcome_User.swift; sourceTree = "<group>"; };
 		4A5070C62AFA839600A797D8 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		FD5C47122AFC1A8E00393069 /* WelcomeMsgActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeMsgActivities.swift; sourceTree = "<group>"; };
+		FD5C47142AFC1CFC00393069 /* MainPageActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageActivities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				FD5C47122AFC1A8E00393069 /* WelcomeMsgActivities.swift */,
+				FD5C47142AFC1CFC00393069 /* MainPageActivities.swift */,
 			);
 			path = Activities;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				11EA7D2A2AF96DF400141117 /* ContentView.swift in Sources */,
 				11CEEBDC2AF9746000175E74 /* HomeViewGuide.swift in Sources */,
 				1182A5932AFA796D007F994E /* MessageGuide.swift in Sources */,
+				FD5C47152AFC1CFC00393069 /* MainPageActivities.swift in Sources */,
 				11CEEBE52AF9761F00175E74 /* bookingFormGuide.swift in Sources */,
 				11EA7D282AF96DF400141117 /* EcoGuide_SwiftApp.swift in Sources */,
 				1182A58D2AFA6944007F994E /* TitleRow.swift in Sources */,
