@@ -32,8 +32,8 @@ struct bookingAccomodation: View {
                         DatePicker("Select Date", selection: $selectedDate, displayedComponents: .date)
                     }
                     
-                    Section(header: Text("Select Hours")) {
-                        TextField("Number of Hours", text: $selectedHours)
+                    Section(header: Text("Select days")) {
+                        TextField("Number of night", text: $selectedHours)
                             .keyboardType(.numberPad)
                     }
                     
@@ -55,7 +55,7 @@ struct bookingAccomodation: View {
                         }
                     }
                 }
-                .navigationBarTitle("Booking Guide")
+                .navigationBarTitle("Booking Hotel")
             }
         }
         
@@ -514,12 +514,10 @@ struct secondPaymentViewAccomodation: View {
         case amen = "Amen"
     }
     
-    struct BookingAccomodation_Previews: PreviewProvider {
-        @State private static var discountCode: Double = 0.0
-        static var previews: some View {
-            bookingAccomodation(discountCode: $discountCode)
-        }
+}
+struct BookingAccomodation_Previews: PreviewProvider {
+    @State private static var discountCode: Double = 0.0
+    static var previews: some View {
+        bookingAccomodation(discountCode: $discountCode)
     }
-    
-    
 }

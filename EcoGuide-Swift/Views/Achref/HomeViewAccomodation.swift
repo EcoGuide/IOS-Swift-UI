@@ -23,10 +23,10 @@ struct HomeViewAccomodation: View {
     @State private var username: String = ""
     var image = ["home1", "home2", "hotel1"]
     @State private var imageInfoList: [ImageInfoA] = [
-        ImageInfoA(imageName: "home1", title: "Flen Fouleni", location: "tunis, France", price: "$29 / day",rating: "3.6", nbrating: "(3.67 reviews)"),
-        ImageInfoA(imageName: "home2", title: "Flen Fouleni", location: "Paris, France", price: "$29 / day", rating: "4.0", nbrating: "(4.07 reviews)"),
-        ImageInfoA(imageName: "hotel1", title: "Flen Fouleni", location: "Paris, France", price: "$29 / day", rating: "4.5", nbrating: "(4.57 reviews)"),
-        ImageInfoA(imageName: "hotel2", title: "Flen Fouleni", location: "Paris, France", price: "$29 / day", rating: "5.0", nbrating: "(5.07 reviews)"),// Add more image info items for each image// Add more image info items for each image
+        ImageInfoA(imageName: "home1", title: "home 1", location: "tunis, France", price: "$29 / day",rating: "3.6", nbrating: "(3.67 reviews)"),
+        ImageInfoA(imageName: "home2", title: "home 2", location: "Paris, France", price: "$29 / day", rating: "4.0", nbrating: "(4.07 reviews)"),
+        ImageInfoA(imageName: "hotel1", title: "hotel 1 ", location: "Paris, France", price: "$29 / day", rating: "4.5", nbrating: "(4.57 reviews)"),
+        ImageInfoA(imageName: "hotel2", title: "hotel 2 ", location: "Paris, France", price: "$29 / day", rating: "5.0", nbrating: "(5.07 reviews)"),// Add more image info items for each image// Add more image info items for each image
      ]
     
     

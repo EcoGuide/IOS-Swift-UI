@@ -24,10 +24,10 @@ struct RecentlyBookedAccomodation: View {
     var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2) // 2 columns
  
     @State private var imageInfoList: [ImageInfoA1] = [
-        ImageInfoA1(imageName: "home1", title: "Flen Fouleni", location: "tunis, France", price: "$29 / day",rating: "3.6", nbrating: "(3.67 reviews)"),
-        ImageInfoA1(imageName: "home2", title: "Flen Fouleni", location: "Paris, France", price: "$29 / day", rating: "4.0", nbrating: "(4.07 reviews)"),
-        ImageInfoA1(imageName: "hotel1", title: "Flen Fouleni", location: "Paris, France", price: "$29 / day", rating: "4.5", nbrating: "(4.57 reviews)"),
-        ImageInfoA1(imageName: "hotel2", title: "Flen Fouleni", location: "Paris, France", price: "$29 / day", rating: "5.0", nbrating: "(5.07 reviews)"),// Add more image info items for each image// Add more image info items for each image
+        ImageInfoA1(imageName: "home1", title: "Home 1", location: "tunis, France", price: "$29 / night",rating: "3.6", nbrating: "(3.67 reviews)"),
+        ImageInfoA1(imageName: "home2", title: "Home 2", location: "Paris, France", price: "$29 / night", rating: "4.0", nbrating: "(4.07 reviews)"),
+        ImageInfoA1(imageName: "hotel1", title: "Hotel 1", location: "Paris, France", price: "$29 / night", rating: "4.5", nbrating: "(4.57 reviews)"),
+        ImageInfoA1(imageName: "hotel2", title: "Hotel 2", location: "Paris, France", price: "$29 / night", rating: "5.0", nbrating: "(5.07 reviews)"),// Add more image info items for each image// Add more image info items for each image
      ]
 
     var body: some View {
@@ -93,6 +93,8 @@ struct GridItemViewA: View {
                         .foregroundColor(.yellow)
                     Text(imageInfo1.rating)
                         .font(.system(size: 15))
+                    Text(imageInfo1.nbrating)
+                        .font(.system(size: 10))
                 }
                 Text(imageInfo1.location)
                     .font(.system(size: 16))
@@ -102,7 +104,7 @@ struct GridItemViewA: View {
                     Text("$35")
                         .font(.system(size: 23, weight: .semibold))
                         .foregroundColor(Color.blue)
-                    Text("/ day")
+                    Text("/ night")
                     Image(systemName: "bookmark")
                         .font(.system(size: 24))
                         .foregroundColor(Color.black)
@@ -141,6 +143,8 @@ struct ListItemViewAccomodation: View {
                             .foregroundColor(.yellow)
                         Text(imageInfo1.rating)
                             .font(.system(size: 15))
+                        Text(imageInfo1.nbrating)
+                            .font(.system(size: 10))
                     }
                 }
                 .frame(maxWidth: .infinity)
@@ -149,7 +153,7 @@ struct ListItemViewAccomodation: View {
                     Text("$35")
                         .font(.system(size: 23, weight: .semibold))
                         .foregroundColor(Color.blue)
-                    Text("/ day")
+                    Text("/ night")
                     Image(systemName: "bookmark")
                         .font(.system(size: 24))
                         .foregroundColor(Color.black)
