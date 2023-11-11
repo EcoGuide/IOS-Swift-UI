@@ -6,14 +6,17 @@
 //
 
 import SwiftUI
-
+import Firebase
 @main
 struct EcoGuide_SwiftApp: App {
     let persistenceController = PersistenceController.shared
+    init(){
+        FirebaseApp.configure()
+    }
 
     var body: some Scene {
         WindowGroup {
-            
+            ContentChatView()
                
         }
     }
