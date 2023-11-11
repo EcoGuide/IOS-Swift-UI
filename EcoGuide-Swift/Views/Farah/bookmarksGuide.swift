@@ -65,8 +65,8 @@ struct bookmarksGuide: View {
                    listView
                     
                 }
-            }
-            .padding()
+            }.padding(10)
+            
             .alert(isPresented: $showingAlert) {
                 Alert(
                     title: Text("Remove Bookmark"),
@@ -84,10 +84,10 @@ struct bookmarksGuide: View {
 
     var gridView: some View {
         
-        LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 2), spacing: 10) {
+        LazyVGrid(columns: Array(repeating: GridItem.init(.flexible()), count: 2), spacing: 16) {
             ForEach(guideInfoList) { imageInfo in
                 NavigationLink(destination: detailGuide(guideInfo: imageInfo, discountcode: $discountCode ))
-                                                        {
+                            {
                     BookmarkItemView(imageInfo: imageInfo)
                         .contextMenu {
                             Button(action: {
@@ -100,22 +100,22 @@ struct bookmarksGuide: View {
                 }
             }
         }
-        .padding()
+        
+        
     }
     
 
+ 
     var listView: some View {
-            ForEach(imageInfoList) { imageInfo in
-                HStack {
-                    NavigationLink(destination: ImageDetailView(imageInfo: imageInfo)) {
-                        listBookmarkItemView(imageInfo: imageInfo)
-                    }
-                    .listRowInsets(EdgeInsets())
-                    
-                    
+        ForEach(guideInfoList) { imageInfo in
+            HStack {
+                NavigationLink(destination: detailGuide(guideInfo: imageInfo, discountcode: $discountCode)) {
+                    listBookmarkItemView(imageInfo: imageInfo)
                 }
-            }.onDelete(perform: deleteItem)
-            
+                .listRowInsets(EdgeInsets())
+            }
+        }
+        .onDelete(perform: deleteItem)
     }
     
     func deleteItem(at offsets: IndexSet) {
@@ -134,7 +134,7 @@ struct bookmarksGuide: View {
   }
 
 struct listBookmarkItemView: View {
-    var imageInfo: ImageInfo
+    var imageInfo: GuideInfo1
     var body: some View {
         ZStack {
             Color(hex: "F3F8FE")
@@ -147,7 +147,7 @@ struct listBookmarkItemView: View {
                  .cornerRadius(10)
                  .padding(.leading, 10)
              VStack(alignment: .leading, spacing: 15) {
-                 Text(imageInfo.title)
+                 Text(imageInfo.name)
                      .font(.system(size: 23, weight: .semibold))
                  Text(imageInfo.location)
                      .font(.system(size: 16))
@@ -155,7 +155,7 @@ struct listBookmarkItemView: View {
                  HStack {
                      Image(systemName: "star.fill")
                          .foregroundColor(.yellow)
-                     Text(imageInfo.rating)
+                     Text(imageInfo.reviews)
                          .font(.system(size: 15))
                  }
              }
@@ -178,6 +178,11 @@ struct listBookmarkItemView: View {
             .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
         }
         .padding(.trailing, 4)
+        .background(
+            RoundedRectangle(cornerRadius: 20)
+                .fill(Color(hex: "F3F8FE"))
+                .shadow(color: Color.black.opacity(0.4), radius: 2, x: 0, y: 4)
+        )
     }
 }
 
@@ -187,30 +192,32 @@ struct BookmarkItemView: View {
     var imageInfo: GuideInfo1
     
     var body: some View {
-        VStack {
-            
+
             ZStack {
                 Color(hex: "F3F8FE")
-                    .frame(height: 260)
+                    .frame(height: 280)
                     .cornerRadius(20)
               
                 VStack(spacing: 5) {
                     Image(imageInfo.imageName)
                         .resizable()
-                        .frame(width: 150, height: 120)
+                        .frame(width: 145, height: 135)
                         .cornerRadius(20)
                     Text(imageInfo.name)
-                        .font(.system(size: 23, weight: .semibold))
+                        .font(.system(size: 20))
+                        .fontWeight(.bold)
                     
                     HStack {
                         Image(systemName: "star.fill")
                             .foregroundColor(.yellow)
                         Text(imageInfo.reviews)
-                            .font(.system(size: 15))
+                            .font(.system(size: 13))
+                        Text(imageInfo.location)
+                            .font(.system(size: 13))
+                            .fontWeight(.regular)
+                            .foregroundColor(Color.gray)
                     }
-                    Text(imageInfo.location)
-                        .font(.system(size: 16))
-                        .foregroundColor(Color.gray)
+                    
                     
                     HStack(spacing: 15) {
                         Text("$35")
@@ -222,12 +229,23 @@ struct BookmarkItemView: View {
                             .foregroundColor(Color.blue)
                     }
                 }
-                .frame(width:160)
+                .frame(width:180)
                 
                 
             }
+        
+            .background(
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(Color(hex: "F3F8FE"))
+                    .shadow(color: Color.black.opacity(0.4), radius: 2, x: 0, y: 4)
+                )
             .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15)
-            )}}}
+            )
+        
+        
+    }
+    
+}
   // for  viewing the detail
 struct ImageDetailView: View {
     var imageInfo: ImageInfo
@@ -248,7 +266,6 @@ struct ImageDetailView: View {
                 .foregroundColor(.gray)
                 .padding(.bottom, 16)
 
-            // Add the rest of the details specific to the image here
         }
         .padding()
         .navigationTitle(imageInfo.title)
