@@ -34,10 +34,7 @@ struct RecentlyBookedAccomodation: View {
         ScrollView {
             Spacer()
             HStack {
-                Image(systemName: "arrow.left")
-                    .font(.system(size: 22, weight: .semibold))
-                Text("Recently Booked")
-                    .font(.system(size: 22, weight: .semibold))
+                
                 Spacer()
                 HStack {
                     Image(systemName: "doc.fill") // list view item
@@ -162,6 +159,7 @@ struct ListItemViewAccomodation: View {
                .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
         }
         .padding(.trailing, 4)
+        .navigationBarTitle(Text("Recently Booked"), displayMode: .inline)
     }
 }
 struct RecentlyBookedAccomodation_Previews: PreviewProvider {

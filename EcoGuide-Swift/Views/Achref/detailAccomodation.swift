@@ -6,25 +6,26 @@
 //
 
 import SwiftUI
-struct AccomodationInfo {
-    var name: String
-    var location: String
-    var imageName: String
-    var galleryImagesA: [String]
-    var description: String
-    var reviews: String
-    var price: String
+struct Review: Identifiable {
+    var id = UUID()
+    var author: String
+    var rating: Int
+    var text: String
+    var imagename: String
+    
+
 }
+
+let exampleReviews: [Review] = [
+    Review(author: "John Doe", rating: 4, text: "Great experience with excellent service!",imagename: "guide2"),
+    Review(author: "Jane Smith", rating: 5, text: "Absolutely loved it. Highly recommended!",imagename: "guide2"),
+    Review(author: "Bob Johnson", rating: 3, text: "Good but could be better. Room for improvement.",imagename: "guide2")
+]
 struct detailAccomodation: View {
-    var accomodationInfo: AccomodationInfo
-    @State private var imageInfoList: [ImageInfoA] = [
-        ImageInfoA(imageName: "home1", title: "Flen Fouleni", location: "tunis, France", price: "$29 / day",rating: "3.6", nbrating: "(3.67 reviews)"),
-        ImageInfoA(imageName: "home2", title: "Flen Fouleni", location: "Paris, France", price: "$29 / day", rating: "4.0", nbrating: "(4.07 reviews)"),
-        ImageInfoA(imageName: "hotel1", title: "Flen Fouleni", location: "Paris, France", price: "$29 / day", rating: "4.5", nbrating: "(4.57 reviews)"),
-        ImageInfoA(imageName: "hotel2", title: "Flen Fouleni", location: "Paris, France", price: "$29 / day", rating: "5.0", nbrating: "(5.07 reviews)"),// Add more image info items for each image// Add more image info items for each image
-     ]
+    let imageInfo: ImageInfoA
+    var reviews: [Review]
     var body: some View {
-        
+        var discountCodes: Double = 0.0
         ScrollView {
             VStack(alignment:.leading,spacing: 20) {
                 // Image en haut de la page
@@ -35,7 +36,7 @@ struct detailAccomodation: View {
                     .frame(height: 200).padding(.top,20)
               
                 HStack {
-                    Text(accomodationInfo.name)
+                    Text(imageInfo.imageName)
                         .font(.title)
                         .padding(.top, 16)
                     
@@ -53,12 +54,12 @@ struct detailAccomodation: View {
                         .foregroundColor(.yellow)
                         .foregroundColor(.gray)
                         .padding(.bottom,1)
-                    Text(accomodationInfo.reviews).font(.system(size: 16)).foregroundColor(.gray)
+                    Text(imageInfo.reviews).font(.system(size: 16)).foregroundColor(.gray)
                    }
                 
                 
                     // Location du guide
-                    Text(accomodationInfo.location)
+                    Text(imageInfo.location)
                         .foregroundColor(.gray)
                         .padding(.bottom, 16)
                 
@@ -69,7 +70,7 @@ struct detailAccomodation: View {
 
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 10) {
-                            ForEach(accomodationInfo.galleryImagesA, id: \.self) { imageName in
+                            ForEach(imageInfo.galleryImagesA, id: \.self) { imageName in
                                 Image(imageName)
                                     .resizable()
                                     .frame(width: 120, height: 80)
@@ -89,7 +90,7 @@ struct detailAccomodation: View {
                 }
                 .padding(.horizontal, 16)
                 
-                Text(accomodationInfo.description)
+                Text(imageInfo.description)
                     .font(.title2)
                   
                 
@@ -164,23 +165,61 @@ struct detailAccomodation: View {
                     }
                     
                 }}
-                    
+                
+                ScrollView {
+                           
+                               ForEach(reviews) { review in
+                                   
+
+                                       // Review Content
+                                       VStack() {
+                                           Image(review.imagename)
+                                               .resizable()
+                                               .aspectRatio(contentMode: .fill)
+                                               .frame(width: 50, height: 50)
+                                               .clipShape(Circle())
+
+                                           Text(review.author)
+                                               .font(.headline)
+                                               .fontWeight(.bold)
+
+                                           Text("Rating: \(review.rating)")
+                                               .font(.subheadline)
+                                               .foregroundColor(.gray)
+
+                                           Text(review.text)
+                                               .font(.body)
+                                               .lineLimit(50)
+                                       }
+                                       
+                                       .frame(width:340,height:160)
+                                   
+                                   .background(Color.gray.opacity(0.1))
+                                   .padding(10)
+                                   
+                                  
+                               }
+                           
+                           .cornerRadius(10)
+                           .padding()
+                       }                   
                
                     
                     HStack {
                         
-                        VStack(alignment: .leading)
+                        VStack(alignment: .leading,spacing: 10)
                         {
                             Text("Price")
-                            Text(accomodationInfo.price)
+                            Text(imageInfo.price)
                                 .font(.system(size: 22, weight: .semibold))
                                 .foregroundColor(Color.blue)
 
                         }
                         Spacer()
-                        Button("Book Now") {
-                            // Action à effectuer lors du clic sur "Book Now"
-                        }
+                            Button("Book Now") {
+                                // Action à effectuer lors du clic sur "Book Now"
+                            }
+                        
                         .padding()
                         .background(Color.blue)
                         .foregroundColor(.white)
@@ -197,18 +236,3 @@ struct detailAccomodation: View {
             .padding(.top, -32)
         }
     }
-
-
-struct DetailAccomodation_Previews: PreviewProvider {
-    static var previews: some View {
-        detailAccomodation(accomodationInfo: AccomodationInfo(
-            name: "Hotel 1",
-            location: "Paris, France",
-            imageName: "hotel1",
-            galleryImagesA: ["home1", "home2", "hotel1"],
-            description: "Hotel description",
-            reviews: "33326",
-            price: "326$"
-        ))
-    }
-}

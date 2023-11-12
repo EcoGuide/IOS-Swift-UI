@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct TabBar: View {
+    @State var index = 0
+    
     var body: some View {
         VStack{
             Spacer()
@@ -26,6 +28,7 @@ struct TabBarView_Previews: PreviewProvider {
 struct CircleTab : View {
 @State var index = 0
     var body: some View {
+        
         HStack{
             Button(action: {
                 self.index = 0

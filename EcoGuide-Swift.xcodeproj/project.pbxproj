@@ -39,6 +39,7 @@
 		6F60E9C22AFC3F2B00E851A9 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F60E9C12AFC3F2B00E851A9 /* TabBar.swift */; };
 		6F60E9C42AFC415F00E851A9 /* statusAccommodation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F60E9C32AFC415F00E851A9 /* statusAccommodation.swift */; };
 		6F8481A42AFCB8D600C40FAF /* TicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8481A32AFCB8D600C40FAF /* TicketView.swift */; };
+		6F8481A62AFFFA1E00C40FAF /* ListingItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8481A52AFFFA1E00C40FAF /* ListingItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		6F60E9C12AFC3F2B00E851A9 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		6F60E9C32AFC415F00E851A9 /* statusAccommodation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = statusAccommodation.swift; sourceTree = "<group>"; };
 		6F8481A32AFCB8D600C40FAF /* TicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketView.swift; sourceTree = "<group>"; };
+		6F8481A52AFFFA1E00C40FAF /* ListingItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +256,7 @@
 				6F60E9BF2AFC3E4B00E851A9 /* bookmarksAccomodation.swift */,
 				6F60E9C32AFC415F00E851A9 /* statusAccommodation.swift */,
 				6F8481A32AFCB8D600C40FAF /* TicketView.swift */,
+				6F8481A52AFFFA1E00C40FAF /* ListingItemView.swift */,
 			);
 			path = Achref;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				11EA7D312AF96DF500141117 /* Persistence.swift in Sources */,
 				4A5070C52AFA7AFA00A797D8 /* Welcome_User.swift in Sources */,
 				4A5070C72AFA839600A797D8 /* Register.swift in Sources */,
+				6F8481A62AFFFA1E00C40FAF /* ListingItemView.swift in Sources */,
 				6F60E9C42AFC415F00E851A9 /* statusAccommodation.swift in Sources */,
 				4A5070C32AFA4B8B00A797D8 /* Login.swift in Sources */,
 				11CEEBE32AF9756800175E74 /* TestVM.swift in Sources */,
