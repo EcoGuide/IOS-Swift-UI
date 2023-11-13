@@ -11,13 +11,10 @@ import SwiftUI
 
 struct Guideservice {
     
-    func fetchGuides(completion: @escaping(Result<fetchGuidesResponse?, AuthError>) -> Void) {
+    func fetchGuides(completion: @escaping(Result<fetchGuidesResponse?, Error>) -> Void) {
         AF.request("\(Network.fetchGuideUrl)",
                    method: .get,
-                   encoding: JSONEncoding.default,
-                   headers: HTTPHeaders([
-                    "Authorization": "\(UserDefaults.standard.string(forKey: "token") ?? "")",
-                   ]))
+                   encoding: JSONEncoding.default)
         .validate(contentType: ["application/json"])
         .responseData { res in
             switch res.result {
@@ -28,12 +25,14 @@ struct Guideservice {
                     let parsedData = try JSONDecoder().decode(fetchGuidesResponse.self, from: responseData)
                     completion(.success(parsedData))
                     print(parsedData.message)
-                } catch {print(error)}
-                
+                } catch {
+                    print(error)
+                    completion(.failure(error))
+                }
                 
             case let .failure(err):
                 debugPrint(err)
-                completion(.failure(.custom(errorMessage: err.localizedDescription)))
+                completion(.failure(err))
             }
         }
     }

@@ -11,8 +11,8 @@ struct bookmarksGuide: View {
     
     // Define staticGuides as a property of the structure
     var staticGuides: [Guide] = [
-        Guide(id: 1, name: "Guide 1", location: "Location 1", imageName: "guide1", description: "Description 1", reviews: "Reviews 1", price: "$29"),
-        Guide(id: 2, name: "Guide 2", location: "Location 2", imageName: "guide2", description: "Description 2", reviews: "Reviews 2", price: "$39"),
+        Guide( name: "Guide 1", location: "Location 1", imageName: "guide1", description: "Description 1", reviews: "Reviews 1", price: "$29"),
+        Guide( name: "Guide 2", location: "Location 2", imageName: "guide2", description: "Description 2", reviews: "Reviews 2", price: "$39"),
     ]
     
     

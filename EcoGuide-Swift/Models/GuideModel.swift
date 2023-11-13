@@ -7,16 +7,15 @@
 
 import Foundation
 
-struct Guide : Decodable {
-   // var id: Int
-    var _id = UUID()
+struct Guide: Identifiable, Codable {
+    var id: UUID = UUID() // Add a unique identifier
+
     var name: String
     var location: String
     var imageName: String
     var description: String
     var reviews: String
     var price: String
-    //var user : User
 }
 
 

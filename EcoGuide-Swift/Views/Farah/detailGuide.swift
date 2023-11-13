@@ -160,7 +160,6 @@ struct DetailGuide_Previews: PreviewProvider {
     @State private static var discountcode: Double = 0.0
     static var previews: some View {
         detailGuide(guideInfo: Guide(
-            id:1,
             name: "Flena Foueniya",
             location: "Paris, France",
             imageName: "guide_image",

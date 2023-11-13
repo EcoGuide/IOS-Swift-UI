@@ -26,7 +26,7 @@ class GuideViewModel: ObservableObject {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
                     if data?.statusCode == 200 {
                         self.isLoading = false
-                        self.guides = data?.guides ?? []
+                        self.guides = data?.guide ?? []
                     }
                     self.message = data?.message ?? ""
                 }
