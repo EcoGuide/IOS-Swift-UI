@@ -10,6 +10,37 @@ import SwiftUI
 
 
 
+struct WelcomeMsgActivities: View {
+    var body: some View {
+        ZStack{
+            Image("man")
+                .resizable()
+                .scaledToFill() // Use scaledToFill to cover the entire screen
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                .clipped()
+                .edgesIgnoringSafeArea(.all)
+            
+            VStack {
+                Spacer() // Push the following VStack to the bottom of the screen
+                VStack{
+                    Text("Pack Your Bags")
+                        .font(.system(size: 38, weight: .bold))
+                        .foregroundColor(.white)
+                    
+                    Text("Chase Your Dreams")
+                        .font(.system(size: 38, weight: .bold))
+                        .foregroundColor(.white)
+                }
+                .padding(100) // Add padding to the VStack to create the gray transparent background
+                .background(Color.gray.opacity(0.5)) // Set the background color with transparency
+            }
+        }
+    }
+}
+
+
+
+/*
 
 struct WelcomeMsgActivities: View {
     var body: some View {
@@ -20,29 +51,21 @@ struct WelcomeMsgActivities: View {
                 .clipped()
                 .edgesIgnoringSafeArea(.all)
             
-            ZStack{
-               Image("white")
-                    .opacity(0.9)
+            VStack{
+                Text("Pack Your Bags")
+                    .font(.system(size: 40, weight: .bold))
+                    .foregroundColor(.white)
+                    .frame(width: 600, height: 50)
+                        
+                Text("Chase Your Dreams")
+                    .font(.system(size: 40, weight: .bold))
+                    .foregroundColor(.white)
                    
                 
-                
-            }
-            VStack{
-                Spacer()
-                ZStack{
-                    Text("hello")
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(20)
-                        .padding(.horizontal, 32)
-                }
             }
         }
     }
-}
+}*/
 
 
 
