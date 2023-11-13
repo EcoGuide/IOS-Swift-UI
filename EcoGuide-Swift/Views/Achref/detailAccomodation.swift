@@ -22,10 +22,10 @@ let exampleReviews: [Review] = [
     Review(author: "Bob Johnson", rating: 3, text: "Good but could be better. Room for improvement.",imagename: "guide2")
 ]
 struct detailAccomodation: View {
+    @State private var discountCode: Double = 0.0
     let imageInfo: ImageInfoA
     var reviews: [Review]
     var body: some View {
-        var discountCodes: Double = 0.0
         ScrollView {
             VStack(alignment:.leading,spacing: 20) {
                 // Image en haut de la page
@@ -176,7 +176,7 @@ struct detailAccomodation: View {
                                            Image(review.imagename)
                                                .resizable()
                                                .aspectRatio(contentMode: .fill)
-                                               .frame(width: 50, height: 50)
+                                               .frame(width: 40, height: 40)
                                                .clipShape(Circle())
 
                                            Text(review.author)
@@ -216,9 +216,16 @@ struct detailAccomodation: View {
 
                         }
                         Spacer()
-                            Button("Book Now") {
-                                // Action à effectuer lors du clic sur "Book Now"
-                            }
+                        
+                        NavigationLink(destination: bookingAccomodation(discountCode: $discountCode)) {
+                                           Text("Book Now")
+                                            .font(.system(size: 16, weight: .semibold))
+                                               .padding()
+                                               .frame(width: 130, height: 30)
+                                               .background(Color.blue)
+                                               .foregroundColor(.white)
+                                               .cornerRadius(10)
+                                       }
                         
                         .padding()
                         .background(Color.blue)

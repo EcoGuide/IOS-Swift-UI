@@ -34,7 +34,8 @@ struct HomeViewAccomodation: View {
 
     
     @State private var selectedFilter = "Recommended"
-
+    @State private var searchText = ""
+    @State private var searchResults: [ImageInfoA] = []
         let filters = ["Recommended", "Popular", "Trending", "Testing"]
     var body: some View {
         NavigationStack {
@@ -50,12 +51,7 @@ struct HomeViewAccomodation: View {
                                 .scaledToFit()
                         }
                         Text("Hello, User")
-                        TextField(
-                            "Search",
-                            text: $username
-                        )
-                        .padding(.trailing, 20)
-                        .textFieldStyle(CustomTextFieldStyle())
+                       SearchAndFilter()
                         
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack {
@@ -195,7 +191,12 @@ struct HomeViewAccomodation: View {
          
             }
         }
-    
+    func performSearch(query: String) -> [ImageInfoA] {
+        // Implement your search logic here
+        // Return an array of search results
+        // For example, you might filter your data based on the search query
+        return imageInfoList.filter { $0.title.lowercased().contains(query.lowercased()) }
+    }
     }
 
 
@@ -242,3 +243,4 @@ struct HomeViewAccomodation_Previews: PreviewProvider {
         HomeViewAccomodation()
     }
 }
+

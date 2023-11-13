@@ -38,6 +38,7 @@
 		6F60E9C02AFC3E4B00E851A9 /* bookmarksAccomodation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F60E9BF2AFC3E4B00E851A9 /* bookmarksAccomodation.swift */; };
 		6F60E9C22AFC3F2B00E851A9 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F60E9C12AFC3F2B00E851A9 /* TabBar.swift */; };
 		6F60E9C42AFC415F00E851A9 /* statusAccommodation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F60E9C32AFC415F00E851A9 /* statusAccommodation.swift */; };
+		6F6F833F2B0182EA00F6472B /* SearchAndFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6F833E2B0182EA00F6472B /* SearchAndFilter.swift */; };
 		6F8481A42AFCB8D600C40FAF /* TicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8481A32AFCB8D600C40FAF /* TicketView.swift */; };
 		6F8481A62AFFFA1E00C40FAF /* ListingItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8481A52AFFFA1E00C40FAF /* ListingItemView.swift */; };
 /* End PBXBuildFile section */
@@ -94,6 +95,7 @@
 		6F60E9BF2AFC3E4B00E851A9 /* bookmarksAccomodation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookmarksAccomodation.swift; sourceTree = "<group>"; };
 		6F60E9C12AFC3F2B00E851A9 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		6F60E9C32AFC415F00E851A9 /* statusAccommodation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = statusAccommodation.swift; sourceTree = "<group>"; };
+		6F6F833E2B0182EA00F6472B /* SearchAndFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAndFilter.swift; sourceTree = "<group>"; };
 		6F8481A32AFCB8D600C40FAF /* TicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketView.swift; sourceTree = "<group>"; };
 		6F8481A52AFFFA1E00C40FAF /* ListingItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -257,6 +259,7 @@
 				6F60E9C32AFC415F00E851A9 /* statusAccommodation.swift */,
 				6F8481A32AFCB8D600C40FAF /* TicketView.swift */,
 				6F8481A52AFFFA1E00C40FAF /* ListingItemView.swift */,
+				6F6F833E2B0182EA00F6472B /* SearchAndFilter.swift */,
 			);
 			path = Achref;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F6F833F2B0182EA00F6472B /* SearchAndFilter.swift in Sources */,
 				6F60E9C02AFC3E4B00E851A9 /* bookmarksAccomodation.swift in Sources */,
 				11CEEBE72AF9768D00175E74 /* bookmarksGuide.swift in Sources */,
 				6F60E9BE2AFBD76100E851A9 /* bookingAccomodation.swift in Sources */,
