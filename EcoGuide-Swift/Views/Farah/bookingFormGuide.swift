@@ -23,6 +23,8 @@ struct bookingformGuide: View {
     @State private var selectedHours: String = ""
     @State private var selectedPhoneNumber: String = ""
     @State private var isPaymentMethodSelected: Bool = false
+    @State private var isForAnotherPerson = false
+
     @Binding var discountCode: Double
 
         var body: some View {

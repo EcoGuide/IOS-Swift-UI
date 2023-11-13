@@ -6,18 +6,10 @@
 //
 
 import SwiftUI
-struct GuideInfo1 : Identifiable {
-    var id = UUID()
-    var name: String
-    var location: String
-    var imageName: String
-    var description: String
-    var reviews: String
-    var price: String
-}
+
 
 struct detailGuide: View {
-    var guideInfo: GuideInfo1
+    var guideInfo: Guide
     @Binding var discountcode: Double
     var body: some View {
         NavigationView{
@@ -167,7 +159,8 @@ struct DetailGuide_Previews: PreviewProvider {
     
     @State private static var discountcode: Double = 0.0
     static var previews: some View {
-        detailGuide(guideInfo: GuideInfo1(
+        detailGuide(guideInfo: Guide(
+            id:1,
             name: "Flena Foueniya",
             location: "Paris, France",
             imageName: "guide_image",
