@@ -11,13 +11,9 @@ import SwiftUI
 
 struct RecentlyBookedGuide: View {
     @State private var isGridView = false
-    //@State private var guides: [Guide] = []
     var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2) // 2 columns
+    @StateObject var guideViewModel : GuideViewModel
 
-    let staticGuides: [Guide] = [
-        Guide( _id: "qsdqsdqsdqs", fullname: "Guide 1", location: "Location 1", image: "guide1", description: "Description 1", reviews: "Reviews 1", price: 29,discountCode:22),
-        Guide( _id: "qsdqsdqsdqs", fullname: "Guide 2", location: "Location 2", image: "guide2", description: "Description 2", reviews: "Reviews 2", price: 3,discountCode:22),
-    ]
   
 
     var body: some View {
@@ -43,16 +39,18 @@ struct RecentlyBookedGuide: View {
                 }
             }
             .padding(.trailing, 20)
-
+            .onAppear {
+                            guideViewModel.fetchGuides()
+                        }
             if isGridView {
                 LazyVGrid(columns: columns, spacing: 16) {
-                    ForEach(staticGuides,id: \._id) { guide in
+                    ForEach(guideViewModel.guides ,id: \._id) { guide in
                         GridItemView(guide: guide)
                     }
                 }
                 .padding(.trailing, 20)
             } else {
-                ForEach(staticGuides,id: \._id) { guide in
+                ForEach(guideViewModel.guides ,id: \._id) { guide in
                     ListItemView(guide: guide)
                 }
                 .padding(.trailing, 20)
@@ -176,6 +174,6 @@ struct ListItemView: View {
 }
 struct RecentlyBookedGuide_Previews: PreviewProvider {
     static var previews: some View {
-        RecentlyBookedGuide()
+        RecentlyBookedGuide(guideViewModel: GuideViewModel())
     }
 }

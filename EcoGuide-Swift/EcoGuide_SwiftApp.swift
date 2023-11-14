@@ -10,14 +10,14 @@ import Firebase
 @main
 struct EcoGuide_SwiftApp: App {
     let persistenceController = PersistenceController.shared
-    let guideViewModel = GuideViewModel() 
+    let guideViewModel = GuideViewModel()
     init(){
         FirebaseApp.configure()
     }
 
     var body: some Scene {
         WindowGroup {
-            bookmarksGuide(guideViewModel: guideViewModel)
+            HomeViewGuide(guideViewModel: guideViewModel)
                
         }
     }

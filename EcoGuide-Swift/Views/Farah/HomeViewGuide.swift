@@ -18,16 +18,7 @@ struct ImageInfo: Identifiable {
 
 struct HomeViewGuide: View {
     @State private var username: String = ""
-    var image = ["guide1", "guide2", "guide3"]
-    
-    
-    @State private var imageInfoList: [ImageInfo] = [
-        ImageInfo(imageName: "guide1", title: "Flen Fouleni", location: "tunis, France", price: "$29 / day", rating: "String"),
-        ImageInfo(imageName: "guide2", title: "Flen Fouleni", location: "Paris, France", price: "$29 / day", rating: "string"),
-        ImageInfo(imageName: "guide3", title: "Flen Fouleni", location: "Paris, France", price: "$29 / day", rating: "string"),
-        ImageInfo(imageName: "guide3", title: "Flen Fouleni", location: "Paris, France", price: "$29 / day", rating: "string"),// Add more image info items for each image// Add more image info items for each image
-     ]
-    
+    @StateObject var guideViewModel : GuideViewModel
     
     @State private var selectedFilter = "Recommended"
 
@@ -68,22 +59,22 @@ struct HomeViewGuide: View {
                         
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(spacing: 10) {
-                                ForEach(imageInfoList) { imageInfo in
+                                ForEach(guideViewModel.guides ,id: \._id) { guide in
                                     ZStack {
-                                        Image(imageInfo.imageName)
+                                        Image(guide.image)
                                             .resizable()
                                             .scaledToFill()
                                             .frame(width: 300, height: 300)
                                             .cornerRadius(50)
                                         HStack {
                                             VStack(alignment: .leading, spacing: 10) {
-                                                Text(imageInfo.title)
+                                                Text(guide.fullname)
                                                     .font(.headline)
                                                     .foregroundColor(.white)
-                                                Text(imageInfo.location)
+                                                Text(guide.location)
                                                     .font(.headline)
                                                     .foregroundColor(.black)
-                                                Text(imageInfo.price)
+                                                Text(String(format: "%.2f", guide.price))
                                                     .font(.headline)
                                                     .foregroundColor(.white)
                                             }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
@@ -111,23 +102,23 @@ struct HomeViewGuide: View {
                                 .foregroundColor(Color.blue)
                         }.padding(.trailing, 20)
                         
-                        ForEach(imageInfoList) { imageInfo in
+                        ForEach(guideViewModel.guides ,id: \._id) { guide in
                             ZStack {
                                 Color(hex: "F3F8FE") // Set your desired background color here
                                     .frame(width: 350, height: 150)
                                     .cornerRadius(20)
                                 HStack(spacing: 5) {
-                                    Image(imageInfo.imageName)
+                                    Image(guide.image)
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: 100, height: 100)
                                     VStack(alignment: .leading, spacing: 15) {
-                                        Text(imageInfo.imageName)
+                                        Text(guide.image)
                                             .font(.system(size: 23, weight: .semibold))
-                                        Text(imageInfo.location)
+                                        Text(guide.location)
                                             .font(.system(size: 16))
                                             .foregroundColor(Color.gray)
-                                        Text(imageInfo.rating)
+                                        Text(guide.reviews)
                                             .font(.system(size: 15))
                                     }
                                     .frame(maxWidth: .infinity) // Expand to fill the available space
@@ -174,6 +165,9 @@ struct HomeViewGuide: View {
                     .foregroundColor(Color(.black))
                 }
             }.padding(.top, 20)
+                .onAppear {
+                    guideViewModel.fetchGuides()
+                }
             
         }
     }
@@ -231,6 +225,6 @@ extension Color {
 
 struct HomeViewGuide_Previews: PreviewProvider {
     static var previews: some View {
-        HomeViewGuide()
+        HomeViewGuide(guideViewModel: GuideViewModel())
     }
 }
