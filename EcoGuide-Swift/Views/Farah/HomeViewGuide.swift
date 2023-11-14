@@ -61,8 +61,8 @@ struct HomeViewGuide: View {
                             HStack(spacing: 10) {
                                 ForEach(guideViewModel.guides ,id: \._id) { guide in
                                     ZStack {
-                                        Image(guide.image)
-                                            .resizable()
+                                        AsyncImageView(url: guide.image)
+                                            
                                             .scaledToFill()
                                             .frame(width: 300, height: 300)
                                             .cornerRadius(50)
@@ -108,13 +108,13 @@ struct HomeViewGuide: View {
                                     .frame(width: 350, height: 150)
                                     .cornerRadius(20)
                                 HStack(spacing: 5) {
-                                    Image(guide.image)
-                                        .resizable()
+                                    AsyncImageView(url: guide.image)
+                                        
                                         .scaledToFit()
                                         .frame(width: 100, height: 100)
                                     VStack(alignment: .leading, spacing: 15) {
-                                        Text(guide.image)
-                                            .font(.system(size: 23, weight: .semibold))
+//                                        Text(guide.image)
+//                                            .font(.system(size: 23, weight: .semibold))
                                         Text(guide.location)
                                             .font(.system(size: 16))
                                             .foregroundColor(Color.gray)

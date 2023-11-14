@@ -124,8 +124,7 @@ struct bookmarksGuide: View {
                     .frame(height: 150).frame(width: 350)
                     .cornerRadius(20)
                 HStack(spacing: 5) {
-                    Image(guide.image)
-                        .resizable()
+                    AsyncImageView(url: guide.image)
                         .frame(width: 100, height: 100)
                         .cornerRadius(10)
                         .padding(.leading, 10)
@@ -182,8 +181,7 @@ struct bookmarksGuide: View {
                     .cornerRadius(20)
                 
                 VStack(spacing: 5) {
-                    Image(guide.image)
-                        .resizable()
+                    AsyncImageView(url: guide.image)   
                         .frame(width: 145, height: 135)
                         .cornerRadius(20)
                     Text(guide.fullname)

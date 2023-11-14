@@ -14,8 +14,8 @@ struct detailGuide: View {
     var body: some View {
         NavigationView{
                 VStack(alignment:.leading,spacing: 20) {
-                    Image(guideInfo.image)
-                        .resizable().cornerRadius(32)
+                    AsyncImageView(url: guideInfo.image)
+                        .cornerRadius(32)
                     
                         .frame(height: 200)
                         .aspectRatio(contentMode: .fill)
