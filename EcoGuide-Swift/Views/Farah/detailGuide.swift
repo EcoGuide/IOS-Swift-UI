@@ -14,13 +14,16 @@ struct detailGuide: View {
     var body: some View {
         NavigationView{
                 VStack(alignment:.leading,spacing: 20) {
-                    AsyncImageView(url: guideInfo.image)
-                        .cornerRadius(32)
+                    AsyncImage(url: URL(string: guideInfo.image)) { phase in
+                        phase.image?
+                            .resizable()
+                            .cornerRadius(32)
+                            .frame(height: 250)
+                    }
+                       
                     
-                        .frame(height: 200)
-                        .aspectRatio(contentMode: .fill)
                         
-                        .padding(.top, 20)
+                        .padding(.top, 15)
                     
                     HStack {
                         Text(guideInfo.fullname)
@@ -52,7 +55,8 @@ struct detailGuide: View {
                     
                     
                     Text(guideInfo.description)
-                        .font(.title2)
+                        .font(.body).lineLimit(nil)
+                       
                     
                     
                     Button("Read more") {
@@ -118,7 +122,7 @@ struct detailGuide: View {
                         VStack(alignment: .leading)
                         {
                             Text("Price")
-                            Text(String(format: "%.2f", guideInfo.price))
+                            Text("\(guideInfo.price)")
                                 .font(.system(size: 22, weight: .semibold))
                                 .foregroundColor(Color.blue)
                             
@@ -126,7 +130,7 @@ struct detailGuide: View {
                         Spacer()
                         
                         Section {
-                            NavigationLink(destination: bookingformGuide(discountCode: $discountcode)) {
+                            NavigationLink(destination: bookingFormGuide(guideViewModel: GuideViewModel(), guide: .constant(guideInfo), discountCode: $discountcode)){
                                 
                                 Button("Book Now") {
                                     // Action à effectuer lors du clic sur "Book Now"
@@ -164,7 +168,7 @@ struct DetailGuide_Previews: PreviewProvider {
             fullname: "Flena Foueniya",
             location: "Paris, France",
             image: "guide_image",
-            description: "Guide description",
+            description: "Guide descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn",
             reviews: "33326",
             price: 26,
             discountCode: 22

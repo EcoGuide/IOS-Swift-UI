@@ -95,7 +95,7 @@ struct GridItemView: View {
                
                 
                 HStack(spacing: 15) {
-                    Text(String(format: "%.2f", guide.price))
+                    Text("\(guide.price)")
                         .font(.system(size: 18))
                         .fontWeight(.regular)
         
@@ -152,7 +152,7 @@ struct ListItemView: View {
                 .frame(maxWidth: .infinity)
                 Spacer()
                 VStack(alignment: .trailing, spacing: 15) {
-                    Text(String(format: "%.2f", guide.price))
+                    Text("\(guide.price)")
                         .font(.system(size: 23, weight: .semibold))
                         .foregroundColor(Color.blue)
                     Text("/ day").foregroundColor(Color.blue) .fontWeight(.semibold)

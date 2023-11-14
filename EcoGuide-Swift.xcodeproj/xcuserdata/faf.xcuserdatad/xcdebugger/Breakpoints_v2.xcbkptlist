@@ -62,8 +62,8 @@
             filePath = "EcoGuide-Swift/Views/Farah/bookingFormGuide.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
             landmarkName = "SelectCardsView"
             landmarkType = "14">
          </BreakpointContent>
@@ -78,8 +78,8 @@
             filePath = "EcoGuide-Swift/Views/Farah/bookingFormGuide.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "279"
-            endingLineNumber = "279"
+            startingLineNumber = "302"
+            endingLineNumber = "302"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>

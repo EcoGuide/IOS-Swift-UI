@@ -9,12 +9,7 @@ struct bookmarksGuide: View {
     @StateObject var guideViewModel : GuideViewModel
     var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
     
-    // Define staticGuides as a property of the structure
-//    var staticGuides: [Guide] = [
-//        Guide( fullname: "Guide 1", location: "Location 1", image: "guide1", description: "Description 1", reviews: "Reviews 1", price: "$29"),
-//        Guide( fullname: "Guide 2", location: "Location 2", image: "guide2", description: "Description 2", reviews: "Reviews 2", price: "$39"),
-//    ]
-    
+
     
     
     
@@ -99,22 +94,11 @@ struct bookmarksGuide: View {
                 .listRowInsets(EdgeInsets())
             }
         }
-        //        .onDelete(perform: deleteItem)
+
     }
     
     
-    //    func deleteItem(at offsets: IndexSet) {
-    //        if let index = offsets.first {
-    //            staticGuides.remove(at: index)
-    //        }
-    //    }
-    
-    //    func removeBookmark(bookmark: Guide) {
-    //        if let index = staticGuides.firstIndex(where: { $0.id == bookmark.id }) {
-    //            staticGuides.remove(at: index)
-    //        }
-    //    }
-    
+ 
     
     struct listBookmarkItemView: View {
         var guide : Guide
@@ -144,7 +128,7 @@ struct bookmarksGuide: View {
                     .frame(maxWidth: .infinity)
                     Spacer()
                     VStack(alignment: .trailing, spacing: 15) {
-                        Text("$35")
+                        Text("\(guide.price)")
                             .font(.system(size: 23, weight: .semibold))
                             .foregroundColor(Color.blue)
                         Text("/ day")
@@ -201,7 +185,7 @@ struct bookmarksGuide: View {
                     
                     
                     HStack(spacing: 15) {
-                        Text(String(format: "%.2f", guide.price))
+                        Text("\(guide.price)")
                             .font(.system(size: 23, weight: .semibold))
                             .foregroundColor(Color.blue)
                         Text("/ day").foregroundColor(Color.blue)

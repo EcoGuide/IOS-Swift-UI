@@ -74,13 +74,18 @@ struct HomeViewGuide: View {
                                                 Text(guide.location)
                                                     .font(.headline)
                                                     .foregroundColor(.black)
-                                                Text(String(format: "%.2f", guide.price))
+                                                Text("\(guide.price)")
                                                     .font(.headline)
                                                     .foregroundColor(.white)
                                             }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
                                             .padding()
                                             Spacer()
-                                            Text("Rating")
+                                            HStack{
+                                                Text("\(guide.reviews)")
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.yellow)
+                                            }
+                                           
                                                 .padding()
                                                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
                                         }
@@ -118,13 +123,19 @@ struct HomeViewGuide: View {
                                         Text(guide.location)
                                             .font(.system(size: 16))
                                             .foregroundColor(Color.gray)
-                                        Text(guide.reviews)
-                                            .font(.system(size: 15))
+                                        HStack{
+                                            Image(systemName: "star.fill")
+                                                .foregroundColor(.yellow)
+                                                .font(.system(size: 15))
+                                            Text(guide.reviews)
+                                            
+                                        }
+                                     
                                     }
                                     .frame(maxWidth: .infinity) // Expand to fill the available space
                                     Spacer()
                                     VStack(alignment: .trailing, spacing: 15) {
-                                        Text("$35")
+                                        Text("\(guide.price)")
                                             .font(.system(size: 23, weight: .semibold))
                                             .foregroundColor(Color.blue)
                                         Text("/ day")

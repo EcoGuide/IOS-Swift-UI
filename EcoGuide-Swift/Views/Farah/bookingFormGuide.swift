@@ -16,62 +16,85 @@ struct User {
     var discountCode: Double = 0.0
 }
 
-
-struct bookingformGuide: View {
-    @State private var selectedDate: Date = Date()
-    @State private var user = User()
-    @State private var selectedHours: String = ""
-    @State private var selectedPhoneNumber: String = ""
-    @State private var isPaymentMethodSelected: Bool = false
-    @State private var isForAnotherPerson = false
-
-    @Binding var discountCode: Double
+    
+    struct bookingFormGuide: View {
+        @State private var selectedDate: Date = Date()
+        @State private var user = User()
+        @State private var selectedHours: String = ""
+        @State private var selectedPhoneNumber: String = ""
+        @State private var isForAnotherPerson = false
+        @StateObject var guideViewModel: GuideViewModel
+        @Binding var guide: Guide
+        @Binding var discountCode: Double
 
         var body: some View {
-            NavigationStack {
-                Form {
-                    Section {
-                        DatePicker("Select Date", selection: $selectedDate, displayedComponents: .date)
-                    }
-                    
-                    Section(header: Text("Select Hours")) {
-                        TextField("Number of Hours", text: $selectedHours)
-                            .keyboardType(.numberPad)
-                    }
-                    
-                    Section(header: Text("Total Price")) {
-                        Text(calculateTotalPrice())
-                            .foregroundColor(.blue)
-                    }
-                    
-                    Section {
-                        NavigationLink(destination: PaymentDetailsView(user:$user, selectedPhoneNumber: $selectedPhoneNumber,
-                                                discountCode : $discountCode
-                                                                      )) {
-                            Text("Continue")
-                                .frame(maxWidth: .infinity)
-                                .frame(height: 44)
-                                .background(Color.blue)
-                                .foregroundColor(.white)
-                                .cornerRadius(8)
-                        }
-                    }
-                }
-            }
-        }
-        
-        func calculateTotalPrice() -> String {
-        
-            if let hours = Int(selectedHours) {
-                let pricePerHour = 50 // Adjust as needed
-                let totalPrice = hours * pricePerHour
-                return "$\(totalPrice)"
-            } else {
-                return "$0" // Handle invalid input
-            }
-        }
-    }
+               NavigationView {
+                   Form {
+                       Section {
+                           DatePicker("Select Date", selection: $selectedDate, displayedComponents: .date)
+                       }
 
+                       Section(header: Text("Select Hours")) {
+                           TextField("Number of Hours", text: $selectedHours)
+                               .keyboardType(.numberPad)
+                       }
+
+                       Section(header: Text("Total Price")) {
+                           Text(calculateTotalPrice())
+                               .foregroundColor(.blue)
+                       }
+
+                       Section(header: Text("Is this booking for you?")) {
+                           Toggle("For Me", isOn: $isForAnotherPerson)
+                       }
+
+                       Section {
+                           if isForAnotherPerson {
+                               NavigationLink(
+                                   destination:SelectCardsView(user: $user, selectedPhoneNumber: $selectedPhoneNumber, discountCode: $discountCode),
+                                   label: {
+                                       ContinueButton("Continue") {
+                                           isForAnotherPerson = true
+                                       }
+                                   }
+                               )
+                           } else {
+                               NavigationLink(
+                                   destination: PaymentDetailsView(user: $user, selectedPhoneNumber: $selectedPhoneNumber, discountCode: $discountCode),
+                                   label: {
+                                       ContinueButton("Continue") {
+                                           isForAnotherPerson = false
+                                       }
+                                   }
+                               )
+                           }
+                       }
+                   }
+                   .navigationBarTitle("Booking Form", displayMode: .inline)
+               }
+           }
+
+           private func ContinueButton(_ title: String, action: @escaping () -> Void) -> some View {
+               Button(action: action) {
+                   Text(title)
+                       .frame(maxWidth: .infinity)
+                       .frame(height: 44)
+                       .background(Color.blue)
+                       .foregroundColor(.white)
+                       .cornerRadius(8)
+               }
+           }
+
+           private func calculateTotalPrice() -> String {
+               if let hours = Int(selectedHours) {
+                   let pricePerHour = guide.price // Adjust as needed
+                   let totalPrice = hours * pricePerHour
+                   return "$\(totalPrice)"
+               } else {
+                   return "$0" // Handle invalid input
+               }
+           }
+       }
 struct PaymentDetailsView: View {
     @Binding var user: User
     @Binding var selectedPhoneNumber: String
@@ -516,11 +539,11 @@ struct secondPaymentView: View {
     }
     
     struct BookingGuide_Previews: PreviewProvider {
+        // Use constant bindings for the preview
         @State private static var discountCode: Double = 0.0
+        @State private static var guide = Guide(_id: "test", fullname: "Example Guide", location:"testtttt",image: "Example Location", description: "example_image", reviews: "4.5", price: Int(25.0), discountCode: 0)
+        
         static var previews: some View {
-            bookingformGuide(discountCode: $discountCode)
+            bookingFormGuide(guideViewModel: GuideViewModel(), guide: .constant(guide), discountCode: .constant(discountCode))
         }
-    }
-    
-    
-}
+    }}
