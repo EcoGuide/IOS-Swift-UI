@@ -118,8 +118,8 @@ struct HomeViewGuide: View {
                                         .scaledToFit()
                                         .frame(width: 100, height: 100)
                                     VStack(alignment: .leading, spacing: 15) {
-//                                        Text(guide.image)
-//                                            .font(.system(size: 23, weight: .semibold))
+                                        Text(guide.fullname)
+                                            .font(.system(size: 23, weight: .semibold))
                                         Text(guide.location)
                                             .font(.system(size: 16))
                                             .foregroundColor(Color.gray)
@@ -139,7 +139,9 @@ struct HomeViewGuide: View {
                                             .font(.system(size: 23, weight: .semibold))
                                             .foregroundColor(Color.blue)
                                         Text("/ day")
-                                        Text("Button")
+                                         Image(systemName: "bookmark")
+                                            .font(.system(size: 20))
+                                            .foregroundColor(Color.black)
                                         
                                     }
                                 }
