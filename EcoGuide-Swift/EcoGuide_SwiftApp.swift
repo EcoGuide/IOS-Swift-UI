@@ -16,6 +16,7 @@ struct EcoGuide_SwiftApp: App {
 //            Register()
             Register()
 //               VerifMail()
+//            OTP()
         }
     }
 }

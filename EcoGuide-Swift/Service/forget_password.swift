@@ -11,7 +11,7 @@ class forget_password{
 //    ----------------------------------------  OTP mailling  ----------------------------------------
 
     func forgetpassword(email: String, completion: @escaping (Result<String, Error>) -> Void) {
-        guard let url = URL(string: "http://192.168.1.129:3000/forgot-password") else {
+        guard let url = URL(string: "http://192.168.1.129:3000:3000/forgot-password") else {
             completion(.failure(URLError(.badURL)))
             return
         }
@@ -96,7 +96,7 @@ class forget_password{
                 if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
                    let token = json["Token"] as? String {
                     // put token in prefs
-                    UserDefaults.standard.set(token, forKey: "tokenverificationcodesms")
+                    UserDefaults.standard.set(token, forKey: "tokenverificationcode")
                     completion(.success(token))
                 } else {
                     completion(.failure(URLError(.cannotParseResponse)))

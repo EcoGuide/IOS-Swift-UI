@@ -9,9 +9,13 @@ import SwiftUI
 
 struct Reset_Password: View {
     @State private var newPassword = ""
-      @State private var confirmPassword = ""
-      @State private var rememberMe = false
+    @State private var confirmPassword = ""
+    @State private var rememberMe = false
     @State private var navigatingToResetPassword = false
+    let resetPWD = Reset_password()
+    @State private var resultMessage = ""
+    @State private var message: String = ""
+    @State private var showingAlert = false
 
       var body: some View {
 //          NavigationView {
@@ -70,8 +74,22 @@ struct Reset_Password: View {
 
               // Reset Password Button
               Button(action: {
-                  // Logic to reset password
-                  // consomation api node  /reset-password
+                            // Récupération du token et du code depuis UserDefaults
+            let token = UserDefaults.standard.string(forKey: "tokenverificationcode") ?? ""
+            let code = UserDefaults.standard.string(forKey: "CodeInput") ?? ""
+                            
+                print(code)
+            if !code.isEmpty {
+                resetPWD.resetPassword(password: self.newPassword, code: code) { success, responseMessage in
+               DispatchQueue.main.async {
+                   self.message = responseMessage
+                   self.showingAlert = true
+
+                }
+            }
+            } else {
+                               self.message = "Token or code not found"
+                           }
               }) {
                   Text("Reset Password")
                       .foregroundColor(.white)
@@ -82,6 +100,16 @@ struct Reset_Password: View {
               }
               .padding(.horizontal)
               .shadow(color: .black, radius: 95, x: 1, y: 40)
+              .alert(isPresented: $showingAlert) {
+                  
+                  Alert(
+                      title: Text("Succes"),
+                      message: Text("You are Successfully reseted your password"),
+                      dismissButton: .default(Text("OK"))
+                  )
+              }
+              
+              
               Spacer()
           }
           .padding()

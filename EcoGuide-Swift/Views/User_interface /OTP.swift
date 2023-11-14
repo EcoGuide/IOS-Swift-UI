@@ -9,7 +9,12 @@ import SwiftUI
 
 struct OTP: View {
     @State private var code = ""
-       @State private var timeRemaining = 53
+    @State private var timeRemaining = 53
+    @State private var nav = false
+    @State private var sheetToggleView = false
+
+    let reset = Reset_password()
+
        let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
        var body: some View {
@@ -32,15 +37,16 @@ struct OTP: View {
                    .padding(.vertical)
                
                // Code Input Fields
-               HStack(spacing: 20) {
-                   ForEach(0..<4, id: \.self) { _ in
-                       TextField("", text: $code)
+               HStack(spacing: 20)
+               {
+                        TextField("code", text: $code)
                            .frame(width: 40, height: 45)
                            .background(Color(.systemGray6))
                            .multilineTextAlignment(.center)
                            .keyboardType(.numberPad)
                            .cornerRadius(10)
-                   }
+                           
+                    
                }
                .padding()
                
@@ -58,6 +64,23 @@ struct OTP: View {
                    Button(action: {
                        // Action to resend the code
                        // Reset the timer
+                       // save code in prefs
+                       // fetch payload from token
+//                       if let token = UserDefaults.standard.string(forKey: "tokenverificationcode") {
+//                           print("Token: \(token)")
+//                           if let payload = reset.decodeJWT(token: token) {
+//                                  // Affichez les informations de payload
+//                               print("Payload:", payload)
+//                              } else {
+//                                  print("Impossible de décoder le token.")
+//                              }
+//                       } else {
+//                           print("Token not found")
+//                       }
+//                       if $code == payload.code {
+//                           nav : true
+//                       }
+//                       compare code (input) with code (payload token) if true navigate to reset-password
                        timeRemaining = 53
                    }) {
                        Text("Resend code")
@@ -65,9 +88,12 @@ struct OTP: View {
                    }
                }
                
- 
+
                // Verify Button
                Button(action: {
+                   self.sheetToggleView.toggle()
+                   UserDefaults.standard.set(code,forKey:"CodeInput")
+
                    // Action to verify the code
                }) {
                    Text("Verify")
@@ -81,6 +107,9 @@ struct OTP: View {
 
                }
                .padding(.bottom)
+               .sheet(isPresented:$sheetToggleView ){
+                          Reset_Password()
+                      }
            }
            .padding()
        }
