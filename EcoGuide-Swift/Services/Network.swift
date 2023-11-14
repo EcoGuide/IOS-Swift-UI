@@ -13,5 +13,6 @@ struct Network {
     
     
     //guides routes
-    static let fetchGuideUrl = BASE_URL + "/guide"
+    static let fetchGuideUrl = BASE_URL + "/guides"
 }
+

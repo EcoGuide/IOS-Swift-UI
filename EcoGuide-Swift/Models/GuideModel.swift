@@ -7,15 +7,15 @@
 
 import Foundation
 
-struct Guide: Identifiable, Codable {
-    var id: UUID = UUID() // Add a unique identifier
-
-    var name: String
+struct Guide: Codable {
+    var _id : String // Add a unique identifier
+    var fullname: String
     var location: String
-    var imageName: String
+    var image: String
     var description: String
     var reviews: String
-    var price: String
+    var price: Int
+    var discountCode:Int 
 }
 
 
@@ -27,7 +27,7 @@ struct Guide: Identifiable, Codable {
 
 
 struct fetchGuidesResponse : Decodable {
-    let guide : [Guide]
+    let guides : [Guide]
     let message : String
     let statusCode : Int
 }

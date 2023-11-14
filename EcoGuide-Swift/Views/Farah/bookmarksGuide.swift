@@ -6,14 +6,14 @@ struct bookmarksGuide: View {
     @State private var isGridViewSelected = true
     @State private var isListViewSelected = false
     @State private var discountCode: Double = 0.0
-    
+    @StateObject var guideViewModel : GuideViewModel
     var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
     
     // Define staticGuides as a property of the structure
-    var staticGuides: [Guide] = [
-        Guide( name: "Guide 1", location: "Location 1", imageName: "guide1", description: "Description 1", reviews: "Reviews 1", price: "$29"),
-        Guide( name: "Guide 2", location: "Location 2", imageName: "guide2", description: "Description 2", reviews: "Reviews 2", price: "$39"),
-    ]
+//    var staticGuides: [Guide] = [
+//        Guide( fullname: "Guide 1", location: "Location 1", image: "guide1", description: "Description 1", reviews: "Reviews 1", price: "$29"),
+//        Guide( fullname: "Guide 2", location: "Location 2", image: "guide2", description: "Description 2", reviews: "Reviews 2", price: "$39"),
+//    ]
     
     
     
@@ -54,7 +54,9 @@ struct bookmarksGuide: View {
                     
                 }
             }.padding(10)
-            
+                .onAppear {
+                    guideViewModel.fetchGuides()
+                }
                 .alert(isPresented: $showingAlert) {
                     Alert(
                         title: Text("Remove Bookmark"),
@@ -71,7 +73,7 @@ struct bookmarksGuide: View {
     }
     var gridView: some View {
         LazyVGrid(columns: Array(repeating: GridItem.init(.flexible()), count: 2), spacing: 16) {
-            ForEach(staticGuides) { guide in
+            ForEach(guideViewModel.guides ,id: \._id) { guide in
                 NavigationLink(destination: detailGuide(guideInfo: guide, discountcode: $discountCode)) {
                     BookmarkItemView(guide: guide)
                         .contextMenu {
@@ -89,7 +91,7 @@ struct bookmarksGuide: View {
     
     
     var listView: some View {
-        ForEach(staticGuides) { guide in
+        ForEach(guideViewModel.guides,id: \._id) { guide in
             HStack {
                 NavigationLink(destination: detailGuide(guideInfo: guide, discountcode: $discountCode)) {
                     listBookmarkItemView(guide: guide)
@@ -122,13 +124,13 @@ struct bookmarksGuide: View {
                     .frame(height: 150).frame(width: 350)
                     .cornerRadius(20)
                 HStack(spacing: 5) {
-                    Image(guide.imageName)
+                    Image(guide.image)
                         .resizable()
                         .frame(width: 100, height: 100)
                         .cornerRadius(10)
                         .padding(.leading, 10)
                     VStack(alignment: .leading, spacing: 15) {
-                        Text(guide.name)
+                        Text(guide.fullname)
                             .font(.system(size: 23, weight: .semibold))
                         Text(guide.location)
                             .font(.system(size: 16))
@@ -180,11 +182,11 @@ struct bookmarksGuide: View {
                     .cornerRadius(20)
                 
                 VStack(spacing: 5) {
-                    Image(guide.imageName)
+                    Image(guide.image)
                         .resizable()
                         .frame(width: 145, height: 135)
                         .cornerRadius(20)
-                    Text(guide.name)
+                    Text(guide.fullname)
                         .font(.system(size: 20))
                         .fontWeight(.bold)
                     
@@ -201,7 +203,7 @@ struct bookmarksGuide: View {
                     
                     
                     HStack(spacing: 15) {
-                        Text(guide.price)
+                        Text(String(format: "%.2f", guide.price))
                             .font(.system(size: 23, weight: .semibold))
                             .foregroundColor(Color.blue)
                         Text("/ day").foregroundColor(Color.blue)
@@ -232,7 +234,7 @@ struct bookmarksGuide: View {
     
     struct BookmarkView_Previews: PreviewProvider {
         static var previews: some View {
-            bookmarksGuide()
+            bookmarksGuide(guideViewModel: GuideViewModel())
         }
     }
 }

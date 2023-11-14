@@ -15,8 +15,8 @@ struct RecentlyBookedGuide: View {
     var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2) // 2 columns
 
     let staticGuides: [Guide] = [
-        Guide( name: "Guide 1", location: "Location 1", imageName: "guide1", description: "Description 1", reviews: "Reviews 1", price: "$29"),
-        Guide( name: "Guide 2", location: "Location 2", imageName: "guide2", description: "Description 2", reviews: "Reviews 2", price: "$39"),
+        Guide( _id: "qsdqsdqsdqs", fullname: "Guide 1", location: "Location 1", image: "guide1", description: "Description 1", reviews: "Reviews 1", price: 29,discountCode:22),
+        Guide( _id: "qsdqsdqsdqs", fullname: "Guide 2", location: "Location 2", image: "guide2", description: "Description 2", reviews: "Reviews 2", price: 3,discountCode:22),
     ]
   
 
@@ -46,13 +46,13 @@ struct RecentlyBookedGuide: View {
 
             if isGridView {
                 LazyVGrid(columns: columns, spacing: 16) {
-                    ForEach(staticGuides) { guide in
+                    ForEach(staticGuides,id: \._id) { guide in
                         GridItemView(guide: guide)
                     }
                 }
                 .padding(.trailing, 20)
             } else {
-                ForEach(staticGuides) { guide in
+                ForEach(staticGuides,id: \._id) { guide in
                     ListItemView(guide: guide)
                 }
                 .padding(.trailing, 20)
@@ -71,11 +71,11 @@ struct GridItemView: View {
                 .frame(height: 250)
                 .cornerRadius(20)
             VStack(spacing: 5) {
-                Image(guide.imageName)
+                Image(guide.image)
                     .resizable()
                     .frame(width: 120, height: 120)
                     .cornerRadius(10)
-                Text(guide.name)
+                Text(guide.fullname)
                     .font(.system(size: 18))
                     .fontWeight(.semibold)
 
@@ -97,7 +97,7 @@ struct GridItemView: View {
                
                 
                 HStack(spacing: 15) {
-                    Text(guide.price)
+                    Text(String(format: "%.2f", guide.price))
                         .font(.system(size: 18))
                         .fontWeight(.regular)
         
@@ -132,12 +132,12 @@ struct ListItemView: View {
                    .frame(height: 150).frame(width: 350)
                    .cornerRadius(20)
                HStack(spacing: 5) {
-                   Image(guide.imageName)
+                   Image(guide.image)
                        .resizable()
                     .frame(width: 100, height: 100)
                     .cornerRadius(10)
                 VStack(alignment: .leading, spacing: 15) {
-                    Text(guide.name)
+                    Text(guide.fullname)
                         .font(.system(size: 20))
                         .fontWeight(.bold)
                     Text(guide.location)
@@ -154,7 +154,7 @@ struct ListItemView: View {
                 .frame(maxWidth: .infinity)
                 Spacer()
                 VStack(alignment: .trailing, spacing: 15) {
-                    Text(guide.price)
+                    Text(String(format: "%.2f", guide.price))
                         .font(.system(size: 23, weight: .semibold))
                         .foregroundColor(Color.blue)
                     Text("/ day").foregroundColor(Color.blue) .fontWeight(.semibold)

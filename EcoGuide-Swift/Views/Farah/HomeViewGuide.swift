@@ -19,6 +19,8 @@ struct ImageInfo: Identifiable {
 struct HomeViewGuide: View {
     @State private var username: String = ""
     var image = ["guide1", "guide2", "guide3"]
+    
+    
     @State private var imageInfoList: [ImageInfo] = [
         ImageInfo(imageName: "guide1", title: "Flen Fouleni", location: "tunis, France", price: "$29 / day", rating: "String"),
         ImageInfo(imageName: "guide2", title: "Flen Fouleni", location: "Paris, France", price: "$29 / day", rating: "string"),

@@ -14,7 +14,7 @@ struct detailGuide: View {
     var body: some View {
         NavigationView{
                 VStack(alignment:.leading,spacing: 20) {
-                    Image(guideInfo.imageName)
+                    Image(guideInfo.image)
                         .resizable().cornerRadius(32)
                     
                         .frame(height: 200)
@@ -23,7 +23,7 @@ struct detailGuide: View {
                         .padding(.top, 20)
                     
                     HStack {
-                        Text(guideInfo.name)
+                        Text(guideInfo.fullname)
                             .font(.title)
                             .padding(.top, 16)
                         
@@ -118,7 +118,7 @@ struct detailGuide: View {
                         VStack(alignment: .leading)
                         {
                             Text("Price")
-                            Text(guideInfo.price)
+                            Text(String(format: "%.2f", guideInfo.price))
                                 .font(.system(size: 22, weight: .semibold))
                                 .foregroundColor(Color.blue)
                             
@@ -160,12 +160,14 @@ struct DetailGuide_Previews: PreviewProvider {
     @State private static var discountcode: Double = 0.0
     static var previews: some View {
         detailGuide(guideInfo: Guide(
-            name: "Flena Foueniya",
+            _id: "qsdqsdqsdqs",
+            fullname: "Flena Foueniya",
             location: "Paris, France",
-            imageName: "guide_image",
+            image: "guide_image",
             description: "Guide description",
             reviews: "33326",
-            price: "326$"
+            price: 26,
+            discountCode: 22
         ),discountcode: $discountcode)
     }
 }

@@ -21,6 +21,7 @@ struct Guideservice {
                 
             case .success:
                 let responseData = Data(res.data!)
+                print(responseData)
                 do {
                     let parsedData = try JSONDecoder().decode(fetchGuidesResponse.self, from: responseData)
                     completion(.success(parsedData))
