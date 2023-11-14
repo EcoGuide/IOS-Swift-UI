@@ -19,8 +19,9 @@ class AuthService {
 
     
     
+    
     func signUp(email: String, password: String,name:String ,completion: @escaping (Bool, Error?) -> Void) {
-        let url = URL(string: "http://192.168.1.129:3000/signupA")!
+        let url = URL(string: "http://192.168.1.129:3000/signupU")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         
@@ -48,7 +49,6 @@ class AuthService {
         }
         task.resume()
     }
-    
     func signInadmin(email: String, password: String, completion: @escaping (Result<String, Error>) -> Void) {
         guard let url = URL(string: "http://192.168.1.129:3000/SignIn") else {
             completion(.failure(URLError(.badURL)))

@@ -52,7 +52,7 @@ struct Register: View {
                                 .padding(.leading, 35), // Cette valeur doit correspondre au padding horizontal de votre TextField
                             alignment: .leading
                         )
-                    TextField("Firstname", text: $password)
+                    TextField("Firstname", text: $name)
                         .padding(.vertical)
                         .padding(.leading, 35)
                         .background(Color.white.opacity(0.6))
@@ -89,7 +89,7 @@ struct Register: View {
                     //                        .padding(.leading, 35), // Cette valeur doit correspondre au padding horizontal de votre TextField
                     //                        alignment: .leading
                     //                    )
-                    SecureField("Password", text: $name)
+                    SecureField("Password", text: $password)
                         .padding(.vertical)
                         .padding(.leading, 35)
                         .background(Color.white.opacity(0.7))

@@ -14,8 +14,12 @@ struct OTP: View {
 
        var body: some View {
            VStack {
-               Spacer()
-               
+                Image(systemName: "clock.badge.checkmark.fill")
+                  .resizable()
+                  .aspectRatio(contentMode: .fill)
+                  .frame(width: 150, height: 150)
+                  .foregroundColor(.blue)
+                  .opacity(0.4)
                // Title
                Text("Forgot Password")
                    .font(.title)
@@ -61,8 +65,7 @@ struct OTP: View {
                    }
                }
                
-               Spacer()
-               
+ 
                // Verify Button
                Button(action: {
                    // Action to verify the code
@@ -74,6 +77,8 @@ struct OTP: View {
                        .background(Color.blue)
                        .cornerRadius(10)
                        .padding(.horizontal)
+                       .shadow(color: .black, radius: 95, x: 1, y: 40)
+
                }
                .padding(.bottom)
            }

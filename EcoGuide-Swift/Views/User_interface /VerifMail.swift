@@ -8,58 +8,56 @@
 import SwiftUI
 
 struct VerifMail: View {
-    var body: some View {
-    
-        ZStack{
-          
- 
+    @State private var navigateToLogin = false
 
-            ZStack {
-                // Fond d'écran
+    var body: some View {
+        
+
+         NavigationView{
+             Button("aller vers"){
                  
-                 
-            }
-            VStack {
-//                Text("Mail Verification")
-//                    .font(.largeTitle)
-//                    .fontWeight(.bold)
-//                    .foregroundColor(.black)
-//                      .padding(.top, 8)
-                Image(systemName: "person.crop.circle.fill.badge.checkmark")
-                                .resizable()
-                            .aspectRatio(contentMode: .fit)
-                               .frame(width: 220, height: 270)
-                              .foregroundColor(Color.blue)
-                             Spacer()
-                Text("We should verify your Email")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundColor(.secondary)
-                    .multilineTextAlignment(.center)
-                    .padding(.top, 8)
-              
- 
-                Button(action: {
-                    // Logique de connexion
-                }) {
-                    Text("Verify Mail")
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(20)
-                        .padding(.horizontal, 32)
-                }
-                .padding(.top, 20)
-                .shadow(color: .black, radius: 70, x: 1, y: 30)
-                Spacer()
- 
+             }
+         }
+          
+                    Button(action: {
+                        let reset = Reset_password()
+//                         self.navigateToLogin .toggle()
+                        if let token = UserDefaults.standard.string(forKey: "tokenverificationcodesms") {
+                            print("Token: \(token)")
+                            if let payload = reset.decodeJWT(token: token) {
+                                   // Affichez les informations de payload
+                                print("Payload:", payload.keys)
+                               } else {
+                                   print("Impossible de décoder le token.")
+                               }
+                        } else {
+                            print("Token not found")
+                        }
+
+                    }) {
+                        Text("Verify Mail")
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .padding()
+                            .background(Color.blue)
+                            .cornerRadius(20)
+                            .padding(.horizontal, 32)
+                    }
+//                    .sheet(isPresented:$navigateToLogin ){
+//                               Reset_Password()
+//                           }
+                    
+                
+        
+        
             }
         }
-    }
-    
-}
+ 
+        
+
+         
+       
 //    var body: some View {
 //            VStack {
 //                Text("Mail Verification")

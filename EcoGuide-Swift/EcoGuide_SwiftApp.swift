@@ -15,7 +15,7 @@ struct EcoGuide_SwiftApp: App {
         WindowGroup {
 //            Register()
             Register()
-//               Login()
+//               VerifMail()
         }
     }
 }

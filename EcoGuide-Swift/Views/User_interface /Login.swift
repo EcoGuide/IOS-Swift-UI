@@ -11,7 +11,8 @@ struct Login: View {
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var showingAlert = false
-    
+    let authService = AuthService()
+
     var body: some View {
         NavigationView {
             
@@ -48,7 +49,7 @@ struct Login: View {
                                     .padding(.leading, 10)
                                 Spacer()
                             }
-                                .padding(.leading, 35), // Cette valeur doit correspondre au padding horizontal de votre TextField
+                                .padding(.leading, 35),
                             alignment: .leading
                         )
                     
@@ -68,18 +69,17 @@ struct Login: View {
                                     .padding(.leading, 15)
                                 Spacer()
                             }
-                                .padding(.leading, 35), // Cette valeur doit correspondre au padding horizontal de votre SecureField
+                                .padding(.leading, 35),
                             alignment: .leading
                         )
                     Button(action: {
-                        let authService = AuthService()  // Assurez-vous que cette classe existe et contient la fonction signIn
                         authService.signInadmin(email: self.email, password: self.password) { result in
                             DispatchQueue.main.async {
                                 switch result {
                                 case .success(let token):
                                     print("Logged in successfully, token: \(token)")
                                     self.showingAlert = true
-                                    // Vous pouvez maintenant utiliser le token comme nécessaire
+                                    
                                 case .failure(let error):
                                     print("An error occurred while signing in: \(error.localizedDescription)")
                                     self.showingAlert = true
@@ -106,14 +106,14 @@ struct Login: View {
                         )
                     }
 
-                    Button(action: {
-                        // Logique pour oublier le mot de passe
-                    }) {
-                        Text("Forget password? Click Here")
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
-                            .font(.caption)
-                    }
+                    NavigationLink(destination: Forget_Password(),label: {
+                             
+                                Text("Forget your Password? Click here")
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.white)
+                           
+                        
+                    })
                     .padding(.top, 5)
                     
                     Text("OR")
