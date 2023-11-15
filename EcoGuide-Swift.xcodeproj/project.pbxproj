@@ -12,6 +12,7 @@
 		1182A5932AFA796D007F994E /* MessageGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1182A5922AFA796D007F994E /* MessageGuide.swift */; };
 		1182A5952AFA7A06007F994E /* MessageBubbleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1182A5942AFA7A06007F994E /* MessageBubbleGuide.swift */; };
 		1182A5972AFA8795007F994E /* MessageGuideField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1182A5962AFA8795007F994E /* MessageGuideField.swift */; };
+		118833902B0439EE004072B8 /* PaymentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1188338F2B0439EE004072B8 /* PaymentButton.swift */; };
 		11CEEBDC2AF9746000175E74 /* HomeViewGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CEEBDB2AF9746000175E74 /* HomeViewGuide.swift */; };
 		11CEEBDF2AF9753D00175E74 /* RecentlyBookedGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CEEBDE2AF9753D00175E74 /* RecentlyBookedGuide.swift */; };
 		11CEEBE12AF9755D00175E74 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CEEBE02AF9755D00175E74 /* TestModel.swift */; };
@@ -67,6 +68,7 @@
 		1182A5922AFA796D007F994E /* MessageGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageGuide.swift; sourceTree = "<group>"; };
 		1182A5942AFA7A06007F994E /* MessageBubbleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubbleGuide.swift; sourceTree = "<group>"; };
 		1182A5962AFA8795007F994E /* MessageGuideField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageGuideField.swift; sourceTree = "<group>"; };
+		1188338F2B0439EE004072B8 /* PaymentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentButton.swift; sourceTree = "<group>"; };
 		11CEEBDB2AF9746000175E74 /* HomeViewGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewGuide.swift; sourceTree = "<group>"; };
 		11CEEBDE2AF9753D00175E74 /* RecentlyBookedGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyBookedGuide.swift; sourceTree = "<group>"; };
 		11CEEBE02AF9755D00175E74 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				1182A58C2AFA6944007F994E /* TitleRow.swift */,
 				1182A5942AFA7A06007F994E /* MessageBubbleGuide.swift */,
 				1182A5962AFA8795007F994E /* MessageGuideField.swift */,
+				1188338F2B0439EE004072B8 /* PaymentButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				4A5070C72AFA839600A797D8 /* Register.swift in Sources */,
 				4A5070C32AFA4B8B00A797D8 /* Login.swift in Sources */,
 				11CEEBE32AF9756800175E74 /* TestVM.swift in Sources */,
+				118833902B0439EE004072B8 /* PaymentButton.swift in Sources */,
 				11DDB9E52AFFE7A50071D05E /* MessageManager.swift in Sources */,
 				1182A58F2AFA789D007F994E /* ContentChatView.swift in Sources */,
 				1182A5952AFA7A06007F994E /* MessageBubbleGuide.swift in Sources */,

@@ -18,25 +18,38 @@ struct ImageInfo: Identifiable {
 
 struct HomeViewGuide: View {
     @State private var username: String = ""
-    @StateObject var guideViewModel : GuideViewModel
-    
+    @StateObject var guideViewModel: GuideViewModel
+    @State private var searchText: String = ""
     @State private var selectedFilter = "Recommended"
+    @State private var discountCode: Double = 0.0
 
-        let filters = ["Recommended", "Popular", "Trending", "Testing"]
+    let filters = ["Recommended", "Popular", "Trending", "Testing"]
+
+    var filteredGuides: [Guide] {
+        if searchText.isEmpty {
+            return guideViewModel.guides
+        } else {
+            return guideViewModel.guides.filter { guide in
+                guide.fullname.localizedCaseInsensitiveContains(searchText) ||
+                    guide.location.localizedCaseInsensitiveContains(searchText)
+            }
+        }
+    }
+
     var body: some View {
         NavigationStack {
             ScrollView {
                 ZStack {
-                    VStack(alignment: .leading, spacing: 20)
-                    {
+                    VStack(alignment: .leading, spacing: 20) {
                         Text("Hello, User")
+
                         TextField(
                             "Search",
-                            text: $username
+                            text: $searchText
                         )
                         .padding(.trailing, 20)
                         .textFieldStyle(CustomTextFieldStyle())
-                        
+
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack {
                                 ForEach(filters, id: \.self) { filter in
@@ -56,48 +69,46 @@ struct HomeViewGuide: View {
                                 }
                             }
                         }
-                        
+
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(spacing: 10) {
-                                ForEach(guideViewModel.guides ,id: \._id) { guide in
-                                    ZStack {
-                                        AsyncImageView(url: guide.image)
+                                ForEach(filteredGuides, id: \._id) { guide in
+                                    NavigationLink(destination: detailGuide(guideInfo: guide, discountcode: $discountCode)) {
+                                        ZStack {
+                                            AsyncImageView(url: guide.image)
+                                                .scaledToFill()
+                                                .frame(width: 300, height: 300)
+                                                .cornerRadius(50)
                                             
-                                            .scaledToFill()
-                                            .frame(width: 300, height: 300)
-                                            .cornerRadius(50)
-                                        HStack {
-                                            VStack(alignment: .leading, spacing: 10) {
-                                                Text(guide.fullname)
-                                                    .font(.headline)
-                                                    .foregroundColor(.white)
-                                                Text(guide.location)
-                                                    .font(.headline)
-                                                    .foregroundColor(.black)
-                                                Text("\(guide.price)")
-                                                    .font(.headline)
-                                                    .foregroundColor(.white)
-                                            }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
-                                            .padding()
-                                            Spacer()
-                                            HStack{
-                                                Text("\(guide.reviews)")
-                                                Image(systemName: "star.fill")
-                                                    .foregroundColor(.yellow)
-                                            }
-                                           
+                                            HStack {
+                                                VStack(alignment: .leading, spacing: 10) {
+                                                    Text(guide.fullname)
+                                                        .font(.headline)
+                                                        .foregroundColor(.white)
+                                                    Text(guide.location)
+                                                        .font(.headline)
+                                                        .foregroundColor(.black)
+                                                    Text("\(guide.price)")
+                                                        .font(.headline)
+                                                        .foregroundColor(.white)
+                                                }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
+                                                .padding()
+                                                Spacer()
+                                                HStack {
+                                                    Text("\(guide.reviews)")
+                                                    Image(systemName: "star.fill")
+                                                        .foregroundColor(.yellow)
+                                                }
                                                 .padding()
                                                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
+                                            }
                                         }
-                                    
                                     }
-                                    
                                     .frame(width: 300, height: 300)
-                                    
                                 }
                             }
                         }
-                        
+
                         HStack {
                             Text("Recently Booked")
                                 .font(.system(size: 22, weight: .semibold))
@@ -106,59 +117,52 @@ struct HomeViewGuide: View {
                                 .font(.system(size: 22, weight: .semibold))
                                 .foregroundColor(Color.blue)
                         }.padding(.trailing, 20)
-                        
-                        ForEach(guideViewModel.guides ,id: \._id) { guide in
-                            ZStack {
-                                Color(hex: "F3F8FE") // Set your desired background color here
-                                    .frame(width: 350, height: 150)
-                                    .cornerRadius(20)
-                                HStack(spacing: 5) {
-                                    AsyncImageView(url: guide.image)
-                                        
-                                        .scaledToFit()
-                                        .frame(width: 100, height: 100)
-                                    VStack(alignment: .leading, spacing: 15) {
-                                        Text(guide.fullname)
-                                            .font(.system(size: 23, weight: .semibold))
-                                        Text(guide.location)
-                                            .font(.system(size: 16))
-                                            .foregroundColor(Color.gray)
-                                        HStack{
-                                            Image(systemName: "star.fill")
-                                                .foregroundColor(.yellow)
-                                                .font(.system(size: 15))
-                                            Text(guide.reviews)
-                                            
+
+                        ForEach(filteredGuides, id: \._id) { guide in
+                            NavigationLink(destination: detailGuide(guideInfo: guide, discountcode: $discountCode)) {
+                                ZStack {
+                                    Color(hex: "F3F8FE")
+                                        .frame(width: 350, height: 150)
+                                        .cornerRadius(20)
+                                    HStack(spacing: 5) {
+                                        AsyncImageView(url: guide.image)
+                                            .scaledToFit()
+                                            .frame(width: 100, height: 100)
+                                        VStack(alignment: .leading, spacing: 15) {
+                                            Text(guide.fullname)
+                                                .font(.system(size: 23, weight: .semibold))
+                                            Text(guide.location)
+                                                .font(.system(size: 16))
+                                                .foregroundColor(Color.gray)
+                                            HStack {
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.yellow)
+                                                    .font(.system(size: 15))
+                                                Text(guide.reviews)
+                                            }
                                         }
-                                     
+                                        .frame(maxWidth: .infinity)
+                                        Spacer()
+                                        VStack(alignment: .trailing, spacing: 15) {
+                                            Text("\(guide.price)")
+                                                .font(.system(size: 23, weight: .semibold))
+                                                .foregroundColor(Color.blue)
+                                            Text("/ day")
+                                            Image(systemName: "bookmark")
+                                                .font(.system(size: 20))
+                                                .foregroundColor(Color.black)
+                                        }
                                     }
-                                    .frame(maxWidth: .infinity) // Expand to fill the available space
-                                    Spacer()
-                                    VStack(alignment: .trailing, spacing: 15) {
-                                        Text("\(guide.price)")
-                                            .font(.system(size: 23, weight: .semibold))
-                                            .foregroundColor(Color.blue)
-                                        Text("/ day")
-                                         Image(systemName: "bookmark")
-                                            .font(.system(size: 20))
-                                            .foregroundColor(Color.black)
-                                        
-                                    }
+                                    .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
                                 }
-                                .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
-                            }
-                            
-                        }.padding(.trailing, 20)
-                        
-                    }.padding(.leading, 20)
-                    
+                            }.padding(.trailing, 20)
+                        }.padding(.leading, 20)
+                    }
                 }
             }.toolbar {
                 ToolbarItemGroup(placement: .navigationBarLeading) {
-                    Button (action: {})
-                    {
+                    Button(action: {}) {
                         HStack {
-                            //Text("Good Morning, \(Auth.currentUser?.firstname ?? "")")
                             Image("logo")
                                 .resizable()
                                 .scaledToFit()
@@ -167,36 +171,23 @@ struct HomeViewGuide: View {
                     .foregroundColor(Color(.black))
                 }
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button (action: {
-                        //
-                    })
-                    {
+                    Button(action: {
+                        // Action for bell button
+                    }) {
                         HStack {
                             Image(systemName: "bell")
                         }
                     }
                     .foregroundColor(Color(.black))
                 }
-            }.padding(.top, 20)
-                .onAppear {
-                    guideViewModel.fetchGuides()
-                }
-            
+            }
+            .padding(.top, 20)
+            .onAppear {
+                guideViewModel.fetchGuides()
+            }
         }
     }
 }
-
-/*struct CustomTextFieldStyle: TextFieldStyle {
-    func _body(configuration: TextField<Self._Label>) -> some View {
-        configuration
-            .padding(EdgeInsets(top: 15, leading: 10, bottom: 15, trailing: 10))
-            .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color(hex: "F3F8FE")) // Use an extension to create a Color from a hex string
-                        )
-            .foregroundColor(Color.black)
-    }
-}*/
 
 struct CustomTextFieldStyle: TextFieldStyle {
     func _body(configuration: TextField<Self._Label>) -> some View {
@@ -235,7 +226,6 @@ extension Color {
         self.init(red: red, green: green, blue: blue)
     }
 }
-
 struct HomeViewGuide_Previews: PreviewProvider {
     static var previews: some View {
         HomeViewGuide(guideViewModel: GuideViewModel())

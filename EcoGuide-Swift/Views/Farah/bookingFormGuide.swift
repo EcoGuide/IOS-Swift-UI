@@ -60,7 +60,7 @@ struct User {
                                )
                            } else {
                                NavigationLink(
-                                   destination: SelectCardsView(user: $user, selectedPhoneNumber: $selectedPhoneNumber, discountCode: $discountCode),
+                                   destination: PaymentDetailsView(user: $user, selectedPhoneNumber: $selectedPhoneNumber, discountCode: $discountCode),
                                    label: {
                                        ContinueButton("Continue") {
                                            isForAnotherPerson = false

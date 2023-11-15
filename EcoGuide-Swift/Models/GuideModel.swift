@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Guide: Codable {
+struct Guide: Codable, Hashable {
     var _id : String // Add a unique identifier
     var fullname: String
     var location: String
