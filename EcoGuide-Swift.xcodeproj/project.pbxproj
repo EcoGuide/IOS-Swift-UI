@@ -31,6 +31,13 @@
 		4A5070C32AFA4B8B00A797D8 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5070C22AFA4B8B00A797D8 /* Login.swift */; };
 		4A5070C52AFA7AFA00A797D8 /* Welcome_User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5070C42AFA7AFA00A797D8 /* Welcome_User.swift */; };
 		4A5070C72AFA839600A797D8 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5070C62AFA839600A797D8 /* Register.swift */; };
+		6F00F2CD2B02D3010054C4DE /* DestinationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F00F2CC2B02D3010054C4DE /* DestinationSearchView.swift */; };
+		6F00F2CF2B043D4B0054C4DE /* Accomodation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F00F2CE2B043D4B0054C4DE /* Accomodation.swift */; };
+		6F00F2D22B04414E0054C4DE /* ImageHotelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F00F2D12B04414E0054C4DE /* ImageHotelView.swift */; };
+		6F00F2D42B0443490054C4DE /* HotelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F00F2D32B0443490054C4DE /* HotelService.swift */; };
+		6F00F2D72B0468BF0054C4DE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 6F00F2D62B0468BF0054C4DE /* Alamofire */; };
+		6F00F2D92B046C010054C4DE /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F00F2D82B046C010054C4DE /* Network.swift */; };
+		6F00F2DB2B046CCE0054C4DE /* HotelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F00F2DA2B046CCE0054C4DE /* HotelViewModel.swift */; };
 		6F60E9B82AFAFB1E00E851A9 /* HomeViewAccomodation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F60E9B72AFAFB1E00E851A9 /* HomeViewAccomodation.swift */; };
 		6F60E9BA2AFB239400E851A9 /* RecentlyBookedAccomodation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F60E9B92AFB239400E851A9 /* RecentlyBookedAccomodation.swift */; };
 		6F60E9BC2AFBD19500E851A9 /* detailAccomodation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F60E9BB2AFBD19500E851A9 /* detailAccomodation.swift */; };
@@ -88,6 +95,12 @@
 		4A5070C22AFA4B8B00A797D8 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		4A5070C42AFA7AFA00A797D8 /* Welcome_User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Welcome_User.swift; sourceTree = "<group>"; };
 		4A5070C62AFA839600A797D8 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		6F00F2CC2B02D3010054C4DE /* DestinationSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationSearchView.swift; sourceTree = "<group>"; };
+		6F00F2CE2B043D4B0054C4DE /* Accomodation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accomodation.swift; sourceTree = "<group>"; };
+		6F00F2D12B04414E0054C4DE /* ImageHotelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHotelView.swift; sourceTree = "<group>"; };
+		6F00F2D32B0443490054C4DE /* HotelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelService.swift; sourceTree = "<group>"; };
+		6F00F2D82B046C010054C4DE /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		6F00F2DA2B046CCE0054C4DE /* HotelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelViewModel.swift; sourceTree = "<group>"; };
 		6F60E9B72AFAFB1E00E851A9 /* HomeViewAccomodation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewAccomodation.swift; sourceTree = "<group>"; };
 		6F60E9B92AFB239400E851A9 /* RecentlyBookedAccomodation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyBookedAccomodation.swift; sourceTree = "<group>"; };
 		6F60E9BB2AFBD19500E851A9 /* detailAccomodation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailAccomodation.swift; sourceTree = "<group>"; };
@@ -105,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F00F2D72B0468BF0054C4DE /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +191,7 @@
 				11EA7D272AF96DF400141117 /* EcoGuide_SwiftApp.swift */,
 				1182A5922AFA796D007F994E /* MessageGuide.swift */,
 				11EA7D292AF96DF400141117 /* ContentView.swift */,
+				6F00F2D02B043F250054C4DE /* Services */,
 				1182A58B2AFA6918007F994E /* Components */,
 				11EA7D2B2AF96DF500141117 /* Assets.xcassets */,
 				11EA7D302AF96DF500141117 /* Persistence.swift */,
@@ -215,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				11CEEBE02AF9755D00175E74 /* TestModel.swift */,
+				6F00F2CE2B043D4B0054C4DE /* Accomodation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -234,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				11CEEBE22AF9756800175E74 /* TestVM.swift */,
+				6F00F2DA2B046CCE0054C4DE /* HotelViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -248,6 +265,16 @@
 			path = "User_interface ";
 			sourceTree = "<group>";
 		};
+		6F00F2D02B043F250054C4DE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				6F00F2D12B04414E0054C4DE /* ImageHotelView.swift */,
+				6F00F2D32B0443490054C4DE /* HotelService.swift */,
+				6F00F2D82B046C010054C4DE /* Network.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		6F60E9B62AFAF9FD00E851A9 /* Achref */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,6 +287,7 @@
 				6F8481A32AFCB8D600C40FAF /* TicketView.swift */,
 				6F8481A52AFFFA1E00C40FAF /* ListingItemView.swift */,
 				6F6F833E2B0182EA00F6472B /* SearchAndFilter.swift */,
+				6F00F2CC2B02D3010054C4DE /* DestinationSearchView.swift */,
 			);
 			path = Achref;
 			sourceTree = "<group>";
@@ -280,6 +308,9 @@
 			dependencies = (
 			);
 			name = "EcoGuide-Swift";
+			packageProductDependencies = (
+				6F00F2D62B0468BF0054C4DE /* Alamofire */,
+			);
 			productName = "EcoGuide-Swift";
 			productReference = 11EA7D242AF96DF400141117 /* EcoGuide-Swift.app */;
 			productType = "com.apple.product-type.application";
@@ -352,6 +383,9 @@
 				Base,
 			);
 			mainGroup = 11EA7D1B2AF96DF400141117;
+			packageReferences = (
+				6F00F2D52B0468BF0054C4DE /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 11EA7D252AF96DF400141117 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -399,13 +433,18 @@
 				11CEEBE72AF9768D00175E74 /* bookmarksGuide.swift in Sources */,
 				6F60E9BE2AFBD76100E851A9 /* bookingAccomodation.swift in Sources */,
 				11EA7D342AF96DF500141117 /* EcoGuide_Swift.xcdatamodeld in Sources */,
+				6F00F2CD2B02D3010054C4DE /* DestinationSearchView.swift in Sources */,
 				6F60E9B82AFAFB1E00E851A9 /* HomeViewAccomodation.swift in Sources */,
+				6F00F2D42B0443490054C4DE /* HotelService.swift in Sources */,
 				11EA7D312AF96DF500141117 /* Persistence.swift in Sources */,
 				4A5070C52AFA7AFA00A797D8 /* Welcome_User.swift in Sources */,
+				6F00F2D92B046C010054C4DE /* Network.swift in Sources */,
+				6F00F2D22B04414E0054C4DE /* ImageHotelView.swift in Sources */,
 				4A5070C72AFA839600A797D8 /* Register.swift in Sources */,
 				6F8481A62AFFFA1E00C40FAF /* ListingItemView.swift in Sources */,
 				6F60E9C42AFC415F00E851A9 /* statusAccommodation.swift in Sources */,
 				4A5070C32AFA4B8B00A797D8 /* Login.swift in Sources */,
+				6F00F2CF2B043D4B0054C4DE /* Accomodation.swift in Sources */,
 				11CEEBE32AF9756800175E74 /* TestVM.swift in Sources */,
 				1182A58F2AFA789D007F994E /* ContentChatView.swift in Sources */,
 				1182A5952AFA7A06007F994E /* MessageBubbleGuide.swift in Sources */,
@@ -422,6 +461,7 @@
 				11CEEBE52AF9761F00175E74 /* bookingFormGuide.swift in Sources */,
 				6F60E9BC2AFBD19500E851A9 /* detailAccomodation.swift in Sources */,
 				11EA7D282AF96DF400141117 /* EcoGuide_SwiftApp.swift in Sources */,
+				6F00F2DB2B046CCE0054C4DE /* HotelViewModel.swift in Sources */,
 				1182A58D2AFA6944007F994E /* TitleRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -741,6 +781,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6F00F2D52B0468BF0054C4DE /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6F00F2D62B0468BF0054C4DE /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6F00F2D52B0468BF0054C4DE /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		11EA7D322AF96DF500141117 /* EcoGuide_Swift.xcdatamodeld */ = {

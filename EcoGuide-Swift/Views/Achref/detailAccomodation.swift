@@ -23,7 +23,7 @@ let exampleReviews: [Review] = [
 ]
 struct detailAccomodation: View {
     @State private var discountCode: Double = 0.0
-    let imageInfo: ImageInfoA
+    let hotel: Hotel
     var reviews: [Review]
     var body: some View {
         ScrollView {
@@ -36,7 +36,7 @@ struct detailAccomodation: View {
                     .frame(height: 200).padding(.top,20)
               
                 HStack {
-                    Text(imageInfo.imageName)
+                    Text(hotel.imagename)
                         .font(.title)
                         .padding(.top, 16)
                     
@@ -54,12 +54,12 @@ struct detailAccomodation: View {
                         .foregroundColor(.yellow)
                         .foregroundColor(.gray)
                         .padding(.bottom,1)
-                    Text(imageInfo.reviews).font(.system(size: 16)).foregroundColor(.gray)
+                    Text("\(hotel.Rating)").font(.system(size: 16)).foregroundColor(.gray)
                    }
                 
                 
                     // Location du guide
-                    Text(imageInfo.location)
+                Text(hotel.Localisation)
                         .foregroundColor(.gray)
                         .padding(.bottom, 16)
                 
@@ -68,16 +68,16 @@ struct detailAccomodation: View {
                         .font(.title2)
                         .fontWeight(.bold)
 
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 10) {
-                            ForEach(imageInfo.galleryImagesA, id: \.self) { imageName in
-                                Image(imageName)
-                                    .resizable()
-                                    .frame(width: 120, height: 80)
-                                    .cornerRadius(8)
-                            }
-                        }
-                    }
+                        // ScrollView(.horizontal, showsIndicators: false) {
+                        //HStack(spacing: 10) {
+                          //  ForEach(hotel.imagename, id: \.self) { imageName in
+                            //    Image(imageName)
+                              //      .resizable()
+                                //    .frame(width: 120, height: 80)
+                                  //  .cornerRadius(8)
+                            //}
+                        //}
+                    //}
                     .padding(.bottom, 16)
 
                     HStack {
@@ -90,7 +90,7 @@ struct detailAccomodation: View {
                 }
                 .padding(.horizontal, 16)
                 
-                Text(imageInfo.description)
+                Text(hotel.description)
                     .font(.title2)
                   
                 
@@ -210,7 +210,7 @@ struct detailAccomodation: View {
                         VStack(alignment: .leading,spacing: 10)
                         {
                             Text("Price")
-                            Text(imageInfo.price)
+                            Text(hotel.price)
                                 .font(.system(size: 22, weight: .semibold))
                                 .foregroundColor(Color.blue)
 

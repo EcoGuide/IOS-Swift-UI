@@ -23,6 +23,9 @@ struct ImageInfoA: Identifiable {
 
 
 struct HomeViewAccomodation: View {
+    @StateObject var hotelViewModel : HotelViewModel
+    @State var hotel : Hotel
+    @State private var showDestination = false
     @State private var username: String = ""
     var image = ["home1", "home2", "hotel1"]
     @State private var imageInfoList: [ImageInfoA] = [
@@ -39,165 +42,172 @@ struct HomeViewAccomodation: View {
         let filters = ["Recommended", "Popular", "Trending", "Testing"]
     var body: some View {
         NavigationStack {
-            ScrollView {
-                ZStack {
-                    VStack(alignment: .leading, spacing: 20)
-                    {
-                        HStack {
-                            //Text("Good Morning, \(Auth.currentUser?.firstname ?? "")")
-                            Image("logo")
-                                .resizable()
-                                .frame(width: 150, height: 30)
-                                .scaledToFit()
-                        }
-                        Text("Hello, User")
-                       SearchAndFilter()
-                        
-                        ScrollView(.horizontal, showsIndicators: false) {
+            if showDestination{
+                DestinationSearchView(show: $showDestination)
+            }
+            else{
+                ScrollView {
+                    ZStack {
+                        VStack(alignment: .leading, spacing: 20)
+                        {
                             HStack {
-                                ForEach(filters, id: \.self) { filter in
-                                    Button(action: {
-                                        selectedFilter = filter
-                                    }) {
-                                        Text(filter)
-                                            .foregroundColor(selectedFilter == filter ? .white : .blue)
-                                            .padding(EdgeInsets(top: 12, leading: 25, bottom: 12, trailing: 25))
-                                            .background(selectedFilter == filter ? Color.blue : Color.clear)
-                                            .cornerRadius(32)
-                                            .overlay(
-                                                RoundedRectangle(cornerRadius: 30)
-                                                    .stroke(selectedFilter == filter ? Color.blue : Color.blue, lineWidth: 2)
-                                            )
+                                //Text("Good Morning, \(Auth.currentUser?.firstname ?? "")")
+                                Image("logo")
+                                    .resizable()
+                                    .frame(width: 150, height: 30)
+                                    .scaledToFit()
+                            }
+                            Text("Hello, User")
+                           SearchAndFilter()
+                            
+                                .onTapGesture {
+                                    withAnimation(.snappy) {
+                                        showDestination.toggle()
+                                    }
+                                }
+                            
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                HStack {
+                                    ForEach(filters, id: \.self) { filter in
+                                        Button(action: {
+                                            selectedFilter = filter
+                                        }) {
+                                            Text(filter)
+                                                .foregroundColor(selectedFilter == filter ? .white : .blue)
+                                                .padding(EdgeInsets(top: 12, leading: 25, bottom: 12, trailing: 25))
+                                                .background(selectedFilter == filter ? Color.blue : Color.clear)
+                                                .cornerRadius(32)
+                                                .overlay(
+                                                    RoundedRectangle(cornerRadius: 30)
+                                                        .stroke(selectedFilter == filter ? Color.blue : Color.blue, lineWidth: 2)
+                                                )
+                                        }
                                     }
                                 }
                             }
-                        }
-                        
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack(spacing: 10) {
-                                ForEach(imageInfoList) { imageInfo in
-                                    NavigationLink(destination: detailAccomodation(imageInfo: imageInfo, reviews: exampleReviews)) {
-                                        ZStack {
-                                            Image(imageInfo.imageName)
-                                                .resizable()
-                                                .scaledToFill()
-                                                .frame(width: 300, height: 300)
-                                                .cornerRadius(50)
-                                            
-                                            HStack {
-                                                VStack(alignment: .leading, spacing: 10) {
-                                                    Text(imageInfo.title)
-                                                        .font(.headline)
-                                                        .foregroundColor(.white)
-                                                    Text(imageInfo.location)
-                                                        .font(.headline)
-                                                        .foregroundColor(.white)
-                                                    Text(imageInfo.price)
-                                                        .font(.headline)
-                                                        .foregroundColor(.white)
-                                                }
-                                                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
-                                                .padding()
-                                                
-                                                Spacer()
+                            
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                HStack(spacing: 10) {
+                                    ForEach(hotelViewModel.hotels,id: \._id) { hotel in
+                                        NavigationLink(destination: detailAccomodation(hotel: hotel, reviews: exampleReviews)) {
+                                            ZStack {
+                                                Image(hotel.imagename)
+                                                    .resizable()
+                                                    .scaledToFill()
+                                                    .frame(width: 300, height: 300)
+                                                    .cornerRadius(50)
                                                 
                                                 HStack {
-                                                    Image(systemName: "star.fill")
-                                                        .foregroundColor(.white)
-                                                    Text(imageInfo.rating)
-                                                        .font(.system(size: 17, weight: .semibold))
-                                                        .foregroundColor(.white)
-                                                        .padding(5)
+                                                    VStack(alignment: .leading, spacing: 10) {
+                                                        Text(hotel.imagename)
+                                                            .font(.headline)
+                                                            .foregroundColor(.white)
+                                                        Text(hotel.Localisation)
+                                                            .font(.headline)
+                                                            .foregroundColor(.white)
+                                                        Text("\(hotel.price)")
+                                                            .font(.headline)
+                                                            .foregroundColor(.white)
+                                                    }
+                                                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
+                                                    .padding()
+                                                    
+                                                    Spacer()
+                                                    
+                                                    HStack {
+                                                        Image(systemName: "star.fill")
+                                                            .foregroundColor(.white)
+                                                        Text("\(hotel.Rating)")
+                                                            .font(.system(size: 17, weight: .semibold))
+                                                            .foregroundColor(.white)
+                                                            .padding(5)
+                                                    }
+                                                    .background(Color(hex: "196EEE"))
+                                                    .cornerRadius(150)
+                                                    .frame(maxWidth: 280, maxHeight: .infinity, alignment: .topTrailing)
+                                                    .padding(15)
                                                 }
-                                                .background(Color(hex: "196EEE"))
-                                                .cornerRadius(150)
-                                                .frame(maxWidth: 280, maxHeight: .infinity, alignment: .topTrailing)
-                                                .padding(15)
                                             }
+                                            .frame(width: 300, height: 300)
+                                            
                                         }
-                                        .frame(width: 300, height: 300)
                                     }
                                 }
                             }
-                        }
+                            
                         
-                    
-                    HStack {
-                        Text("Recently Booked")
-                            .font(.system(size: 22, weight: .semibold))
-                        Spacer()
-                        NavigationLink(destination: RecentlyBookedAccomodation()) {
-                               Text("See all")
-                                   .font(.system(size: 22, weight: .semibold))
-                                   .foregroundColor(Color.blue)
-                           }
-                           
+                        HStack {
+                            Text("Recently Booked")
+                                .font(.system(size: 22, weight: .semibold))
+                            Spacer()
+                            NavigationLink(destination: RecentlyBookedAccomodation()) {
+                                   Text("See all")
+                                       .font(.system(size: 22, weight: .semibold))
+                                       .foregroundColor(Color.blue)
+                               }
+                               
+                        }.padding(.trailing, 20)
+                        
+                            ForEach(imageInfoList) { imageInfo in
+                                NavigationLink(destination: detailAccomodation(hotel: hotel, reviews: exampleReviews)){
+                                ZStack {
+                                    Color(hex: "F3F8FE") // Set your desired background color here
+                                        .frame(width: 350, height: 150)
+                                        .cornerRadius(15)
+                                    HStack(spacing: 5) {
+                                        Image(imageInfo.imageName)
+                                            .resizable()
+                                        
+                                            .cornerRadius(15)
+                                            .frame(width: 130, height: 115)
+                                        
+                                        VStack(alignment: .leading, spacing: 15) {
+                                            Text(imageInfo.imageName)
+                                                .font(.system(size: 23, weight: .semibold))
+                                            Text(imageInfo.location)
+                                                .font(.system(size: 16))
+                                                .foregroundColor(Color.gray)
+                                            HStack{
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.yellow)
+                                                Text(imageInfo.rating)
+                                                    .font(.system(size: 15,weight: .semibold))
+                                                    .foregroundColor(Color(hex: "196EEE"))
+                                                Text(imageInfo.nbrating)
+                                                    .font(.system(size: 10))
+                                                    .foregroundColor(Color(hex: "BDBDBD"))
+                                            }
+                                            
+                                        }
+                                        .frame(maxWidth: .infinity) // Expand to fill the available space
+                                        Spacer()
+                                        VStack(alignment: .trailing, spacing: 15) {
+                                            Text("$35")
+                                                .font(.system(size: 23, weight: .semibold))
+                                                .foregroundColor(Color.blue)
+                                            Text("/ day")
+                                            Image(systemName: "bookmark")
+                                            
+                                            
+                                        }
+                                    }
+                                    .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
+                                }
+                            }
+                        }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                        
+                        
                     }.padding(.trailing, 20)
                     
-                        ForEach(imageInfoList) { imageInfo in
-                            NavigationLink(destination: detailAccomodation(imageInfo: imageInfo, reviews: exampleReviews)){
-                            ZStack {
-                                Color(hex: "F3F8FE") // Set your desired background color here
-                                    .frame(width: 350, height: 150)
-                                    .cornerRadius(15)
-                                HStack(spacing: 5) {
-                                    Image(imageInfo.imageName)
-                                        .resizable()
-                                    
-                                        .cornerRadius(15)
-                                        .frame(width: 130, height: 115)
-                                    
-                                    VStack(alignment: .leading, spacing: 15) {
-                                        Text(imageInfo.imageName)
-                                            .font(.system(size: 23, weight: .semibold))
-                                        Text(imageInfo.location)
-                                            .font(.system(size: 16))
-                                            .foregroundColor(Color.gray)
-                                        HStack{
-                                            Image(systemName: "star.fill")
-                                                .foregroundColor(.yellow)
-                                            Text(imageInfo.rating)
-                                                .font(.system(size: 15,weight: .semibold))
-                                                .foregroundColor(Color(hex: "196EEE"))
-                                            Text(imageInfo.nbrating)
-                                                .font(.system(size: 10))
-                                                .foregroundColor(Color(hex: "BDBDBD"))
-                                        }
-                                        
-                                    }
-                                    .frame(maxWidth: .infinity) // Expand to fill the available space
-                                    Spacer()
-                                    VStack(alignment: .trailing, spacing: 15) {
-                                        Text("$35")
-                                            .font(.system(size: 23, weight: .semibold))
-                                            .foregroundColor(Color.blue)
-                                        Text("/ day")
-                                        Image(systemName: "bookmark")
-                                        
-                                        
-                                    }
-                                }
-                                .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
-                            }
-                        }
-                    }
-                    
-                    
-                }.padding(.trailing, 20)
-                
-            }.padding(.leading, 20)
-        }
-    
-         
+                }.padding(.leading, 20)
+            }
+        
+             
+                }
             }
         }
-    func performSearch(query: String) -> [ImageInfoA] {
-        // Implement your search logic here
-        // Return an array of search results
-        // For example, you might filter your data based on the search query
-        return imageInfoList.filter { $0.title.lowercased().contains(query.lowercased()) }
-    }
-    }
+            }
+           
 
 
 
@@ -240,7 +250,7 @@ struct CustomTextFieldStyleA: TextFieldStyle {
 
 struct HomeViewAccomodation_Previews: PreviewProvider {
     static var previews: some View {
-        HomeViewAccomodation()
+        HomeViewAccomodation(hotelViewModel: HotelViewModel(), hotel: <#Hotel#>)
     }
 }
 
