@@ -88,14 +88,14 @@ struct Login: View {
                         }
                     }) {
                         
-                                                Text("Sign In")
-                                                    .fontWeight(.bold)
-                                                    .foregroundColor(.white)
-                                                    .frame(minWidth: 0, maxWidth: .infinity)
-                                                    .padding()
-                                                    .background(Color.blue)
-                                                    .cornerRadius(20)
-                                                    .padding(.horizontal, 32)
+                                    Text("Sign In")
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.white)
+                                    .frame(minWidth: 0, maxWidth: .infinity)
+                                    .padding()
+                                    .background(Color.blue)
+                                    .cornerRadius(20)
+                                    .padding(.horizontal, 32)
                                              
                     }
                     .alert(isPresented: $showingAlert) {

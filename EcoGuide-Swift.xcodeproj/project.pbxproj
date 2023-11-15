@@ -23,6 +23,9 @@
 		11EA7D3E2AF96DF500141117 /* EcoGuide_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EA7D3D2AF96DF500141117 /* EcoGuide_SwiftTests.swift */; };
 		11EA7D482AF96DF500141117 /* EcoGuide_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EA7D472AF96DF500141117 /* EcoGuide_SwiftUITests.swift */; };
 		11EA7D4A2AF96DF500141117 /* EcoGuide_SwiftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EA7D492AF96DF500141117 /* EcoGuide_SwiftUITestsLaunchTests.swift */; };
+		4A0639FE2B04BA4700FC42D7 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0639FD2B04BA4700FC42D7 /* ProfileView.swift */; };
+		4A063A012B04D17500FC42D7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A063A002B04D17500FC42D7 /* User.swift */; };
+		4A063A032B04EE7700FC42D7 /* Editprofile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A063A022B04EE7700FC42D7 /* Editprofile.swift */; };
 		4A5070C32AFA4B8B00A797D8 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5070C22AFA4B8B00A797D8 /* Login.swift */; };
 		4A5070C52AFA7AFA00A797D8 /* Welcome_User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5070C42AFA7AFA00A797D8 /* Welcome_User.swift */; };
 		4A5070C72AFA839600A797D8 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5070C62AFA839600A797D8 /* Register.swift */; };
@@ -72,6 +75,10 @@
 		11EA7D432AF96DF500141117 /* EcoGuide-SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EcoGuide-SwiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		11EA7D472AF96DF500141117 /* EcoGuide_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcoGuide_SwiftUITests.swift; sourceTree = "<group>"; };
 		11EA7D492AF96DF500141117 /* EcoGuide_SwiftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcoGuide_SwiftUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4A0639FD2B04BA4700FC42D7 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		4A0639FF2B04C71F00FC42D7 /* EcoGuide-Swift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "EcoGuide-Swift.entitlements"; sourceTree = "<group>"; };
+		4A063A002B04D17500FC42D7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4A063A022B04EE7700FC42D7 /* Editprofile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Editprofile.swift; sourceTree = "<group>"; };
 		4A5070C22AFA4B8B00A797D8 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		4A5070C42AFA7AFA00A797D8 /* Welcome_User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Welcome_User.swift; sourceTree = "<group>"; };
 		4A5070C62AFA839600A797D8 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
@@ -144,6 +151,7 @@
 		11EA7D262AF96DF400141117 /* EcoGuide-Swift */ = {
 			isa = PBXGroup;
 			children = (
+				4A0639FF2B04C71F00FC42D7 /* EcoGuide-Swift.entitlements */,
 				4AF0658E2AFBA2C800F529A1 /* Service */,
 				4AF0658D2AFBA2C200F529A1 /* New Group */,
 				11EA7D582AF96E0D00141117 /* ViewModels */,
@@ -188,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				11CEEBE02AF9755D00175E74 /* TestModel.swift */,
+				4A063A002B04D17500FC42D7 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -219,6 +228,7 @@
 				4AF065872AFB87B300F529A1 /* Reset_Password.swift */,
 				4AF065892AFB87CF00F529A1 /* Forget_Password.swift */,
 				4AF0658B2AFB926700F529A1 /* OTP.swift */,
+				4A0639FD2B04BA4700FC42D7 /* ProfileView.swift */,
 			);
 			path = "User_interface ";
 			sourceTree = "<group>";
@@ -236,6 +246,7 @@
 				4AF0658F2AFBA31C00F529A1 /* AuthService.swift */,
 				4AF065932AFC37A000F529A1 /* forget_password.swift */,
 				4AC349B12AFE4A1400731675 /* Reset_password .swift */,
+				4A063A022B04EE7700FC42D7 /* Editprofile.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -389,8 +400,11 @@
 				11EA7D2A2AF96DF400141117 /* ContentView.swift in Sources */,
 				4AF0658A2AFB87CF00F529A1 /* Forget_Password.swift in Sources */,
 				11CEEBDC2AF9746000175E74 /* HomeViewGuide.swift in Sources */,
+				4A063A032B04EE7700FC42D7 /* Editprofile.swift in Sources */,
 				11CEEBE52AF9761F00175E74 /* bookingFormGuide.swift in Sources */,
+				4A0639FE2B04BA4700FC42D7 /* ProfileView.swift in Sources */,
 				11EA7D282AF96DF400141117 /* EcoGuide_SwiftApp.swift in Sources */,
+				4A063A012B04D17500FC42D7 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,9 +560,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "EcoGuide-Swift/EcoGuide-Swift.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"EcoGuide-Swift/Preview Content\"";
+				DEVELOPMENT_TEAM = 33BCD6LPM6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -574,9 +590,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "EcoGuide-Swift/EcoGuide-Swift.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"EcoGuide-Swift/Preview Content\"";
+				DEVELOPMENT_TEAM = 33BCD6LPM6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -604,6 +622,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 33BCD6LPM6;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MARKETING_VERSION = 1.0;
@@ -623,6 +642,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 33BCD6LPM6;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MARKETING_VERSION = 1.0;

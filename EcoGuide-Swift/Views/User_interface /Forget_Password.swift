@@ -139,6 +139,7 @@ struct Forget_Password: View {
                           OTP()
                       }
             }
+           
            .padding()
        }
     

@@ -72,10 +72,9 @@ struct Reset_Password: View {
               .foregroundColor(.blue)
 
 
-              // Reset Password Button
-              Button(action: {
-                            // Récupération du token et du code depuis UserDefaults
-            let token = UserDefaults.standard.string(forKey: "tokenverificationcode") ?? ""
+               Button(action: {
+                            
+//            let token = UserDefaults.standard.string(forKey: "tokenverificationcode") ?? ""
             let code = UserDefaults.standard.string(forKey: "CodeInput") ?? ""
                             
                 print(code)
@@ -85,11 +84,11 @@ struct Reset_Password: View {
                    self.message = responseMessage
                    self.showingAlert = true
 
-                }
-            }
+                        }
+                    }
             } else {
-                               self.message = "Token or code not found"
-                           }
+                self.message = "  code not found"
+            }
               }) {
                   Text("Reset Password")
                       .foregroundColor(.white)
@@ -100,6 +99,7 @@ struct Reset_Password: View {
               }
               .padding(.horizontal)
               .shadow(color: .black, radius: 95, x: 1, y: 40)
+ 
               .alert(isPresented: $showingAlert) {
                   
                   Alert(

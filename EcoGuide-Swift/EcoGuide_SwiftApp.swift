@@ -13,10 +13,9 @@ struct EcoGuide_SwiftApp: App {
 
     var body: some Scene {
         WindowGroup {
-//            Register()
-            Register()
+//             Register()
 //               VerifMail()
-//            OTP()
-        }
+            ProfileView()
+         }
     }
 }
