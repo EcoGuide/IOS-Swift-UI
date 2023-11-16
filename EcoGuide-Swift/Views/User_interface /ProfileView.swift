@@ -14,6 +14,7 @@ struct ProfileView: View {
     @State private var email: String = "john.doe@example.com"
     @State private var isEditing: Bool = false
     @State private var showMenu: Bool = false
+    @State private var showingAlert = false
 
     // action for navigation
     @State private var navigateToLogin = false
@@ -66,7 +67,8 @@ struct ProfileView: View {
                     // Menu options
                     Section {
                                            ProfileOptionRow(iconName: "airplane.departure", optionName: "Favorites destinations") {
-                                               // Action for Your Favorites
+                                             
+                                                    
                                            }
                                            ProfileOptionRow(iconName: "creditcard.fill", optionName: "Payment") {
                                                // Action for Payment
@@ -86,18 +88,34 @@ struct ProfileView: View {
                         // Your edit profile view goes here
                         EditProfileView(isEditing: $isEditing, name: $name, surname: $surname, phoneNumber: $phoneNumber, email: $email)
                     }
-                    Section {
-                        Button("Edit your Profile") {
-                            // Handle logout action
-                        }
-                        .foregroundColor(.green)
-                    }
+//                    Section {
+//                        Button("Edit your Profile") {
+//                         }
+//                        .foregroundColor(.green)
+//                    }
                      Section {
                         Button("Log out") {
-                            // Handle logout action
+                            let token = UserDefaults.standard.string(forKey: "tokenAuth") ?? ""
+                          if  !token.isEmpty
+                            {
+                            editprofile.logoutUser(token: token)
+                              UserDefaults.standard.removeObject(forKey: "tokenAuth")
+                              self.showingAlert = true
+
+
+                            }
+
                         }
                         .foregroundColor(.red)
                     }
+                     .alert(isPresented: $showingAlert) {
+                         
+                         Alert(
+                             title: Text("Succes"),
+                             message: Text("You have successfully logged out"),
+                             dismissButton: .default(Text("OK"))
+                         )
+                     }
                 }
                 .listStyle(GroupedListStyle())
                 .navigationBarTitle("Profile", displayMode: .large)
@@ -150,11 +168,7 @@ struct EditProfileView: View {
                     Button("Save Changes") {
                         editprofile.Editprofile(email:self.email,password: self.surname,name: self.name) { success, responseMessage in
                             DispatchQueue.main.async {
-                                //                               self.message = responseMessage
-                                //                               self.showingAlert = true
-                                
                                 self.showingAlert = true
-
                             }
                             isEditing = false
                         }

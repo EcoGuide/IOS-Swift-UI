@@ -80,7 +80,7 @@ struct Forget_Password: View {
                
  
                Button(action: {
-                   self.sheetToggleView.toggle()
+                       self.sheetToggleView.toggle()
                     if recoveryOption == .email{
                                          authService.forgetpassword(email: self.email  ) { result in
                                              DispatchQueue.main.async {

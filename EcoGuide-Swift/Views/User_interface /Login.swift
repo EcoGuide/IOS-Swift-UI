@@ -11,12 +11,16 @@ struct Login: View {
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var showingAlert = false
-    let authService = AuthService()
+    @State private var isLoggedIn = false
+    @State private var isProfileViewPresented = false // Booléen pour contrôler l'affichage de ProfileView
 
+    let authService = AuthService()
+    
     var body: some View {
         NavigationView {
             
             ZStack {
+ 
                 // Fond d'écran
                 Image("background")
                     .resizable()
@@ -61,9 +65,8 @@ struct Login: View {
                         .padding(.horizontal, 32)
                         .padding(.top, 10)
                         .frame(minWidth: 0, maxWidth: .infinity) // Assure la largeur maximale disponible
-                    
                         .overlay(
-                            HStack {
+                            HStack{
                                 Image(systemName: "lock")
                                     .foregroundColor(.gray)
                                     .padding(.leading, 15)
@@ -72,13 +75,24 @@ struct Login: View {
                                 .padding(.leading, 35),
                             alignment: .leading
                         )
+                    
+                    // ------- login button ----------
                     Button(action: {
+                        self.isLoggedIn.toggle()
                         authService.signInadmin(email: self.email, password: self.password) { result in
                             DispatchQueue.main.async {
                                 switch result {
                                 case .success(let token):
                                     print("Logged in successfully, token: \(token)")
                                     self.showingAlert = true
+                                    self.isProfileViewPresented = true
+//                                    self.isLoggedIn = true
+//                                    let loginSuccessful = true
+//
+//                                    if loginSuccessful {
+//                                        self.isLoggedIn = true
+//                                    }
+//                                    self.isLoggedIn.toggle()
                                     
                                 case .failure(let error):
                                     print("An error occurred while signing in: \(error.localizedDescription)")
@@ -88,15 +102,14 @@ struct Login: View {
                         }
                     }) {
                         
-                                    Text("Sign In")
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.white)
-                                    .frame(minWidth: 0, maxWidth: .infinity)
-                                    .padding()
-                                    .background(Color.blue)
-                                    .cornerRadius(20)
-                                    .padding(.horizontal, 32)
-                                             
+                        Text("Sign In")
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .padding()
+                            .background(Color.blue)
+                            .cornerRadius(20)
+                            .padding(.horizontal, 32)
                     }
                     .alert(isPresented: $showingAlert) {
                         Alert(
@@ -105,15 +118,9 @@ struct Login: View {
                             dismissButton: .default(Text("OK"))
                         )
                     }
-
-                    NavigationLink(destination: Forget_Password(),label: {
-                             
-                                Text("Forget your Password? Click here")
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.white)
-                           
-                        
-                    })
+                    .sheet(isPresented:$isLoggedIn ){
+                        ProfileView()
+                    }
                     .padding(.top, 5)
                     
                     Text("OR")
@@ -140,17 +147,20 @@ struct Login: View {
                     Spacer(minLength: 5)
                 }
             }
+            
             .edgesIgnoringSafeArea(.bottom)
         }
+        
     }
     
     
-}
-
-
-
-struct Login_Previews: PreviewProvider {
-    static var previews: some View {
-        Login()
+    
+    
+    
+    
+    struct Login_Previews: PreviewProvider {
+        static var previews: some View {
+            Login()
+        }
     }
 }
