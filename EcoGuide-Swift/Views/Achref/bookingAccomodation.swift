@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-struct Users {
+struct Userss {
     var title: String = "Mr"
     var fullName: String = ""
     var nickname: String = ""
@@ -19,7 +19,7 @@ struct Users {
 
 struct bookingAccomodation: View {
     @State private var selectedDate: Date = Date()
-    @State private var user = User()
+    @State private var user = Users()
     @State private var selectedHours: String = ""
     @State private var selectedPhoneNumber: String = ""
     @State private var isPaymentMethodSelected: Bool = false
@@ -72,12 +72,12 @@ struct bookingAccomodation: View {
     }
 
 struct PaymentDetailsViewAccomodation: View {
-    @Binding var user: User
+    @Binding var user: Users
     @Binding var selectedPhoneNumber: String
     @Binding var discountCode: Double
 
     // Add an accessible initializer
-    init(user: Binding<User>, selectedPhoneNumber: Binding<String>, discountCode: Binding<Double>) {
+    init(user: Binding<Users>, selectedPhoneNumber: Binding<String>, discountCode: Binding<Double>) {
         _user = user
         _selectedPhoneNumber = selectedPhoneNumber
         _discountCode = discountCode
@@ -119,7 +119,7 @@ struct PaymentDetailsViewAccomodation: View {
 }
     
 struct SelectCardsViewAccomodation: View {
-    @Binding var user: User
+    @Binding var user: Users
     @Binding var selectedPhoneNumber: String
     @Binding var discountCode: Double
     

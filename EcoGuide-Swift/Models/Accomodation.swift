@@ -8,15 +8,16 @@
 import Foundation
 
 struct Hotel: Codable{
-    var _id : String
-    var Nbchambre : Int
-    var Nbetoile : Int
-    var Localisation : String
-    var Favoris : Bool
-    var Rating : Double
-    var imagename : String
-    var price : Int
-    var description : String
+        var _id : String
+        var hotelname : String
+        var nbChambre : Int
+        var nbStars : Int
+        var location : String
+        var Favoris : Int
+        var rating : String
+        var image : String
+        var description : String
+        var price : Int
 }
 
 struct fetchHotelsResponse : Decodable{

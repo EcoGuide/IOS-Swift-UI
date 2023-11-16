@@ -6,7 +6,18 @@
 //
 
 import SwiftUI
-
+struct ImageInfoA: Identifiable {
+    let id = UUID()
+    let imageName: String
+    let title: String
+    let location: String
+    let price: String
+    let rating: String
+    let nbrating: String
+    let reviews: String
+    var galleryImagesA: [String]
+    var description: String
+}
 struct ListingDetailView: View {
    
     @State private var imageInfoList: [ImageInfoA] = [

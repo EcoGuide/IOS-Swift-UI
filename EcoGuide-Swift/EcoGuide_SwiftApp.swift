@@ -10,10 +10,11 @@ import SwiftUI
 @main
 struct EcoGuide_SwiftApp: App {
     let persistenceController = PersistenceController.shared
+    let hotelViewModel = HotelViewModel()
 
     var body: some Scene {
         WindowGroup {
-            Register()
+            HomeAndHotelViews(hotelViewModel: hotelViewModel)
                
         }
     }
