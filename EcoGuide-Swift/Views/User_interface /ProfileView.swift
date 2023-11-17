@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import LocalAuthentication
+
 let editprofile = Editprofile()
 struct ProfileView: View {
     @State private var name: String = "John"
@@ -19,6 +21,10 @@ struct ProfileView: View {
     // action for navigation
     @State private var navigateToLogin = false
     @State private var isLouggedout = false
+    //print finger
+    @State private var isAuthenticated = false
+    @State private var isAuthenticating = false
+    @State private var isEditProfileViewPresented = false
 
     var body: some View {
  
@@ -77,7 +83,7 @@ struct ProfileView: View {
                                                // Action for Payment
                                            }
                     ProfileOptionRow(iconName: "person.2.fill", optionName: "Edit your Profile") {
-                    self.navigateToLogin.toggle()
+                    authenticateUser()
 
                     }
                     ProfileOptionRow(iconName: "tag.fill", optionName: "Promotions") {
@@ -128,7 +134,31 @@ struct ProfileView: View {
         .navigationBarBackButtonHidden(true)// pas de retour (back)
 
     }
-    
+    // empreint authenticate
+    private func authenticateUser() {
+        isAuthenticating = true
+        let context = LAContext()
+        var error: NSError?
+
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            let reason = "Authenticate to access this feature"
+
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
+                           DispatchQueue.main.async {
+                               if success {
+                                   isEditProfileViewPresented = true
+                                   self.navigateToLogin.toggle()
+
+                               } else {
+                                   // L'authentification a échoué
+                               }
+                           }
+                       }
+        } else {
+            // Gérer le cas où Touch ID/Face ID n'est pas disponible ou configuré
+            isAuthenticating = false
+        }
+    }
     
 }
 struct ProfileOptionRow: View {

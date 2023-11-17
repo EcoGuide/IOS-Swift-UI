@@ -13,10 +13,11 @@ struct EcoGuide_SwiftApp: App {
 
     var body: some Scene {
         WindowGroup {
-             Register()
+//             Register()
 //            Forget_Password()
 //               VerifMail()
-//            ProfileView()
+//            testnav()
+            ProfileView()
          }
     }
 }

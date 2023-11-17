@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import LocalAuthentication
 
 struct testnav: View {
     @State private var isLinkActive = false
@@ -13,29 +14,62 @@ struct testnav: View {
     
     @State private var isLoading = false
 
+    @State private var isAuthenticated = false
+      @State private var isAuthenticating = false
+
       var body: some View {
-          Button(action: {
-              isLoading.toggle() // Activez ou désactivez la barre de progression lorsque le bouton est cliqué
-          }) {
-              if isLoading {
-                  ProgressView()
-                      .progressViewStyle(CircularProgressViewStyle(tint: .blue))
-                      .frame(width: 100, height: 100)
-                      .scaleEffect(1.5) // Augmentez l'échelle
-                      .padding(20) // Ajoutez un espacement autour du ProgressView
-                      .foregroundColor(.red) // Changez la couleur
-                      .opacity(0.8) // Réglez l'opacité
-                      .animation(.easeInOut) // Personnalisez l'animation
-              } else {
-                  Text("Start Loading")
-                      .foregroundColor(.white)
-                      .padding()
-                      .background(Color.blue)
-                      .cornerRadius(20)
+          if isAuthenticated {
+              Text("Authentication Successful")
+                  .font(.title)
+                  .padding()
+                  .background(Color.green)
+                  .foregroundColor(.white)
+                  .cornerRadius(10)
+          } else {
+              Button(action: {
+                  authenticateUser()
+              }) {
+                  if isAuthenticating {
+                      ProgressView()
+                          .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                          .frame(width: 100, height: 100)
+                          .scaleEffect(1.5)
+                          .padding(20)
+                          .foregroundColor(.red)
+                          .opacity(0.8)
+                          .animation(.easeInOut)
+                  } else {
+                      Text("Start Loading")
+                          .foregroundColor(.white)
+                          .padding()
+                          .background(Color.blue)
+                          .cornerRadius(20)
+                  }
               }
           }
       }
+
+      private func authenticateUser() {
+          isAuthenticating = true
+          let context = LAContext()
+          var error: NSError?
+
+          if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+              let reason = "Authenticate to access this feature"
+
+              context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
+                  DispatchQueue.main.async {
+                      isAuthenticating = false
+                      isAuthenticated = success
+                  }
+              }
+          } else {
+              // Gérer le cas où Touch ID/Face ID n'est pas disponible ou configuré
+              isAuthenticating = false
+          }
+      }
   }
+  
 
 
 struct SecondView: View {
