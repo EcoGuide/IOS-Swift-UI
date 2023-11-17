@@ -8,7 +8,7 @@
 import Foundation
 class   Editprofile{
     func Editprofile(email:String,password: String, name: String, completion: @escaping (Bool, String) -> Void) {
-        let url = URL(string: "http://192.168.1.129:3000/EditProfile")!
+        let url = URL(string: "http://192.168.8.103:3000/EditProfile")!
         var request = URLRequest(url: url)
         print(url)
         request.httpMethod = "POST"
@@ -52,7 +52,7 @@ class   Editprofile{
     }
     
     func logoutUser(token: String) {
-        guard let url = URL(string: "http://192.168.1.129:3000/logout") else {
+        guard let url = URL(string: "http://192.168.8.103:3000/logout") else {
             print("URL invalide")
             return
         }

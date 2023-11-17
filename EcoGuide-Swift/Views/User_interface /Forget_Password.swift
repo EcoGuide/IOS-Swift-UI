@@ -24,7 +24,8 @@ struct Forget_Password: View {
          
            VStack {
                Spacer()
-               
+                   .navigationBarBackButtonHidden(true)
+
                 Image(systemName: "shared.with.you")
                    .resizable()
                    .aspectRatio(contentMode: .fill)

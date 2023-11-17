@@ -12,7 +12,11 @@ struct Login: View {
     @State private var password: String = ""
     @State private var showingAlert = false
     @State private var isLoggedIn = false
-    @State private var isProfileViewPresented = false // Booléen pour contrôler l'affichage de ProfileView
+     @State private var sheetToggleView = false
+    @State private var isLinkActive = false
+    @State private var gonav = false
+    @State private var isLoading = false
+    @State private var isProfileViewPresented = false // Variable d'état pour gérer la navigation vers ProfileView
 
     let authService = AuthService()
     
@@ -78,22 +82,20 @@ struct Login: View {
                     
                     // ------- login button ----------
                     Button(action: {
-                        self.isLoggedIn.toggle()
                         authService.signInadmin(email: self.email, password: self.password) { result in
                             DispatchQueue.main.async {
                                 switch result {
                                 case .success(let token):
                                     print("Logged in successfully, token: \(token)")
                                     self.showingAlert = true
-                                    self.isProfileViewPresented = true
-//                                    self.isLoggedIn = true
-//                                    let loginSuccessful = true
-//
-//                                    if loginSuccessful {
-//                                        self.isLoggedIn = true
-//                                    }
-//                                    self.isLoggedIn.toggle()
-                                    
+                                    isLoading = true // Activez le ProgressView après succes login
+
+                                    // Simulez le chargement pendant 2 secondes (vous pouvez ajuster la durée)
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                                        isLoading = false // Désactivez le ProgressView après le chargement simulé
+                                        isProfileViewPresented = true // Activez la navigation vers ProfileView
+                                    }
+
                                 case .failure(let error):
                                     print("An error occurred while signing in: \(error.localizedDescription)")
                                     self.showingAlert = true
@@ -101,28 +103,56 @@ struct Login: View {
                             }
                         }
                     }) {
-                        
-                        Text("Sign In")
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .padding()
-                            .background(Color.blue)
-                            .cornerRadius(20)
-                            .padding(.horizontal, 32)
+                        if isLoading {
+                            ProgressView()
+                                .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                         } else {
+                            Text("Sign In")
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                                .frame(minWidth: 0, maxWidth: .infinity)
+                                .padding()
+                                .background(Color.blue)
+                                .cornerRadius(20)
+                                .padding(.horizontal, 32)
+                        }
                     }
-                    .alert(isPresented: $showingAlert) {
-                        Alert(
-                            title: Text("Authentication"),
-                            message: Text("Logged in successfully. Token received."),
-                            dismissButton: .default(Text("OK"))
-                        )
+                    .disabled(isLoading) // Désactivez le bouton lorsque le ProgressView est affiché
+
+                    // Ajoutez le NavigationLink ici
+                    .background(
+                        NavigationLink("", destination: ProfileView(), isActive: $isProfileViewPresented)
+                            .opacity(0)
+                            .frame(width: 0, height: 0)
+                    )
+
+//                    .alert(isPresented: $showingAlert) {
+//                        Alert(
+//                            title: Text("Authentication"),
+//                            message: Text("Logged in successfully. Token received."),
+//                            dismissButton: .default(Text("OK"))
+//                        )
+//                    }
+                  
+//                    .sheet(isPresented:$isLoggedIn ){
+//                        ProfileView()
+//                    }
+                   
+                     
+ //-------------------------------------------------------------
+                    Button("Forget Password? Click Here") {
+                        isLinkActive = true
                     }
-                    .sheet(isPresented:$isLoggedIn ){
-                        ProfileView()
-                    }
-                    .padding(.top, 5)
-                    
+                    .background(
+                        NavigationLink(destination: Forget_Password(), isActive: $isLinkActive) {
+                            EmptyView()
+                        }
+                        .hidden()
+                    )
+
+                        .foregroundColor(.white)
+//-------------------------------------------------------------
+
                     Text("OR")
                         .foregroundColor(.white)
                         .padding(.top, 10)
@@ -136,7 +166,7 @@ struct Login: View {
                                 .padding(.vertical, 8)
                         }
                         Button(action: {
-                            // Logique de connexion apple
+                            self.sheetToggleView.toggle()
                         }) {
                             Image(systemName: "applelogo")
                                 .font(.system(size:30))
@@ -149,9 +179,13 @@ struct Login: View {
             }
             
             .edgesIgnoringSafeArea(.bottom)
+            .navigationBarBackButtonHidden(true)// pas de retour (back)
+
         }
-        
+        .navigationBarBackButtonHidden(true)
+
     }
+    
     
     
     

@@ -26,6 +26,7 @@
 		4A0639FE2B04BA4700FC42D7 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0639FD2B04BA4700FC42D7 /* ProfileView.swift */; };
 		4A063A012B04D17500FC42D7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A063A002B04D17500FC42D7 /* User.swift */; };
 		4A063A032B04EE7700FC42D7 /* Editprofile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A063A022B04EE7700FC42D7 /* Editprofile.swift */; };
+		4A063A052B06299A00FC42D7 /* testnav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A063A042B06299A00FC42D7 /* testnav.swift */; };
 		4A5070C32AFA4B8B00A797D8 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5070C22AFA4B8B00A797D8 /* Login.swift */; };
 		4A5070C52AFA7AFA00A797D8 /* Welcome_User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5070C42AFA7AFA00A797D8 /* Welcome_User.swift */; };
 		4A5070C72AFA839600A797D8 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5070C62AFA839600A797D8 /* Register.swift */; };
@@ -79,6 +80,7 @@
 		4A0639FF2B04C71F00FC42D7 /* EcoGuide-Swift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "EcoGuide-Swift.entitlements"; sourceTree = "<group>"; };
 		4A063A002B04D17500FC42D7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4A063A022B04EE7700FC42D7 /* Editprofile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Editprofile.swift; sourceTree = "<group>"; };
+		4A063A042B06299A00FC42D7 /* testnav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testnav.swift; sourceTree = "<group>"; };
 		4A5070C22AFA4B8B00A797D8 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		4A5070C42AFA7AFA00A797D8 /* Welcome_User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Welcome_User.swift; sourceTree = "<group>"; };
 		4A5070C62AFA839600A797D8 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				4AF065892AFB87CF00F529A1 /* Forget_Password.swift */,
 				4AF0658B2AFB926700F529A1 /* OTP.swift */,
 				4A0639FD2B04BA4700FC42D7 /* ProfileView.swift */,
+				4A063A042B06299A00FC42D7 /* testnav.swift */,
 			);
 			path = "User_interface ";
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				11CEEBDC2AF9746000175E74 /* HomeViewGuide.swift in Sources */,
 				4A063A032B04EE7700FC42D7 /* Editprofile.swift in Sources */,
 				11CEEBE52AF9761F00175E74 /* bookingFormGuide.swift in Sources */,
+				4A063A052B06299A00FC42D7 /* testnav.swift in Sources */,
 				4A0639FE2B04BA4700FC42D7 /* ProfileView.swift in Sources */,
 				11EA7D282AF96DF400141117 /* EcoGuide_SwiftApp.swift in Sources */,
 				4A063A012B04D17500FC42D7 /* User.swift in Sources */,

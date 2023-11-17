@@ -19,7 +19,7 @@ class Reset_password {
     
     
       func resetPassword(password: String, code: String, completion: @escaping (Bool, String) -> Void) {
-          let url = URL(string: "http://localhost:3000/reset-password")!
+          let url = URL(string: "http://192.168.8.103:3000/reset-password")!
           var request = URLRequest(url: url)
           print(url)
           request.httpMethod = "POST"

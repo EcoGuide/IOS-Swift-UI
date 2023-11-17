@@ -11,7 +11,7 @@ class forget_password{
 //    ----------------------------------------  OTP mailling  ----------------------------------------
 
     func forgetpassword(email: String, completion: @escaping (Result<String, Error>) -> Void) {
-        guard let url = URL(string: "http://192.168.1.129:3000:3000/forgot-password") else {
+        guard let url = URL(string: "http://192.168.8.103:3000:3000/forgot-password") else {
             completion(.failure(URLError(.badURL)))
             return
         }
@@ -59,7 +59,7 @@ class forget_password{
         task.resume()
     }
     func forgetpasswordsms(telephone: String, completion: @escaping (Result<String, Error>) -> Void) {
-        guard let url = URL(string: "http://192.168.1.129:3000/forgot-password-sms") else {
+        guard let url = URL(string: "http://192.168.8.103:3000/forgot-password-sms") else {
             completion(.failure(URLError(.badURL)))
             return
         }

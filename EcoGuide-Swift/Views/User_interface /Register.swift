@@ -17,7 +17,7 @@ struct Register: View {
     var body: some View {
         NavigationView {
             ZStack {
-                // Fond d'écran
+                // Fond d'écranf
                 Image("background")
                     .resizable()
                     .edgesIgnoringSafeArea(.all)

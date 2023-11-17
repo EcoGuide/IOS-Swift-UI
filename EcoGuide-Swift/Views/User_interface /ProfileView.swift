@@ -18,11 +18,15 @@ struct ProfileView: View {
 
     // action for navigation
     @State private var navigateToLogin = false
+    @State private var isLouggedout = false
 
     var body: some View {
+ 
         ZStack{
+            
             DynamicBackgroundView()
             NavigationView {
+
                 List {
                     
                     Section(header: Text("User Information")) {
@@ -66,62 +70,66 @@ struct ProfileView: View {
                     
                     // Menu options
                     Section {
-                                           ProfileOptionRow(iconName: "airplane.departure", optionName: "Favorites destinations") {
-                                             
-                                                    
-                                           }
-                                           ProfileOptionRow(iconName: "creditcard.fill", optionName: "Payment") {
+                    ProfileOptionRow(iconName: "airplane.departure", optionName: "Favorites destinations") {
+
+                    }
+                    ProfileOptionRow(iconName: "creditcard.fill", optionName: "Payment") {
                                                // Action for Payment
                                            }
-                                           ProfileOptionRow(iconName: "person.2.fill", optionName: "Edit your Profile") {
-                                                self.navigateToLogin.toggle()
+                    ProfileOptionRow(iconName: "person.2.fill", optionName: "Edit your Profile") {
+                    self.navigateToLogin.toggle()
 
-                                            }
-                                           ProfileOptionRow(iconName: "tag.fill", optionName: "Promotions") {
+                    }
+                    ProfileOptionRow(iconName: "tag.fill", optionName: "Promotions") {
                                                // Action for Promotions
-                                           }
-                                           ProfileOptionRow(iconName: "gearshape.fill", optionName: "Settings") {
+                    }
+                    ProfileOptionRow(iconName: "gearshape.fill", optionName: "Settings") {
                                                // Action for Settings
-                                           }
-                                       }
+                    }
+                }
                     .sheet(isPresented: $navigateToLogin) {
-                        // Your edit profile view goes here
-                        EditProfileView(isEditing: $isEditing, name: $name, surname: $surname, phoneNumber: $phoneNumber, email: $email)
+                         EditProfileView(isEditing: $isEditing, name: $name, surname: $surname, phoneNumber: $phoneNumber, email: $email)
                     }
-//                    Section {
-//                        Button("Edit your Profile") {
-//                         }
-//                        .foregroundColor(.green)
-//                    }
+ 
                      Section {
-                        Button("Log out") {
-                            let token = UserDefaults.standard.string(forKey: "tokenAuth") ?? ""
-                          if  !token.isEmpty
-                            {
-                            editprofile.logoutUser(token: token)
-                              UserDefaults.standard.removeObject(forKey: "tokenAuth")
-                              self.showingAlert = true
+                         Button("Log out") {
+                             showingAlert = true
+                             }
+                             .foregroundColor(.red)
+                             .background(
+                                 NavigationLink("", destination: Login(), isActive: $isLouggedout)
+                                     .opacity(0)
+                                     .disabled(true)
+                              )
+                         }
 
-
-                            }
-
-                        }
-                        .foregroundColor(.red)
-                    }
                      .alert(isPresented: $showingAlert) {
-                         
                          Alert(
-                             title: Text("Succes"),
-                             message: Text("You have successfully logged out"),
-                             dismissButton: .default(Text("OK"))
+                             title: Text("Loggout"),
+                             message: Text("Are you sur you want to Log Out!."),
+                             primaryButton: .default(Text("Yes")) {
+                                 let token = UserDefaults.standard.string(forKey: "tokenAuth") ?? ""
+                                 if !token.isEmpty {
+                                     editprofile.logoutUser(token: token)
+                                     UserDefaults.standard.removeObject(forKey: "tokenAuth")
+                                     self.showingAlert = true
+                                     isLouggedout = true
+                                 }
+                             },
+                             secondaryButton: .cancel()
                          )
                      }
+                   
+                 
                 }
-                .listStyle(GroupedListStyle())
-                .navigationBarTitle("Profile", displayMode: .large)
+              
             }
         }
+        .navigationBarBackButtonHidden(true)// pas de retour (back)
+
     }
+    
+    
 }
 struct ProfileOptionRow: View {
     var iconName: String
@@ -189,7 +197,7 @@ struct EditProfileView: View {
             }
         }
     }
-    
+   
     struct ProfileView_Previews: PreviewProvider {
         static var previews: some View {
             ProfileView()
