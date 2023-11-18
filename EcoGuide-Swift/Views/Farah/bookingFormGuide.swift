@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Stripe
 struct User {
     var title: String = "Mr"
     var fullName: String = ""
@@ -23,10 +24,20 @@ struct User {
         @State private var selectedHours: String = ""
         @State private var selectedPhoneNumber: String = ""
         @State private var isForAnotherPerson = false
+        @State private var paymentMethodParams : STPPaymentMethodParams?
         @StateObject var guideViewModel: GuideViewModel
         @Binding var guide: Guide
+        @State private var isActive = false
         @Binding var discountCode: Double
-
+        private func calculateTotalPrice() -> String {
+            if let hours = Int(selectedHours) {
+                let pricePerHour = guide.price // Adjust as needed
+                let totalPrice = hours * pricePerHour
+                return "$\(totalPrice)"
+            } else {
+                return "$0" // Handle invalid input
+            }
+        }
         var body: some View {
                NavigationView {
                    Form {
@@ -43,6 +54,10 @@ struct User {
                            Text(calculateTotalPrice())
                                .foregroundColor(.blue)
                        }
+                       
+                       Section {
+                           STPPaymentCardTextField.Representable.init(paymentMethodParams : $paymentMethodParams)
+                       }
 
                        Section(header: Text("Is this booking for you?")) {
                            Toggle("For Me", isOn: $isForAnotherPerson)
@@ -51,7 +66,7 @@ struct User {
                        Section {
                            if isForAnotherPerson {
                                NavigationLink(
-                                   destination:SelectCardsView(user: $user, selectedPhoneNumber: $selectedPhoneNumber, discountCode: $discountCode),
+                                destination:SelectCardsView(user: $user, selectedPhoneNumber: $selectedPhoneNumber, discountCode: $discountCode, guide: $guide),
                                    label: {
                                        ContinueButton("Continue") {
                                            isForAnotherPerson = true
@@ -60,7 +75,7 @@ struct User {
                                )
                            } else {
                                NavigationLink(
-                                   destination: PaymentDetailsView(user: $user, selectedPhoneNumber: $selectedPhoneNumber, discountCode: $discountCode),
+                                destination: PaymentDetailsView(user: $user, selectedPhoneNumber: $selectedPhoneNumber, discountCode: $discountCode, guide: $guide),
                                    label: {
                                        ContinueButton("Continue") {
                                            isForAnotherPerson = false
@@ -85,26 +100,21 @@ struct User {
                }
            }
 
-           private func calculateTotalPrice() -> String {
-               if let hours = Int(selectedHours) {
-                   let pricePerHour = guide.price // Adjust as needed
-                   let totalPrice = hours * pricePerHour
-                   return "$\(totalPrice)"
-               } else {
-                   return "$0" // Handle invalid input
-               }
-           }
+           
        }
 struct PaymentDetailsView: View {
     @Binding var user: User
     @Binding var selectedPhoneNumber: String
     @Binding var discountCode: Double
+    @Binding var guide: Guide
 
     // Add an accessible initializer
-    init(user: Binding<User>, selectedPhoneNumber: Binding<String>, discountCode: Binding<Double>) {
+    init(user: Binding<User>, selectedPhoneNumber: Binding<String>, discountCode: Binding<Double>, guide: Binding<Guide>) {
         _user = user
         _selectedPhoneNumber = selectedPhoneNumber
         _discountCode = discountCode
+        _guide = guide
+        
     }
 
     var body: some View {
@@ -128,7 +138,7 @@ struct PaymentDetailsView: View {
             }
 
             Section {
-                NavigationLink(destination: SelectCardsView(user: $user, selectedPhoneNumber: $selectedPhoneNumber, discountCode: $discountCode)) {
+                NavigationLink(destination: SelectCardsView(user: $user, selectedPhoneNumber: $selectedPhoneNumber, discountCode: $discountCode, guide: $guide)) {
                     Text("Continue")
                         .frame(maxWidth: .infinity)
                         .frame(height: 44)
@@ -146,6 +156,7 @@ struct SelectCardsView: View {
     @Binding var user: User
     @Binding var selectedPhoneNumber: String
     @Binding var discountCode: Double
+    @Binding var guide: Guide
     
     var body: some View {
         VStack(alignment : .leading,spacing:20){
@@ -299,7 +310,7 @@ struct SelectCardsView: View {
             }
             
             Section {
-                NavigationLink(destination: secondPaymentView()) {
+                NavigationLink(destination: secondPaymentView(guide: $guide)) {
                     Text("Book now")
                         .frame(maxWidth: .infinity)
                         .frame(height: 44)
@@ -363,7 +374,43 @@ struct secondPaymentView: View {
     @State private var date = Date()
     @State private var cvv = ""
     @State private var showAlert = false
+    @State private var isActive = false
     @State private var showChatView = false
+    @State private var selectedHours: String = ""
+    @Binding var guide: Guide
+    
+    private func calculateTotalPrice() -> String {
+        if let hours = Int(selectedHours) {
+            let pricePerHour = guide.price // Adjust as needed
+            let totalPrice = hours * pricePerHour
+            return "$\(totalPrice)"
+        } else {
+            return "$0" // Handle invalid input
+        }
+    }
+
+    private func startCheckout(completion: @escaping (String?) -> Void)
+    {
+        let url = URL(string: "https://ecoventura-payment-server.glitch.me/create-payment-intent")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = try! JSONEncoder().encode(calculateTotalPrice())
+               
+               URLSession.shared.dataTask(with: request) { data, response, error in
+                       
+                   guard let data = data, error == nil,
+                         (response as? HTTPURLResponse)?.statusCode == 200
+                   else {
+                       completion(nil)
+                       return
+                   }
+                   
+                   let checkoutIntentResponse = try? JSONDecoder().decode(CheckoutIntentResponse.self, from: data)
+                   completion(checkoutIntentResponse?.clientSecret)
+
+               }.resume()
+               
+    }
     
     var body: some View {
         
@@ -518,15 +565,26 @@ struct secondPaymentView: View {
                     )}
                     
                     Button(action: {
-                        // Handle payment logic here
                         showAlert = true
+                        startCheckout { clientSecret in
+                            PaymentConfig.shared.paymentIntentClientSecret = clientSecret
+                            DispatchQueue.main.async {
+                                self.isActive = true
+                            }
+                        
+
+                           
+                        }
                     }) {
+                        
                         Text("Continue")
                             .frame(maxWidth: .infinity)
                             .frame(height: 44)
                             .background(Color.blue)
                             .foregroundColor(.white)
                             .cornerRadius(50)
+                                
+                            }
                     }
                     .alert(isPresented: $showAlert) {
                         Alert(
@@ -564,5 +622,5 @@ struct secondPaymentView: View {
         static var previews: some View {
             bookingFormGuide(guideViewModel: GuideViewModel(), guide: .constant(guide), discountCode: .constant(discountCode))
         }
-    }}
+    }
 
