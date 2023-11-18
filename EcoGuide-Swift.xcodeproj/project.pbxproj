@@ -7,6 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		110C5B742B0923CA001C9C86 /* CheckoutIntentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110C5B732B0923CA001C9C86 /* CheckoutIntentResponse.swift */; };
+		110C5B772B09396B001C9C86 /* Stripe in Frameworks */ = {isa = PBXBuildFile; productRef = 110C5B762B09396B001C9C86 /* Stripe */; };
+		110C5B792B09396B001C9C86 /* StripeApplePay in Frameworks */ = {isa = PBXBuildFile; productRef = 110C5B782B09396B001C9C86 /* StripeApplePay */; };
+		110C5B7B2B09396B001C9C86 /* StripeCardScan in Frameworks */ = {isa = PBXBuildFile; productRef = 110C5B7A2B09396B001C9C86 /* StripeCardScan */; };
+		110C5B7D2B09396B001C9C86 /* StripeFinancialConnections in Frameworks */ = {isa = PBXBuildFile; productRef = 110C5B7C2B09396B001C9C86 /* StripeFinancialConnections */; };
+		110C5B7F2B09396B001C9C86 /* StripeIdentity in Frameworks */ = {isa = PBXBuildFile; productRef = 110C5B7E2B09396B001C9C86 /* StripeIdentity */; };
+		110C5B812B09396B001C9C86 /* StripePaymentSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 110C5B802B09396B001C9C86 /* StripePaymentSheet */; };
+		110C5B832B09396B001C9C86 /* StripePayments in Frameworks */ = {isa = PBXBuildFile; productRef = 110C5B822B09396B001C9C86 /* StripePayments */; };
+		110C5B852B09396B001C9C86 /* StripePaymentsUI in Frameworks */ = {isa = PBXBuildFile; productRef = 110C5B842B09396B001C9C86 /* StripePaymentsUI */; };
+		110C5B872B093A5D001C9C86 /* PaymentConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110C5B862B093A5D001C9C86 /* PaymentConfig.swift */; };
+		110C5B892B09464B001C9C86 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110C5B882B09464B001C9C86 /* Cart.swift */; };
+		1182A58D2AFA6944007F994E /* TitleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1182A58C2AFA6944007F994E /* TitleRow.swift */; };
+		1182A58F2AFA789D007F994E /* ContentChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1182A58E2AFA789D007F994E /* ContentChatView.swift */; };
+		1182A5932AFA796D007F994E /* MessageGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1182A5922AFA796D007F994E /* MessageGuide.swift */; };
+		1182A5952AFA7A06007F994E /* MessageBubbleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1182A5942AFA7A06007F994E /* MessageBubbleGuide.swift */; };
+		1182A5972AFA8795007F994E /* MessageGuideField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1182A5962AFA8795007F994E /* MessageGuideField.swift */; };
+		118833902B0439EE004072B8 /* PaymentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1188338F2B0439EE004072B8 /* PaymentButton.swift */; };
 		11CEEBDC2AF9746000175E74 /* HomeViewGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CEEBDB2AF9746000175E74 /* HomeViewGuide.swift */; };
 		11CEEBDF2AF9753D00175E74 /* RecentlyBookedGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CEEBDE2AF9753D00175E74 /* RecentlyBookedGuide.swift */; };
 		11CEEBE12AF9755D00175E74 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CEEBE02AF9755D00175E74 /* TestModel.swift */; };
@@ -14,6 +31,11 @@
 		11CEEBE52AF9761F00175E74 /* bookingFormGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CEEBE42AF9761F00175E74 /* bookingFormGuide.swift */; };
 		11CEEBE72AF9768D00175E74 /* bookmarksGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CEEBE62AF9768D00175E74 /* bookmarksGuide.swift */; };
 		11CEEBE92AF976D300175E74 /* detailGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CEEBE82AF976D300175E74 /* detailGuide.swift */; };
+		11DDB9DE2AFF8AF50071D05E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11DDB9DD2AFF8AF50071D05E /* GoogleService-Info.plist */; };
+		11DDB9E12AFF90F90071D05E /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 11DDB9E02AFF90F90071D05E /* FirebaseFirestore */; };
+		11DDB9E32AFF90F90071D05E /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 11DDB9E22AFF90F90071D05E /* FirebaseFirestoreSwift */; };
+		11DDB9E52AFFE7A50071D05E /* MessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DDB9E42AFFE7A50071D05E /* MessageManager.swift */; };
+		11DDB9E72AFFFAD50071D05E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11DDB9E62AFFFAD50071D05E /* GoogleService-Info.plist */; };
 		11EA7D282AF96DF400141117 /* EcoGuide_SwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EA7D272AF96DF400141117 /* EcoGuide_SwiftApp.swift */; };
 		11EA7D2A2AF96DF400141117 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EA7D292AF96DF400141117 /* ContentView.swift */; };
 		11EA7D2C2AF96DF500141117 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11EA7D2B2AF96DF500141117 /* Assets.xcassets */; };
@@ -23,6 +45,12 @@
 		11EA7D3E2AF96DF500141117 /* EcoGuide_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EA7D3D2AF96DF500141117 /* EcoGuide_SwiftTests.swift */; };
 		11EA7D482AF96DF500141117 /* EcoGuide_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EA7D472AF96DF500141117 /* EcoGuide_SwiftUITests.swift */; };
 		11EA7D4A2AF96DF500141117 /* EcoGuide_SwiftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EA7D492AF96DF500141117 /* EcoGuide_SwiftUITestsLaunchTests.swift */; };
+		11F9A7932B021ED20091610E /* GuideService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F9A7922B021ED20091610E /* GuideService.swift */; };
+		11F9A7952B0220250091610E /* GuideModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F9A7942B0220250091610E /* GuideModel.swift */; };
+		11F9A7982B022DE20091610E /* GuideViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F9A7972B022DE20091610E /* GuideViewModel.swift */; };
+		11F9A79B2B0232AD0091610E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 11F9A79A2B0232AD0091610E /* Alamofire */; };
+		11F9A79D2B02336F0091610E /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F9A79C2B02336F0091610E /* Network.swift */; };
+		11FA1E2F2B03B6D80058165D /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FA1E2E2B03B6D80058165D /* AsyncImageView.swift */; };
 		4A5070C32AFA4B8B00A797D8 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5070C22AFA4B8B00A797D8 /* Login.swift */; };
 		4A5070C52AFA7AFA00A797D8 /* Welcome_User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5070C42AFA7AFA00A797D8 /* Welcome_User.swift */; };
 		4A5070C72AFA839600A797D8 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5070C62AFA839600A797D8 /* Register.swift */; };
@@ -46,6 +74,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		110C5B732B0923CA001C9C86 /* CheckoutIntentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutIntentResponse.swift; sourceTree = "<group>"; };
+		110C5B862B093A5D001C9C86 /* PaymentConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentConfig.swift; sourceTree = "<group>"; };
+		110C5B882B09464B001C9C86 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
+		1182A58C2AFA6944007F994E /* TitleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleRow.swift; sourceTree = "<group>"; };
+		1182A58E2AFA789D007F994E /* ContentChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentChatView.swift; sourceTree = "<group>"; };
+		1182A5922AFA796D007F994E /* MessageGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageGuide.swift; sourceTree = "<group>"; };
+		1182A5942AFA7A06007F994E /* MessageBubbleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubbleGuide.swift; sourceTree = "<group>"; };
+		1182A5962AFA8795007F994E /* MessageGuideField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageGuideField.swift; sourceTree = "<group>"; };
+		1188338F2B0439EE004072B8 /* PaymentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentButton.swift; sourceTree = "<group>"; };
 		11CEEBDB2AF9746000175E74 /* HomeViewGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewGuide.swift; sourceTree = "<group>"; };
 		11CEEBDE2AF9753D00175E74 /* RecentlyBookedGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyBookedGuide.swift; sourceTree = "<group>"; };
 		11CEEBE02AF9755D00175E74 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
@@ -53,6 +90,10 @@
 		11CEEBE42AF9761F00175E74 /* bookingFormGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookingFormGuide.swift; sourceTree = "<group>"; };
 		11CEEBE62AF9768D00175E74 /* bookmarksGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookmarksGuide.swift; sourceTree = "<group>"; };
 		11CEEBE82AF976D300175E74 /* detailGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailGuide.swift; sourceTree = "<group>"; };
+		11DDB9DD2AFF8AF50071D05E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		11DDB9E42AFFE7A50071D05E /* MessageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageManager.swift; sourceTree = "<group>"; };
+		11DDB9E62AFFFAD50071D05E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		11DDB9E82AFFFBF00071D05E /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		11EA7D242AF96DF400141117 /* EcoGuide-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EcoGuide-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		11EA7D272AF96DF400141117 /* EcoGuide_SwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcoGuide_SwiftApp.swift; sourceTree = "<group>"; };
 		11EA7D292AF96DF400141117 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -65,6 +106,11 @@
 		11EA7D432AF96DF500141117 /* EcoGuide-SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EcoGuide-SwiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		11EA7D472AF96DF500141117 /* EcoGuide_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcoGuide_SwiftUITests.swift; sourceTree = "<group>"; };
 		11EA7D492AF96DF500141117 /* EcoGuide_SwiftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcoGuide_SwiftUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		11F9A7922B021ED20091610E /* GuideService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideService.swift; sourceTree = "<group>"; };
+		11F9A7942B0220250091610E /* GuideModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideModel.swift; sourceTree = "<group>"; };
+		11F9A7972B022DE20091610E /* GuideViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideViewModel.swift; sourceTree = "<group>"; };
+		11F9A79C2B02336F0091610E /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		11FA1E2E2B03B6D80058165D /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		4A5070C22AFA4B8B00A797D8 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		4A5070C42AFA7AFA00A797D8 /* Welcome_User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Welcome_User.swift; sourceTree = "<group>"; };
 		4A5070C62AFA839600A797D8 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
@@ -75,6 +121,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				110C5B832B09396B001C9C86 /* StripePayments in Frameworks */,
+				110C5B7B2B09396B001C9C86 /* StripeCardScan in Frameworks */,
+				110C5B792B09396B001C9C86 /* StripeApplePay in Frameworks */,
+				110C5B852B09396B001C9C86 /* StripePaymentsUI in Frameworks */,
+				11F9A79B2B0232AD0091610E /* Alamofire in Frameworks */,
+				110C5B7D2B09396B001C9C86 /* StripeFinancialConnections in Frameworks */,
+				110C5B772B09396B001C9C86 /* Stripe in Frameworks */,
+				11DDB9E12AFF90F90071D05E /* FirebaseFirestore in Frameworks */,
+				11DDB9E32AFF90F90071D05E /* FirebaseFirestoreSwift in Frameworks */,
+				110C5B812B09396B001C9C86 /* StripePaymentSheet in Frameworks */,
+				110C5B7F2B09396B001C9C86 /* StripeIdentity in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,14 +152,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		110C5B6E2B091377001C9C86 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1182A58B2AFA6918007F994E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				1182A58C2AFA6944007F994E /* TitleRow.swift */,
+				1182A5942AFA7A06007F994E /* MessageBubbleGuide.swift */,
+				1182A5962AFA8795007F994E /* MessageGuideField.swift */,
+				1188338F2B0439EE004072B8 /* PaymentButton.swift */,
+				110C5B862B093A5D001C9C86 /* PaymentConfig.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		11CEEBDD2AF9752B00175E74 /* Farah */ = {
 			isa = PBXGroup;
 			children = (
+				11DDB9E82AFFFBF00071D05E /* GoogleService-Info.plist */,
 				11CEEBDB2AF9746000175E74 /* HomeViewGuide.swift */,
 				11CEEBDE2AF9753D00175E74 /* RecentlyBookedGuide.swift */,
 				11CEEBE42AF9761F00175E74 /* bookingFormGuide.swift */,
 				11CEEBE62AF9768D00175E74 /* bookmarksGuide.swift */,
 				11CEEBE82AF976D300175E74 /* detailGuide.swift */,
+				1182A58E2AFA789D007F994E /* ContentChatView.swift */,
 			);
 			path = Farah;
 			sourceTree = "<group>";
@@ -114,6 +192,7 @@
 				11EA7D3C2AF96DF500141117 /* EcoGuide-SwiftTests */,
 				11EA7D462AF96DF500141117 /* EcoGuide-SwiftUITests */,
 				11EA7D252AF96DF400141117 /* Products */,
+				110C5B6E2B091377001C9C86 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,14 +209,17 @@
 		11EA7D262AF96DF400141117 /* EcoGuide-Swift */ = {
 			isa = PBXGroup;
 			children = (
+				11F9A7912B021E7D0091610E /* Services */,
 				11EA7D582AF96E0D00141117 /* ViewModels */,
 				11EA7D572AF96E0500141117 /* Views */,
 				11EA7D562AF96DFD00141117 /* Models */,
 				11EA7D272AF96DF400141117 /* EcoGuide_SwiftApp.swift */,
 				11EA7D292AF96DF400141117 /* ContentView.swift */,
+				1182A58B2AFA6918007F994E /* Components */,
 				11EA7D2B2AF96DF500141117 /* Assets.xcassets */,
 				11EA7D302AF96DF500141117 /* Persistence.swift */,
 				11EA7D322AF96DF500141117 /* EcoGuide_Swift.xcdatamodeld */,
+				11DDB9E62AFFFAD50071D05E /* GoogleService-Info.plist */,
 				11EA7D2D2AF96DF500141117 /* Preview Content */,
 			);
 			path = "EcoGuide-Swift";
@@ -162,6 +244,7 @@
 		11EA7D462AF96DF500141117 /* EcoGuide-SwiftUITests */ = {
 			isa = PBXGroup;
 			children = (
+				11DDB9DD2AFF8AF50071D05E /* GoogleService-Info.plist */,
 				11EA7D472AF96DF500141117 /* EcoGuide_SwiftUITests.swift */,
 				11EA7D492AF96DF500141117 /* EcoGuide_SwiftUITestsLaunchTests.swift */,
 			);
@@ -171,7 +254,11 @@
 		11EA7D562AF96DFD00141117 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1182A5922AFA796D007F994E /* MessageGuide.swift */,
 				11CEEBE02AF9755D00175E74 /* TestModel.swift */,
+				11F9A7942B0220250091610E /* GuideModel.swift */,
+				110C5B732B0923CA001C9C86 /* CheckoutIntentResponse.swift */,
+				110C5B882B09464B001C9C86 /* Cart.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -189,8 +276,20 @@
 			isa = PBXGroup;
 			children = (
 				11CEEBE22AF9756800175E74 /* TestVM.swift */,
+				11DDB9E42AFFE7A50071D05E /* MessageManager.swift */,
+				11F9A7972B022DE20091610E /* GuideViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		11F9A7912B021E7D0091610E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				11F9A7922B021ED20091610E /* GuideService.swift */,
+				11F9A79C2B02336F0091610E /* Network.swift */,
+				11FA1E2E2B03B6D80058165D /* AsyncImageView.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		4A5070C12AFA4B6F00A797D8 /* User_interface  */ = {
@@ -219,6 +318,19 @@
 			dependencies = (
 			);
 			name = "EcoGuide-Swift";
+			packageProductDependencies = (
+				11DDB9E02AFF90F90071D05E /* FirebaseFirestore */,
+				11DDB9E22AFF90F90071D05E /* FirebaseFirestoreSwift */,
+				11F9A79A2B0232AD0091610E /* Alamofire */,
+				110C5B762B09396B001C9C86 /* Stripe */,
+				110C5B782B09396B001C9C86 /* StripeApplePay */,
+				110C5B7A2B09396B001C9C86 /* StripeCardScan */,
+				110C5B7C2B09396B001C9C86 /* StripeFinancialConnections */,
+				110C5B7E2B09396B001C9C86 /* StripeIdentity */,
+				110C5B802B09396B001C9C86 /* StripePaymentSheet */,
+				110C5B822B09396B001C9C86 /* StripePayments */,
+				110C5B842B09396B001C9C86 /* StripePaymentsUI */,
+			);
 			productName = "EcoGuide-Swift";
 			productReference = 11EA7D242AF96DF400141117 /* EcoGuide-Swift.app */;
 			productType = "com.apple.product-type.application";
@@ -291,6 +403,11 @@
 				Base,
 			);
 			mainGroup = 11EA7D1B2AF96DF400141117;
+			packageReferences = (
+				11DDB9DF2AFF90F90071D05E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				11F9A7992B0232AD0091610E /* XCRemoteSwiftPackageReference "Alamofire" */,
+				110C5B752B09396B001C9C86 /* XCRemoteSwiftPackageReference "stripe-ios" */,
+			);
 			productRefGroup = 11EA7D252AF96DF400141117 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -309,6 +426,7 @@
 			files = (
 				11EA7D2F2AF96DF500141117 /* Preview Assets.xcassets in Resources */,
 				11EA7D2C2AF96DF500141117 /* Assets.xcassets in Resources */,
+				11DDB9E72AFFFAD50071D05E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +441,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11DDB9DE2AFF8AF50071D05E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,20 +452,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				110C5B892B09464B001C9C86 /* Cart.swift in Sources */,
 				11CEEBE72AF9768D00175E74 /* bookmarksGuide.swift in Sources */,
 				11EA7D342AF96DF500141117 /* EcoGuide_Swift.xcdatamodeld in Sources */,
+				110C5B872B093A5D001C9C86 /* PaymentConfig.swift in Sources */,
+				11F9A79D2B02336F0091610E /* Network.swift in Sources */,
 				11EA7D312AF96DF500141117 /* Persistence.swift in Sources */,
 				4A5070C52AFA7AFA00A797D8 /* Welcome_User.swift in Sources */,
 				4A5070C72AFA839600A797D8 /* Register.swift in Sources */,
 				4A5070C32AFA4B8B00A797D8 /* Login.swift in Sources */,
 				11CEEBE32AF9756800175E74 /* TestVM.swift in Sources */,
+				118833902B0439EE004072B8 /* PaymentButton.swift in Sources */,
+				11DDB9E52AFFE7A50071D05E /* MessageManager.swift in Sources */,
+				1182A58F2AFA789D007F994E /* ContentChatView.swift in Sources */,
+				1182A5952AFA7A06007F994E /* MessageBubbleGuide.swift in Sources */,
 				11CEEBE92AF976D300175E74 /* detailGuide.swift in Sources */,
 				11CEEBDF2AF9753D00175E74 /* RecentlyBookedGuide.swift in Sources */,
+				11F9A7952B0220250091610E /* GuideModel.swift in Sources */,
+				11F9A7932B021ED20091610E /* GuideService.swift in Sources */,
+				110C5B742B0923CA001C9C86 /* CheckoutIntentResponse.swift in Sources */,
 				11CEEBE12AF9755D00175E74 /* TestModel.swift in Sources */,
+				1182A5972AFA8795007F994E /* MessageGuideField.swift in Sources */,
+				11F9A7982B022DE20091610E /* GuideViewModel.swift in Sources */,
+				11FA1E2F2B03B6D80058165D /* AsyncImageView.swift in Sources */,
 				11EA7D2A2AF96DF400141117 /* ContentView.swift in Sources */,
 				11CEEBDC2AF9746000175E74 /* HomeViewGuide.swift in Sources */,
+				1182A5932AFA796D007F994E /* MessageGuide.swift in Sources */,
 				11CEEBE52AF9761F00175E74 /* bookingFormGuide.swift in Sources */,
 				11EA7D282AF96DF400141117 /* EcoGuide_SwiftApp.swift in Sources */,
+				1182A58D2AFA6944007F994E /* TitleRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -665,6 +799,91 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		110C5B752B09396B001C9C86 /* XCRemoteSwiftPackageReference "stripe-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stripe/stripe-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 23.0.0;
+			};
+		};
+		11DDB9DF2AFF90F90071D05E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		11F9A7992B0232AD0091610E /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		110C5B762B09396B001C9C86 /* Stripe */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 110C5B752B09396B001C9C86 /* XCRemoteSwiftPackageReference "stripe-ios" */;
+			productName = Stripe;
+		};
+		110C5B782B09396B001C9C86 /* StripeApplePay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 110C5B752B09396B001C9C86 /* XCRemoteSwiftPackageReference "stripe-ios" */;
+			productName = StripeApplePay;
+		};
+		110C5B7A2B09396B001C9C86 /* StripeCardScan */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 110C5B752B09396B001C9C86 /* XCRemoteSwiftPackageReference "stripe-ios" */;
+			productName = StripeCardScan;
+		};
+		110C5B7C2B09396B001C9C86 /* StripeFinancialConnections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 110C5B752B09396B001C9C86 /* XCRemoteSwiftPackageReference "stripe-ios" */;
+			productName = StripeFinancialConnections;
+		};
+		110C5B7E2B09396B001C9C86 /* StripeIdentity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 110C5B752B09396B001C9C86 /* XCRemoteSwiftPackageReference "stripe-ios" */;
+			productName = StripeIdentity;
+		};
+		110C5B802B09396B001C9C86 /* StripePaymentSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 110C5B752B09396B001C9C86 /* XCRemoteSwiftPackageReference "stripe-ios" */;
+			productName = StripePaymentSheet;
+		};
+		110C5B822B09396B001C9C86 /* StripePayments */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 110C5B752B09396B001C9C86 /* XCRemoteSwiftPackageReference "stripe-ios" */;
+			productName = StripePayments;
+		};
+		110C5B842B09396B001C9C86 /* StripePaymentsUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 110C5B752B09396B001C9C86 /* XCRemoteSwiftPackageReference "stripe-ios" */;
+			productName = StripePaymentsUI;
+		};
+		11DDB9E02AFF90F90071D05E /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11DDB9DF2AFF90F90071D05E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		11DDB9E22AFF90F90071D05E /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11DDB9DF2AFF90F90071D05E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		11F9A79A2B0232AD0091610E /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11F9A7992B0232AD0091610E /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		11EA7D322AF96DF500141117 /* EcoGuide_Swift.xcdatamodeld */ = {

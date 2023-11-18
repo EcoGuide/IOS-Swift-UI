@@ -14,8 +14,8 @@
             filePath = "EcoGuide-Swift/EcoGuide_SwiftApp.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -32,56 +32,24 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "15"
                   endingLineNumber = "15"
-                  offsetFromSymbolStart = "192">
+                  offsetFromSymbolStart = "224">
                </Location>
                <Location
-                  uuid = "19AD94B7-6989-4D16-B540-254C2A39837D - 4770561ca1f66ee9"
+                  uuid = "19AD94B7-6989-4D16-B540-254C2A39837D - 8efbb7a32e6012fa"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; EcoGuide_Swift.HomeViewGuide in EcoGuide_Swift.EcoGuide_SwiftApp.body.getter : some"
+                  symbolName = "closure #1 () -&gt; SwiftUI.EmptyView in EcoGuide_Swift.EcoGuide_SwiftApp.body.getter : some"
                   moduleName = "EcoGuide-Swift"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/faf/Desktop/IOS-Swift-UI/EcoGuide-Swift/EcoGuide_SwiftApp.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "80">
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "8">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7D4A8FEE-7490-46F4-892E-D4D064C40468"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EcoGuide-Swift/Views/Farah/bookingFormGuide.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
-            landmarkName = "SelectCardsView"
-            landmarkType = "14">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "51B70195-2CEF-440C-974E-F7C1C339F75E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EcoGuide-Swift/Views/Farah/bookingFormGuide.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "278"
-            endingLineNumber = "278"
-            landmarkName = "body"
-            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

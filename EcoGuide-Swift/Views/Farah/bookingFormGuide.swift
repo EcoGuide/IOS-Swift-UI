@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Stripe
 struct User {
     var title: String = "Mr"
     var fullName: String = ""
@@ -16,71 +17,104 @@ struct User {
     var discountCode: Double = 0.0
 }
 
-
-struct bookingformGuide: View {
-    @State private var selectedDate: Date = Date()
-    @State private var user = User()
-    @State private var selectedHours: String = ""
-    @State private var selectedPhoneNumber: String = ""
-    @State private var isPaymentMethodSelected: Bool = false
-    @Binding var discountCode: Double
-
-        var body: some View {
-            NavigationView {
-                Form {
-                    Section {
-                        DatePicker("Select Date", selection: $selectedDate, displayedComponents: .date)
-                    }
-                    
-                    Section(header: Text("Select Hours")) {
-                        TextField("Number of Hours", text: $selectedHours)
-                            .keyboardType(.numberPad)
-                    }
-                    
-                    Section(header: Text("Total Price")) {
-                        Text(calculateTotalPrice())
-                            .foregroundColor(.blue)
-                    }
-                    
-                    Section {
-                        NavigationLink(destination: PaymentDetailsView(user:$user, selectedPhoneNumber: $selectedPhoneNumber,
-                                                discountCode : $discountCode
-                                                                      )) {
-                            Text("Continue")
-                                .frame(maxWidth: .infinity)
-                                .frame(height: 44)
-                                .background(Color.blue)
-                                .foregroundColor(.white)
-                                .cornerRadius(8)
-                        }
-                    }
-                }
-                .navigationBarTitle("Booking Guide")
-            }
-        }
-        
-        func calculateTotalPrice() -> String {
-        
+    
+    struct bookingFormGuide: View {
+        @State private var selectedDate: Date = Date()
+        @State private var user = User()
+        @State private var selectedHours: String = ""
+        @State private var selectedPhoneNumber: String = ""
+        @State private var isForAnotherPerson = false
+        @State private var paymentMethodParams : STPPaymentMethodParams?
+        @StateObject var guideViewModel: GuideViewModel
+        @Binding var guide: Guide
+        @State private var isActive = false
+        @Binding var discountCode: Double
+        private func calculateTotalPrice() -> String {
             if let hours = Int(selectedHours) {
-                let pricePerHour = 50 // Adjust as needed
+                let pricePerHour = guide.price // Adjust as needed
                 let totalPrice = hours * pricePerHour
                 return "$\(totalPrice)"
             } else {
                 return "$0" // Handle invalid input
             }
         }
-    }
+        var body: some View {
+               NavigationView {
+                   Form {
+                       Section {
+                           DatePicker("Select Date", selection: $selectedDate, displayedComponents: .date)
+                       }
 
+                       Section(header: Text("Select Hours")) {
+                           TextField("Number of Hours", text: $selectedHours)
+                               .keyboardType(.numberPad)
+                       }
+
+                       Section(header: Text("Total Price")) {
+                           Text(calculateTotalPrice())
+                               .foregroundColor(.blue)
+                       }
+                       
+                       Section {
+                           STPPaymentCardTextField.Representable.init(paymentMethodParams : $paymentMethodParams)
+                       }
+
+                       Section(header: Text("Is this booking for you?")) {
+                           Toggle("For Me", isOn: $isForAnotherPerson)
+                       }
+
+                       Section {
+                           if isForAnotherPerson {
+                               NavigationLink(
+                                destination:SelectCardsView(user: $user, selectedPhoneNumber: $selectedPhoneNumber, discountCode: $discountCode, guide: $guide),
+                                   label: {
+                                       ContinueButton("Continue") {
+                                           isForAnotherPerson = true
+                                       }
+                                   }
+                               )
+                           } else {
+                               NavigationLink(
+                                destination: PaymentDetailsView(user: $user, selectedPhoneNumber: $selectedPhoneNumber, discountCode: $discountCode, guide: $guide),
+                                   label: {
+                                       ContinueButton("Continue") {
+                                           isForAnotherPerson = false
+                                       }
+                                   }
+                               )
+                           }
+                       }
+                   }
+                   .navigationBarTitle("Booking Form", displayMode: .inline)
+               }
+           }
+
+           private func ContinueButton(_ title: String, action: @escaping () -> Void) -> some View {
+               Button(action: action) {
+                   Text(title)
+                       .frame(maxWidth: .infinity)
+                       .frame(height: 44)
+                       .background(Color.blue)
+                       .foregroundColor(.white)
+                       .cornerRadius(8)
+               }
+           }
+
+           
+       }
 struct PaymentDetailsView: View {
     @Binding var user: User
     @Binding var selectedPhoneNumber: String
     @Binding var discountCode: Double
+    @Binding var guide: Guide
 
     // Add an accessible initializer
-    init(user: Binding<User>, selectedPhoneNumber: Binding<String>, discountCode: Binding<Double>) {
+    init(user: Binding<User>, selectedPhoneNumber: Binding<String>, discountCode: Binding<Double>, guide: Binding<Guide>) {
         _user = user
         _selectedPhoneNumber = selectedPhoneNumber
         _discountCode = discountCode
+        _guide = guide
+        
     }
 
     var body: some View {
@@ -104,7 +138,7 @@ struct PaymentDetailsView: View {
             }
 
             Section {
-                NavigationLink(destination: SelectCardsView(user: $user, selectedPhoneNumber: $selectedPhoneNumber, discountCode: $discountCode)) {
+                NavigationLink(destination: SelectCardsView(user: $user, selectedPhoneNumber: $selectedPhoneNumber, discountCode: $discountCode, guide: $guide)) {
                     Text("Continue")
                         .frame(maxWidth: .infinity)
                         .frame(height: 44)
@@ -122,6 +156,7 @@ struct SelectCardsView: View {
     @Binding var user: User
     @Binding var selectedPhoneNumber: String
     @Binding var discountCode: Double
+    @Binding var guide: Guide
     
     var body: some View {
         VStack(alignment : .leading,spacing:20){
@@ -275,7 +310,7 @@ struct SelectCardsView: View {
             }
             
             Section {
-                NavigationLink(destination: secondPaymentView()) {
+                NavigationLink(destination: secondPaymentView(guide: $guide)) {
                     Text("Book now")
                         .frame(maxWidth: .infinity)
                         .frame(height: 44)
@@ -339,173 +374,238 @@ struct secondPaymentView: View {
     @State private var date = Date()
     @State private var cvv = ""
     @State private var showAlert = false
+    @State private var isActive = false
+    @State private var showChatView = false
+    @State private var selectedHours: String = ""
+    @Binding var guide: Guide
+    
+    private func calculateTotalPrice() -> String {
+        if let hours = Int(selectedHours) {
+            let pricePerHour = guide.price // Adjust as needed
+            let totalPrice = hours * pricePerHour
+            return "$\(totalPrice)"
+        } else {
+            return "$0" // Handle invalid input
+        }
+    }
+
+    private func startCheckout(completion: @escaping (String?) -> Void)
+    {
+        let url = URL(string: "https://ecoventura-payment-server.glitch.me/create-payment-intent")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = try! JSONEncoder().encode(calculateTotalPrice())
+               
+               URLSession.shared.dataTask(with: request) { data, response, error in
+                       
+                   guard let data = data, error == nil,
+                         (response as? HTTPURLResponse)?.statusCode == 200
+                   else {
+                       completion(nil)
+                       return
+                   }
+                   
+                   let checkoutIntentResponse = try? JSONDecoder().decode(CheckoutIntentResponse.self, from: data)
+                   completion(checkoutIntentResponse?.clientSecret)
+
+               }.resume()
+               
+    }
     
     var body: some View {
-        VStack(alignment : .leading,spacing:20){
-            
-            HStack{
-                Text("Payment Methods")
-                    .font(.system(size: 16, weight: .semibold))
+        
+            VStack(alignment : .leading,spacing:20){
+                
+                HStack{
+                    Text("Payment Methods")
+                        .font(.system(size: 16, weight: .semibold))
+                    
+                    
+                    
+                    Spacer()
+                    
+                    Button("Add New Card") {
+                        // Action to show the map
+                    }
+                    .foregroundColor(Color.pink)
+                    
+                    
+                }.padding()
                 
                 
-                
-                Spacer()
-                
-                Button("Add New Card") {
-                    // Action to show the map
-                }
-                .foregroundColor(Color.pink)
-                
-                
-            }.padding()
-            
-            
-            ZStack {
-                RoundedRectangle(cornerRadius: 8)
-                    .foregroundColor(Color.blue.opacity(0.1))
-                    .cornerRadius(20)
-                    .shadow(radius: 5)
-                    .frame(height: 400)
-                    .frame(maxWidth: .infinity) // Make the field wider
-                VStack(alignment: .leading,spacing:30){
-                    HStack {
-                        
-                        Image("paypal")
-                            .padding(.leading, 16)
-                        Text("Paypal")
-                        
-                        
-                        
-                        Spacer()
-                        
-                        Button(action: {
-                            // Handle checkbox toggle logic here
-                        }) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 8)
+                        .foregroundColor(Color.blue.opacity(0.1))
+                        .cornerRadius(20)
+                        .shadow(radius: 5)
+                        .frame(height: 400)
+                        .frame(maxWidth: .infinity) // Make the field wider
+                    VStack(alignment: .leading,spacing:30){
+                        HStack {
                             
-                            Circle()
-                                .stroke(Color.blue , lineWidth: 2)
-                                .frame(width: 24, height: 24)
-                                .foregroundColor(.blue)
-                                .padding(.trailing, 16)
+                            Image("paypal")
+                                .padding(.leading, 16)
+                            Text("Paypal")
                             
+                            
+                            
+                            Spacer()
+                            
+                            Button(action: {
+                                // Handle checkbox toggle logic here
+                            }) {
+                                
+                                Circle()
+                                    .stroke(Color.blue , lineWidth: 2)
+                                    .frame(width: 24, height: 24)
+                                    .foregroundColor(.blue)
+                                    .padding(.trailing, 16)
+                                
+                            }
+                        }.padding(5)
+                            .frame(width: UIScreen.main.bounds.width  - 50 ,height:60)
+                        
+                        
+                            .background(Color.white).cornerRadius(20)
+                        
+                        
+                        HStack {
+                            
+                            Image("paypal")
+                                .padding(.leading, 16)
+                            Text("Paypal")
+                            
+                            
+                            
+                            Spacer()
+                            
+                            Button(action: {
+                                // Handle checkbox toggle logic here
+                            }) {
+                                
+                                Circle()
+                                    .stroke(Color.blue , lineWidth: 2)
+                                    .frame(width: 24, height: 24)
+                                    .foregroundColor(.blue)
+                                    .padding(.trailing, 16)
+                                
+                            }
+                        }.padding(5)
+                            .frame(width: UIScreen.main.bounds.width  - 50 ,height:60)
+                        
+                        
+                            .background(Color.white).cornerRadius(20)
+                        HStack {
+                            
+                            Image("paypal")
+                                .padding(.leading, 16)
+                            Text("Paypal")
+                            
+                            
+                            
+                            Spacer()
+                            
+                            Button(action: {
+                                // Handle checkbox toggle logic here
+                            }) {
+                                
+                                Circle()
+                                    .stroke(Color.blue , lineWidth: 2)
+                                    .frame(width: 24, height: 24)
+                                    .foregroundColor(.blue)
+                                    .padding(.trailing, 16)
+                                
+                            }
+                        }.padding(5)
+                            .frame(width: UIScreen.main.bounds.width  - 50 ,height:60)
+                        
+                        
+                            .background(Color.white).cornerRadius(20)
+                        
+                        Text("Pay with Debit/Credit Card")
+                            .font(.system(size: 18, weight: .semibold))
+                        
+                        HStack {
+                            
+                            Image("mastercard")
+                                .padding(.leading, 16)
+                            Text("master card")
+                            
+                            
+                            
+                            Spacer()
+                            
+                            Button(action: {
+                                // Handle checkbox toggle logic here
+                            }) {
+                                
+                                Circle()
+                                    .stroke(Color.blue , lineWidth: 2)
+                                    .frame(width: 24, height: 24)
+                                    .foregroundColor(.blue)
+                                    .padding(.trailing, 16)
+                                
+                            }
+                        }.padding(5)
+                            .frame(width: UIScreen.main.bounds.width  - 50 ,height:60)
+                        
+                        
+                            .background(Color.white).cornerRadius(20)
+                        
+                    }
+                }.padding()
+                
+                VStack {
+                    NavigationLink(
+                        destination: ContentChatView(),
+                        isActive: $showChatView,
+                        label: {
+                        EmptyView()
+                                           }
+                    )}
+                    
+                    Button(action: {
+                        showAlert = true
+                        startCheckout { clientSecret in
+                            PaymentConfig.shared.paymentIntentClientSecret = clientSecret
+                            DispatchQueue.main.async {
+                                self.isActive = true
+                            }
+                        
+
+                           
                         }
-                    }.padding(5)
-                        .frame(width: UIScreen.main.bounds.width  - 50 ,height:60)
-                    
-                    
-                        .background(Color.white).cornerRadius(20)
-                    
-                    
-                    HStack {
+                    }) {
                         
-                        Image("paypal")
-                            .padding(.leading, 16)
-                        Text("Paypal")
-                        
-                        
-                        
-                        Spacer()
-                        
-                        Button(action: {
-                            // Handle checkbox toggle logic here
-                        }) {
-                            
-                            Circle()
-                                .stroke(Color.blue , lineWidth: 2)
-                                .frame(width: 24, height: 24)
-                                .foregroundColor(.blue)
-                                .padding(.trailing, 16)
-                            
-                        }
-                    }.padding(5)
-                        .frame(width: UIScreen.main.bounds.width  - 50 ,height:60)
-                    
-                    
-                        .background(Color.white).cornerRadius(20)
-                    HStack {
-                        
-                        Image("paypal")
-                            .padding(.leading, 16)
-                        Text("Paypal")
-                        
-                        
-                        
-                        Spacer()
-                        
-                        Button(action: {
-                            // Handle checkbox toggle logic here
-                        }) {
-                            
-                            Circle()
-                                .stroke(Color.blue , lineWidth: 2)
-                                .frame(width: 24, height: 24)
-                                .foregroundColor(.blue)
-                                .padding(.trailing, 16)
-                            
-                        }
-                    }.padding(5)
-                        .frame(width: UIScreen.main.bounds.width  - 50 ,height:60)
-                    
-                    
-                        .background(Color.white).cornerRadius(20)
-                    
-                    Text("Pay with Debit/Credit Card")
-                        .font(.system(size: 18, weight: .semibold))
-                    
-                    HStack {
-                        
-                        Image("mastercard")
-                            .padding(.leading, 16)
-                        Text("master card")
-                        
-                        
-                        
-                        Spacer()
-                        
-                        Button(action: {
-                            // Handle checkbox toggle logic here
-                        }) {
-                            
-                            Circle()
-                                .stroke(Color.blue , lineWidth: 2)
-                                .frame(width: 24, height: 24)
-                                .foregroundColor(.blue)
-                                .padding(.trailing, 16)
-                            
-                        }
-                    }.padding(5)
-                        .frame(width: UIScreen.main.bounds.width  - 50 ,height:60)
-                    
-                    
-                        .background(Color.white).cornerRadius(20)
-                    
-                }
-            }.padding()
-            
-            Button(action: {
-                // Handle payment logic here
-                showAlert = true
-            }) {
-                Text("Continue")
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 44)
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(50)
-            }
-            .navigationTitle("Payment method")
-            .alert(isPresented: $showAlert) {
-                Alert(
-                    title: Text("Payment Successful"),
-                    message: Text("Your payment has been processed."),
-                    dismissButton: .default(Text("OK"))
-                )
-            }
-            
+                        Text("Continue")
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 44)
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(50)
+                                
+                            }
+                    }
+                    .alert(isPresented: $showAlert) {
+                        Alert(
+                            title: Text("Payment Successful"),
+                            message: Text("Your payment has been processed."),
+                            dismissButton: .default(Text("OK"), action: {
+                                // After the alert is dismissed, set the flag to show the ChatView
+                                showChatView = true
+                            })
+                        )
+                    }
+                  
             
             
         }
     }
+            
+            
+            
+        
+    
     
     
     enum PaymentMethod: String, Equatable, CaseIterable {
@@ -515,11 +615,12 @@ struct secondPaymentView: View {
     }
     
     struct BookingGuide_Previews: PreviewProvider {
+        // Use constant bindings for the preview
         @State private static var discountCode: Double = 0.0
+        @State private static var guide = Guide(_id: "test", fullname: "Example Guide", location:"testtttt",image: "Example Location", description: "example_image", reviews: "4.5", price: Int(25.0), discountCode: 0)
+        
         static var previews: some View {
-            bookingformGuide(discountCode: $discountCode)
+            bookingFormGuide(guideViewModel: GuideViewModel(), guide: .constant(guide), discountCode: .constant(discountCode))
         }
     }
-    
-    
-}
+
