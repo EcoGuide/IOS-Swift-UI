@@ -7,14 +7,8 @@
 
 import SwiftUI
 
-struct ImageInfo: Identifiable {
-    let id = UUID()
-    let imageName: String
-    let title: String
-    let location: String
-    let price: String
-    let rating: String
-}
+
+
 
 struct HomeViewGuide: View {
     @State private var username: String = ""
@@ -41,13 +35,14 @@ struct HomeViewGuide: View {
             ScrollView {
                 ZStack {
                     VStack(alignment: .leading, spacing: 20) {
-                        Text("Hello, User")
+                        Text("Hello, User").padding()
 
                         TextField(
                             "Search",
                             text: $searchText
                         )
                         .padding(.trailing, 20)
+                        .padding(10)
                         .textFieldStyle(CustomTextFieldStyle())
 
                         ScrollView(.horizontal, showsIndicators: false) {
@@ -69,6 +64,7 @@ struct HomeViewGuide: View {
                                 }
                             }
                         }
+                        .padding(10)
 
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(spacing: 10) {
@@ -79,7 +75,7 @@ struct HomeViewGuide: View {
                                                 .scaledToFill()
                                                 .frame(width: 300, height: 300)
                                                 .cornerRadius(50)
-                                            
+
                                             HStack {
                                                 VStack(alignment: .leading, spacing: 10) {
                                                     Text(guide.fullname)
@@ -91,7 +87,8 @@ struct HomeViewGuide: View {
                                                     Text("\(guide.price)")
                                                         .font(.headline)
                                                         .foregroundColor(.white)
-                                                }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
+                                                }
+                                                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
                                                 .padding()
                                                 Spacer()
                                                 HStack {
@@ -105,6 +102,7 @@ struct HomeViewGuide: View {
                                         }
                                     }
                                     .frame(width: 300, height: 300)
+                                    .padding(10) // Added padding
                                 }
                             }
                         }
@@ -116,7 +114,9 @@ struct HomeViewGuide: View {
                             Text("See all")
                                 .font(.system(size: 22, weight: .semibold))
                                 .foregroundColor(Color.blue)
-                        }.padding(.trailing, 20)
+                        }
+                        .padding(.trailing, 20)
+                        .padding(10)
 
                         ForEach(filteredGuides, id: \._id) { guide in
                             NavigationLink(destination: detailGuide(guideInfo: guide, discountcode: $discountCode)) {
@@ -155,11 +155,14 @@ struct HomeViewGuide: View {
                                     }
                                     .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
                                 }
-                            }.padding(.trailing, 20)
-                        }.padding(.leading, 20)
+                            }
+                            .padding(.trailing, 20)
+                        }
+                        .padding(.leading, 20)
                     }
                 }
-            }.toolbar {
+            }
+            .toolbar {
                 ToolbarItemGroup(placement: .navigationBarLeading) {
                     Button(action: {}) {
                         HStack {
@@ -196,19 +199,19 @@ struct CustomTextFieldStyle: TextFieldStyle {
             HStack {
                 Image(systemName: "magnifyingglass")
                     .foregroundColor(.gray)
-                    
+
                 configuration
                 Image("filterIcon")
                     .padding(.trailing)
                     .colorMultiply(Color.white)
-                
-                
             }
             .padding(.leading)
             .foregroundColor(Color(.black))
-        }.frame(width: UIScreen.main.bounds.width / 1.1,
-                height: UIScreen.main.bounds.width / 8)
+        }
+        .frame(width: UIScreen.main.bounds.width / 1.1,
+               height: UIScreen.main.bounds.width / 8)
         .foregroundColor(Color(hex: "F3F8FE"))
+        .padding(3) // Added padding
     }
 }
 
@@ -226,6 +229,7 @@ extension Color {
         self.init(red: red, green: green, blue: blue)
     }
 }
+
 struct HomeViewGuide_Previews: PreviewProvider {
     static var previews: some View {
         HomeViewGuide(guideViewModel: GuideViewModel())
