@@ -12,6 +12,10 @@ struct Network {
     
     
     
-    //guides routes
+    //hotels routes
     static let fetchHotelsUrl = BASE_URL + "/hotels"
+    
+    static func fetchChambresForHotelUrl(hotelId: String) -> String {
+            return BASE_URL + "/hotel/\(hotelId)"
+        }
 }

@@ -68,6 +68,8 @@ struct RecentlyBookedAccomodations: View {
                                        .cornerRadius(20)
                                    VStack(spacing: 5) {
                                        AsyncImageView(url: hotel.image)
+
+
                                            .frame(width: 150, height: 125)
                                            .cornerRadius(10)
                                        Text(hotel.hotelname)
@@ -128,6 +130,7 @@ struct RecentlyBookedAccomodations: View {
                                           .cornerRadius(20)
                                       HStack(spacing: 5) {
                                           AsyncImageView(url: hotel.image)
+
                                              
                                            .frame(width: 150, height: 120)
                                            .cornerRadius(10)

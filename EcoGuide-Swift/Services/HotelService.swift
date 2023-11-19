@@ -10,7 +10,7 @@ import SwiftUI
 import Alamofire
 
 struct HotelService {
-    func fetchHotels(completion: @escaping(Result<fetchHotelsResponse?, Error>) -> Void) {
+    func fetchHotels(completion: @escaping(Result<FetchHotelsResponse?, Error>) -> Void) {
         AF.request("\(Network.fetchHotelsUrl)",
                    method: .get,
                    encoding: JSONEncoding.default)
@@ -22,7 +22,7 @@ struct HotelService {
                 let responseData = Data(res.data!)
                 print(responseData)
                 do {
-                    let parsedData = try JSONDecoder().decode(fetchHotelsResponse.self, from: responseData)
+                    let parsedData = try JSONDecoder().decode(FetchHotelsResponse.self, from: responseData)
                     completion(.success(parsedData))
                     print(parsedData.hotels)
                 } catch {
@@ -36,6 +36,20 @@ struct HotelService {
             }
         }
     }
-    
+    func fetchChambresForHotel(hotelId: String, completion: @escaping (Swift.Result<fetchChambre, AFError>) -> Void) {
+        let chambresUrl = Network.fetchChambresForHotelUrl(hotelId: hotelId)
+        
+        AF.request(chambresUrl, method: .get, encoding: JSONEncoding.default)
+            .validate(contentType: ["application/json"])
+            .responseDecodable(of: fetchChambre.self) { response in
+                switch response.result {
+                case .success(let data):
+                    completion(.success(data))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+    }
+
 }
 

@@ -33,7 +33,7 @@ struct bookingHotel: View {
                           }
 
                           Section(header: Text("Select Hours")) {
-                              TextField("Number of Hours", text: $selectedHours)
+                              TextField("Number of days", text: $selectedHours)
                                   .keyboardType(.numberPad)
                           }
 
@@ -42,9 +42,7 @@ struct bookingHotel: View {
                                   .foregroundColor(.blue)
                           }
 
-                          Section(header: Text("Is this booking for you?")) {
-                              Toggle("For Me", isOn: $isForAnotherPerson)
-                          }
+                         
 
                           Section {
                               if isForAnotherPerson {
@@ -544,7 +542,15 @@ struct addCardviews: View {
 
 struct bookingHotel_Previews: PreviewProvider {
     @State private static var discountCode: Double = 0.0
-    @State private static var hotel = Hotel(_id: "test", hotelname: "Hotel 6", nbChambre: 100,nbStars:5, location:"Tunis",Favoris:1,rating:"500",image: "Hotel6", description: "description",price: 200)
+    @State private static var hotel = Hotel(_id: "test", hotelname: "Hotel 6", nbChambre: 100,nbStars:5, location:"Tunis",Favoris:1,rating:"500",image: "Hotel6", description: "description",price: 200, chambres: [Chambre(
+        _id: "chambre1",
+        roomName: "Room 1",
+        price: 100,
+        nbPlace: 2,
+        isBooked: false,
+        nbChambreType: 1,
+        image: "room1.jpg"
+    )])
     
     static var previews: some View {
         bookingHotel(hotelViewModel: HotelViewModel(), hotel: .constant(hotel), discountCode: .constant(discountCode))

@@ -13,12 +13,10 @@ struct detailHotels: View {
     var body: some View {
         NavigationView{
                        VStack(alignment:.leading,spacing: 20) {
-                           AsyncImage(url: URL(string: hotelInfo.image)) { phase in
-                               phase.image?
-                                   .resizable()
-                                   .cornerRadius(32)
-                                   .frame(height: 250)
-                           }
+                           AsyncImageView(url: hotelInfo.image)
+
+                               .frame(height: 250)
+                               .cornerRadius(32)
                               
                            
                                
@@ -175,6 +173,14 @@ struct detailHotels_Previews: PreviewProvider {
     
     @State private static var discountcode: Double = 0.0
     static var previews: some View {
-        detailHotels(hotelInfo: Hotel(_id: "test",hotelname: "hotel 8", nbChambre: 100,nbStars:5, location:"Tunis",Favoris:1,rating:"500",image: "hotel6", description: "description",price: 200),discountcode: $discountcode)
+        detailHotels(hotelInfo: Hotel (_id: "test", hotelname: "Hotel 6", nbChambre: 100,nbStars:5, location:"Tunis",Favoris:1,rating:"500",image: "Hotel6", description: "description",price: 200, chambres: [Chambre(
+            _id: "chambre1",
+            roomName: "Room 1",
+            price: 100,
+            nbPlace: 2,
+            isBooked: false,
+            nbChambreType: 1,
+            image: "room1.jpg"
+        )]),discountcode: $discountcode)
     }
 }

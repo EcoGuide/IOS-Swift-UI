@@ -117,7 +117,7 @@ struct BookMarkHotels: View {
                             .cornerRadius(10)
                             .padding(.leading, 10)
                         VStack(alignment: .leading, spacing: 15) {
-                            Text(hotel.image)
+                            Text(hotel.hotelname)
                                 .font(.system(size: 23, weight: .semibold))
                             Text(hotel.location)
                                 .font(.system(size: 16))
