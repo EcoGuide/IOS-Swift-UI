@@ -137,16 +137,6 @@ struct PaymentDetailsView: View {
     @Binding var totalPrice: Double
     @Binding var selectedHours: Int
     @StateObject var guideViewModel: GuideViewModel
-    
-   /* init(user: Binding<User>, selectedPhoneNumber: Binding<String>, discountCode: Binding<Double>, guide: Binding<Guide>, totalPrice: Binding<Double>, selectedHours: Binding<Int> ) {
-            _user = user
-            _selectedPhoneNumber = selectedPhoneNumber
-            _discountCode = discountCode
-            _guide = guide
-            _totalPrice = totalPrice
-            _selectedHours = selectedHours
-        }*/
-
 
     
     var body: some View {
@@ -363,7 +353,7 @@ struct SelectCardsView: View {
                     PaymentConfig.shared.paymentIntentClientSecret = clientSecret
                     DispatchQueue.main.async {
                         self.isActive = true
-                        pay()
+                      //  pay()
                         let userId = "655aa08d78adce5f7b9a9159"
                         guideViewModel.addGuideReservation(guideId: guide._id, userId:userId, hoursBooked:selectedHours, location:guide.location)
                         

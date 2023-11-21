@@ -19,7 +19,7 @@ struct EcoGuide_SwiftApp: App {
 
     var body: some Scene {
         WindowGroup {
-            HomeViewGuide(guideViewModel: guideViewModel)
+            UiGuidesSide(guideViewModel: guideViewModel)
                
         }
     }

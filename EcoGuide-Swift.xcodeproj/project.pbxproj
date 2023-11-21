@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		110C5B742B0923CA001C9C86 /* CheckoutIntentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110C5B732B0923CA001C9C86 /* CheckoutIntentResponse.swift */; };
 		110C5B872B093A5D001C9C86 /* PaymentConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110C5B862B093A5D001C9C86 /* PaymentConfig.swift */; };
-		110C5B892B09464B001C9C86 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110C5B882B09464B001C9C86 /* Cart.swift */; };
 		1145296A2B09719700E5F758 /* PaymentGatewayControllerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114529692B09719700E5F758 /* PaymentGatewayControllerWrapper.swift */; };
 		1182A58D2AFA6944007F994E /* TitleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1182A58C2AFA6944007F994E /* TitleRow.swift */; };
 		1182A58F2AFA789D007F994E /* ContentChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1182A58E2AFA789D007F994E /* ContentChatView.swift */; };
@@ -83,7 +82,6 @@
 /* Begin PBXFileReference section */
 		110C5B732B0923CA001C9C86 /* CheckoutIntentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutIntentResponse.swift; sourceTree = "<group>"; };
 		110C5B862B093A5D001C9C86 /* PaymentConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentConfig.swift; sourceTree = "<group>"; };
-		110C5B882B09464B001C9C86 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		114529692B09719700E5F758 /* PaymentGatewayControllerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentGatewayControllerWrapper.swift; sourceTree = "<group>"; };
 		1182A58C2AFA6944007F994E /* TitleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleRow.swift; sourceTree = "<group>"; };
 		1182A58E2AFA789D007F994E /* ContentChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentChatView.swift; sourceTree = "<group>"; };
@@ -274,7 +272,6 @@
 				11CEEBE02AF9755D00175E74 /* TestModel.swift */,
 				11F9A7942B0220250091610E /* GuideModel.swift */,
 				110C5B732B0923CA001C9C86 /* CheckoutIntentResponse.swift */,
-				110C5B882B09464B001C9C86 /* Cart.swift */,
 				11FA27E32B0AB4B9008D968C /* ReservationGuide.swift */,
 				11FA27E52B0AE1AE008D968C /* UserModel.swift */,
 			);
@@ -473,7 +470,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				110C5B892B09464B001C9C86 /* Cart.swift in Sources */,
 				11CEEBE72AF9768D00175E74 /* bookmarksGuide.swift in Sources */,
 				11EA7D342AF96DF500141117 /* EcoGuide_Swift.xcdatamodeld in Sources */,
 				110C5B872B093A5D001C9C86 /* PaymentConfig.swift in Sources */,

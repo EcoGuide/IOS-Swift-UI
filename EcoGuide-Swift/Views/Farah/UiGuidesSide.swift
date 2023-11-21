@@ -5,22 +5,24 @@ struct UiGuidesSide: View {
     @State private var searchText: String = ""
     @State private var discountCode: Double = 0.0
     @State private var selectedFilter = "paid"
+    @State private var showChatView = false
     let guideId = "655a6231f8e97e3556636274"
-    let filters = ["paid", "not paid"]
+ 
  
     
-    var filteredGuides: [Guide] {
+    var filteredGuides: [ReservationGuide] {
         if searchText.isEmpty {
-            return guideViewModel.guides
+            return guideViewModel.reservations
         } else {
-            return guideViewModel.guides.filter { guide in
-                guide.fullname.localizedCaseInsensitiveContains(searchText) ||
-                guide.location.localizedCaseInsensitiveContains(searchText)
+            return guideViewModel.reservations.filter { reservations in
+                reservations.userId.name.localizedCaseInsensitiveContains(searchText) ||
+                reservations.userId.email.localizedCaseInsensitiveContains(searchText)
             }
         }
     }
     
     var body: some View {
+        
         NavigationView { // Wrap the content in NavigationView
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
@@ -33,39 +35,24 @@ struct UiGuidesSide: View {
                     .padding(10)
                     .textFieldStyle(CustomTextFieldStyle())
                     
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack {
-                            ForEach(filters, id: \.self) { filter in
-                                
-                                Button(action: {
-                                    selectedFilter = filter
-                                }) {
-                                    Text(filter)
-                                        .foregroundColor(selectedFilter == filter ? .white : .blue)
-                                        .padding(EdgeInsets(top: 12, leading: 25, bottom: 12, trailing: 25))
-                                        .background(selectedFilter == filter ? Color.blue : Color.clear)
-                                        .cornerRadius(32)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 30)
-                                                .stroke(selectedFilter == filter ? Color.blue : Color.blue, lineWidth: 2)
-                                        )
-                                }
-                            }
-                        }.padding(10)
-                        
-                    }
-                    .padding()
-                    
+                
                     
                     HStack {
-                        Text("Recently Booked")
+                        Text("Reservations")
                             .font(.system(size: 22, weight: .semibold))
                         Spacer()
                         Text("See all")
                             .font(.system(size: 22, weight: .semibold))
                             .foregroundColor(Color.blue)
                     }.padding(10).padding()
-                   
+                    VStack {
+                        NavigationLink(
+                            destination: ContentChatView(),
+                            isActive: $showChatView,
+                            label: {
+                                EmptyView()
+                            }
+                        )}
             
 
                     ForEach(guideViewModel.reservations, id: \._id) { reservations in
@@ -105,7 +92,11 @@ struct UiGuidesSide: View {
                                         Text(String(reservations.hoursBooked))
                                             .font(.system(size: 22, weight: .semibold))
                                             .foregroundColor(Color.blue)
-                                    
+                                    Button(action: {
+                                              self.showChatView = true
+                                          }) {
+                                              Text("Chat Now").foregroundColor(.red)
+                                          }
                                  
                                 }
                                 Spacer()

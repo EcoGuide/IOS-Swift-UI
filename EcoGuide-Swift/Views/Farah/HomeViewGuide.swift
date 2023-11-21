@@ -35,7 +35,7 @@ struct HomeViewGuide: View {
             ScrollView {
                 ZStack {
                     VStack(alignment: .leading, spacing: 20) {
-                        Text("Hello, User")
+                        Text("Hello, User").padding()
                         TextField(
                             "Search",
                             text: $searchText
@@ -215,7 +215,7 @@ struct CustomTextFieldStyle: TextFieldStyle {
             }
             
             .foregroundColor(Color(.black))
-        }
+        }.padding(10)
         .frame(width: UIScreen.main.bounds.width / 1,
                height: UIScreen.main.bounds.width / 8)
         .foregroundColor(Color(hex: "F3F8FE"))
