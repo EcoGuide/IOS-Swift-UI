@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Chambre : Codable{
+struct Chambre : Codable, Hashable{
     var _id: String
     var roomName: String
     var price: Int

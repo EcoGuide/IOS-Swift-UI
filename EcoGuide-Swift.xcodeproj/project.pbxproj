@@ -37,6 +37,8 @@
 		6F00F2D92B046C010054C4DE /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F00F2D82B046C010054C4DE /* Network.swift */; };
 		6F00F2DB2B046CCE0054C4DE /* HotelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F00F2DA2B046CCE0054C4DE /* HotelViewModel.swift */; };
 		6F51C42E2B09681C00A14416 /* Chambre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F51C42D2B09681C00A14416 /* Chambre.swift */; };
+		6F51C4372B0D433200A14416 /* ReservationH.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F51C4362B0D433100A14416 /* ReservationH.swift */; };
+		6F51C4392B0D460700A14416 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F51C4382B0D460600A14416 /* UserModel.swift */; };
 		6F60E9BA2AFB239400E851A9 /* RecentlyBookedAccomodation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F60E9B92AFB239400E851A9 /* RecentlyBookedAccomodation.swift */; };
 		6F60E9C22AFC3F2B00E851A9 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F60E9C12AFC3F2B00E851A9 /* TabBar.swift */; };
 		6F60E9C42AFC415F00E851A9 /* statusAccommodation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F60E9C32AFC415F00E851A9 /* statusAccommodation.swift */; };
@@ -101,6 +103,8 @@
 		6F00F2D82B046C010054C4DE /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		6F00F2DA2B046CCE0054C4DE /* HotelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelViewModel.swift; sourceTree = "<group>"; };
 		6F51C42D2B09681C00A14416 /* Chambre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chambre.swift; sourceTree = "<group>"; };
+		6F51C4362B0D433100A14416 /* ReservationH.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationH.swift; sourceTree = "<group>"; };
+		6F51C4382B0D460600A14416 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		6F60E9B92AFB239400E851A9 /* RecentlyBookedAccomodation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyBookedAccomodation.swift; sourceTree = "<group>"; };
 		6F60E9C12AFC3F2B00E851A9 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		6F60E9C32AFC415F00E851A9 /* statusAccommodation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = statusAccommodation.swift; sourceTree = "<group>"; };
@@ -291,6 +295,8 @@
 			children = (
 				6F9E61082B06E26D000E9D2E /* Hotel.swift */,
 				6F51C42D2B09681C00A14416 /* Chambre.swift */,
+				6F51C4362B0D433100A14416 /* ReservationH.swift */,
+				6F51C4382B0D460600A14416 /* UserModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -463,7 +469,9 @@
 				6F60E9C22AFC3F2B00E851A9 /* TabBar.swift in Sources */,
 				6F9E61092B06E26D000E9D2E /* Hotel.swift in Sources */,
 				1182A5932AFA796D007F994E /* MessageGuide.swift in Sources */,
+				6F51C4372B0D433200A14416 /* ReservationH.swift in Sources */,
 				11CEEBE52AF9761F00175E74 /* bookingFormGuide.swift in Sources */,
+				6F51C4392B0D460700A14416 /* UserModel.swift in Sources */,
 				11EA7D282AF96DF400141117 /* EcoGuide_SwiftApp.swift in Sources */,
 				6F00F2DB2B046CCE0054C4DE /* HotelViewModel.swift in Sources */,
 				1182A58D2AFA6944007F994E /* TitleRow.swift in Sources */,

@@ -18,4 +18,12 @@ struct Network {
     static func fetchChambresForHotelUrl(hotelId: String) -> String {
             return BASE_URL + "/hotel/\(hotelId)"
         }
+    // Guide reservations routes
+        static func fetchChambreReservationsUrl(chambres: String) -> String {
+            return "\(BASE_URL)/reservationH/\(chambres)"
+        }
+        
+        static func addChambreReservationUrl(chambres: String) -> String {
+            return "\(BASE_URL)/reservationH/\(chambres)/add"
+        }
 }
