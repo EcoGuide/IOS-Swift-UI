@@ -6,7 +6,7 @@ struct UiGuidesSide: View {
     @State private var discountCode: Double = 0.0
     @State private var selectedFilter = "paid"
     let guideId = "655a6231f8e97e3556636274"
-    let filters = ["paid", "not payed"]
+    let filters = ["paid", "not paid"]
  
     
     var filteredGuides: [Guide] {
@@ -30,7 +30,6 @@ struct UiGuidesSide: View {
                         "Search",
                         text: $searchText
                     )
-                    .padding(.trailing, 20)
                     .padding(10)
                     .textFieldStyle(CustomTextFieldStyle())
                     
@@ -52,10 +51,10 @@ struct UiGuidesSide: View {
                                         )
                                 }
                             }
-                        }
+                        }.padding(10)
                         
                     }
-                    .padding(10)
+                    .padding()
                     
                     
                     HStack {
@@ -65,9 +64,9 @@ struct UiGuidesSide: View {
                         Text("See all")
                             .font(.system(size: 22, weight: .semibold))
                             .foregroundColor(Color.blue)
-                    }
-                    .padding(.trailing, 20)
-                    .padding(10)
+                    }.padding(10).padding()
+                   
+            
 
                     ForEach(guideViewModel.reservations, id: \._id) { reservations in
                        ZStack {
@@ -80,28 +79,34 @@ struct UiGuidesSide: View {
 //                                    .cornerRadius(10)
 //                                    .padding(.leading, 10)
                                 VStack(alignment: .leading, spacing: 15) {
-                                    Text(reservations.guideId)
-                                        .font(.system(size: 23, weight: .semibold))
                                     Text(reservations.userId.name)
-                                        .font(.system(size: 16))
-                                        .foregroundColor(Color.gray)
+                                        .font(.system(size: 23, weight: .semibold))
                                     HStack {
-                                        Image(systemName: "star.fill")
-                                            .foregroundColor(.yellow)
+                                        Text("Email :")
+                                            .font(.system(size: 15)) .foregroundColor(Color.blue)
+                                        Text(reservations.userId.email)
+                                            .font(.system(size: 15))
+                                            .foregroundColor(Color.gray)
+                                    }
+                                    HStack {
+                                        Text("Country:")
+                                            .font(.system(size: 15)) .foregroundColor(Color.blue)
                                         Text(reservations.location)
                                             .font(.system(size: 15))
                                     }
+                                    
                                 }
                                 .frame(maxWidth: .infinity)
                                 Spacer()
-                                VStack(alignment: .trailing, spacing: 15) {
-                                    //Text(reservations.hoursBooked)
-                                      //  .font(.system(size: 23, weight: .semibold))
-                                        //.foregroundColor(Color.blue)
-                                    Text("/ day")
-                                    Image(systemName: "bookmark")
-                                        .font(.system(size: 20))
-                                        .foregroundColor(Color.black)
+                                VStack(alignment: .trailing, spacing: 8) {
+                                 
+                                        Text("Booked Hours")
+                                            .font(.system(size: 15)) .foregroundColor(Color.blue)
+                                        Text(String(reservations.hoursBooked))
+                                            .font(.system(size: 22, weight: .semibold))
+                                            .foregroundColor(Color.blue)
+                                    
+                                 
                                 }
                                 Spacer()
                                 
@@ -110,7 +115,7 @@ struct UiGuidesSide: View {
                             }
                             .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
                         }
-                        .padding(.trailing, 4)
+                        .padding()
                         .background(
                             RoundedRectangle(cornerRadius: 20)
                                 .fill(Color(hex: "F3F8FE"))
@@ -118,8 +123,8 @@ struct UiGuidesSide: View {
                         )
                      
                           
-                    }
-                    .padding(.leading, 1)
+                    }.padding(20)
+                
                 }
             }
             .toolbar {
@@ -144,7 +149,7 @@ struct UiGuidesSide: View {
                     .foregroundColor(Color(.black))
                 }
             }
-            .padding(.top, 20)
+          
             .onAppear {
                 guideViewModel.fetchGuideReservations(guideId: guideId)
             }

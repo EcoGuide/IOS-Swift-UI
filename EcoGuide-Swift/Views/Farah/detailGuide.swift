@@ -130,7 +130,7 @@ struct detailGuide: View {
                         Spacer()
                         
                         Section {
-                            NavigationLink(destination: bookingFormGuide(guideViewModel: GuideViewModel(), guide: .constant(guideInfo), discountCode: $discountcode)){
+                            NavigationLink(destination: bookingFormGuide(selectedHours: 0, guideViewModel: GuideViewModel(), guide: .constant(guideInfo), discountCode: $discountcode)){
                                 
                                 Button("Book Now") {
                                     // Action à effectuer lors du clic sur "Book Now"

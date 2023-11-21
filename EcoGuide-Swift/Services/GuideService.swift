@@ -73,6 +73,8 @@ struct Guideservice {
             "hoursBooked": hoursBooked,
             "location": location
         ]
+        
+        print(guideId)
 
         AF.request(Network.addGuideReservationUrl(guideId: guideId),
                    method: .post,

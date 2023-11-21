@@ -57,13 +57,13 @@ class GuideViewModel: ObservableObject {
           }
       }
 
-      func addGuideReservation(guideId: String, userId: String, hoursBooked: Int, location: String, completion: @escaping (Result<ReservationGuide?, Error>) -> Void) {
+      func addGuideReservation(guideId: String, userId: String, hoursBooked: Int, location: String) {
           Guideservice().addGuideReservation(guideId: guideId, userId: userId, hoursBooked: hoursBooked, location: location) { result in
               switch result {
               case .success(let data):
-                  completion(.success(data))
+                  print("Reservation added successfully, \(data)")
               case .failure(let error):
-                  completion(.failure(error))
+                  print(error)
               }
           }
       }
