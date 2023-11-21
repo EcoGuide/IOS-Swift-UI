@@ -30,7 +30,10 @@ struct User {
         @Binding var guide: Guide
         @State private var isActive = false
         @Binding var discountCode: Double
-        
+        @State private var selectedDateForReservation: Date = Date()
+        @State private var bookedDates: [Date] = []
+        @State private var disabledDates: [Date] = [] // Populate this array with the disabled dates
+
         public init(selectedHours: Int, guideViewModel: GuideViewModel, guide: Binding<Guide>, discountCode: Binding<Double>) {
             // Your initialization code here
             _selectedHours = State(initialValue: selectedHours)
@@ -57,8 +60,18 @@ struct User {
             NavigationView {
                 Form {
                     Section {
-                        DatePicker("Select Date", selection: $selectedDate, displayedComponents: .date)
-                    }
+                            DatePicker("Select Date", selection: $selectedDate, displayedComponents: .date)
+                                .labelsHidden()
+                                .datePickerStyle(WheelDatePickerStyle())
+                                .onAppear {
+                                    // Fetch and populate disabledDates array
+                                    // Example: disabledDates = [Date()] (populate with actual disabled dates)
+                                }
+                                .onChange(of: selectedDate, perform: { value in
+                                    // Handle selected date change
+                                })
+                                .disabled(disabledDates.contains(selectedDate))
+                        }
                     Section(header: Text("Select Hours")) {
                         TextField("Number of Hours", text: Binding(
                             get: { "\(selectedHours)" },
@@ -93,7 +106,7 @@ struct User {
                                     discountCode: $discountCode,
                                     guide: $guide,
                                     guideViewModel: guideViewModel,
-                                    selectedHours: $selectedHours
+                                    selectedHours: $selectedHours, selectedDate: $selectedDateForReservation
                                 )
                             ) {
                                 ContinueButton("Continue") {
@@ -102,7 +115,7 @@ struct User {
                             }
                         } else {
                             NavigationLink(
-                                destination: PaymentDetailsView(user: $user, selectedPhoneNumber: $selectedPhoneNumber, discountCode: $discountCode, guide: $guide, totalPrice: $totalPrice, selectedHours: $selectedHours, guideViewModel: guideViewModel)
+                                destination: PaymentDetailsView(user: $user, selectedPhoneNumber: $selectedPhoneNumber, discountCode: $discountCode, guide: $guide, totalPrice: $totalPrice, selectedHours: $selectedHours, guideViewModel: guideViewModel,selectedDate: $selectedDateForReservation)
                             ) {
                                 ContinueButton("Continue") {
                                     isForAnotherPerson = false
@@ -137,7 +150,7 @@ struct PaymentDetailsView: View {
     @Binding var totalPrice: Double
     @Binding var selectedHours: Int
     @StateObject var guideViewModel: GuideViewModel
-
+    @Binding var selectedDate: Date
     
     var body: some View {
         Form {
@@ -160,7 +173,7 @@ struct PaymentDetailsView: View {
             }
 
             Section {
-                NavigationLink(destination: SelectCardsView(totalPrice: $totalPrice, user: $user, selectedPhoneNumber: $selectedPhoneNumber, discountCode: $discountCode, guide: $guide, guideViewModel: guideViewModel, selectedHours: $selectedHours )) {
+                NavigationLink(destination: SelectCardsView(totalPrice: $totalPrice, user: $user, selectedPhoneNumber: $selectedPhoneNumber, discountCode: $discountCode, guide: $guide, guideViewModel: guideViewModel, selectedHours: $selectedHours,selectedDate: $selectedDate )) {
                     Text("Continue")
                         .frame(maxWidth: .infinity)
                         .frame(height: 44)
@@ -192,6 +205,7 @@ struct SelectCardsView: View {
     @State private var paymentMethodParams: STPPaymentMethodParams?
     @State private var message: String = ""
     @State private var clientSecret: String?
+    @Binding var selectedDate: Date
     
     private func pay() {
         guard let clientSecret = PaymentConfig.shared.paymentIntentClientSecret else {
@@ -355,7 +369,7 @@ struct SelectCardsView: View {
                         self.isActive = true
                       //  pay()
                         let userId = "655aa08d78adce5f7b9a9159"
-                        guideViewModel.addGuideReservation(guideId: guide._id, userId:userId, hoursBooked:selectedHours, location:guide.location)
+                        guideViewModel.addGuideReservation(guideId: guide._id, userId:userId, hoursBooked:selectedHours, location:guide.location, bookedDates: [selectedDate])
                         
                         
                     }

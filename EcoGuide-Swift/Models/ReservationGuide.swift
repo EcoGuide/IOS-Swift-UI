@@ -12,6 +12,7 @@ struct ReservationGuide: Codable, Hashable {
     var userId: UserModel
     var hoursBooked: Int
     var location: String
+    var bookedDates: [Date] // New property to store booked dates
 }
 
 struct FetchGuideReservationsResponse: Decodable {

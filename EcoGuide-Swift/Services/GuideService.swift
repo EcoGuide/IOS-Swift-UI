@@ -66,37 +66,33 @@ struct Guideservice {
                }
        }
 
-    func addGuideReservation(guideId: String, userId: String, hoursBooked: Int, location: String, completion: @escaping(Result<ReservationGuide?, Error>) -> Void) {
+    func addGuideReservation(guideId: String, userId: String, hoursBooked: Int, location: String, bookedDates: [Date], completion: @escaping (Result<ReservationGuide?, Error>) -> Void) {
         let parameters: [String: Any] = [
             "guideId": guideId,
             "userId": userId,
             "hoursBooked": hoursBooked,
-            "location": location
+            "location": location,
+            "bookedDates": bookedDates // Assuming bookedDates is a valid format for the backend
         ]
-        
-        print(guideId)
 
         AF.request(Network.addGuideReservationUrl(guideId: guideId),
                    method: .post,
                    parameters: parameters,
                    encoding: JSONEncoding.default)
             .validate(contentType: ["application/json"])
-            .responseData { res in
-                switch res.result {
-
-                case .success:
-                    let responseData = Data(res.data!)
+            .responseData { response in
+                switch response.result {
+                case .success(let data):
                     do {
-                        let parsedData = try JSONDecoder().decode(ReservationGuide.self, from: responseData)
+                        let parsedData = try JSONDecoder().decode(ReservationGuide.self, from: data)
                         completion(.success(parsedData))
                     } catch {
                         print(error)
                         completion(.failure(error))
                     }
-
-                case let .failure(err):
-                    debugPrint(err)
-                    completion(.failure(err))
+                case .failure(let error):
+                    debugPrint(error)
+                    completion(.failure(error))
                 }
             }
     }

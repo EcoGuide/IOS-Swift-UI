@@ -18,6 +18,8 @@ class GuideViewModel: ObservableObject {
     @Published var message: String = ""
 
     @Published var reservations: [ReservationGuide] = []
+    @Published var bookedDates: [Date] = []
+
     
     func fetchGuides() {
         Guideservice().fetchGuides(){ result in
@@ -47,6 +49,7 @@ class GuideViewModel: ObservableObject {
                       if data?.statusCode == 200 {
                           self.isLoading = false
                           self.reservations = data?.reservations ?? []
+                          self.bookedDates = self.reservations.flatMap { $0.bookedDates }
                       }
                       self.message = data?.message ?? ""
                   }
@@ -57,14 +60,17 @@ class GuideViewModel: ObservableObject {
           }
       }
 
-      func addGuideReservation(guideId: String, userId: String, hoursBooked: Int, location: String) {
-          Guideservice().addGuideReservation(guideId: guideId, userId: userId, hoursBooked: hoursBooked, location: location) { result in
-              switch result {
-              case .success(let data):
-                  print("Reservation added successfully, \(data)")
-              case .failure(let error):
-                  print(error)
-              }
-          }
-      }
+    func addGuideReservation(guideId: String, userId: String, hoursBooked: Int, location: String, bookedDates: [Date]) {
+     
+            Guideservice().addGuideReservation(guideId: guideId, userId: userId, hoursBooked: hoursBooked, location: location, bookedDates: bookedDates) { result in
+                switch result {
+                    case .success(let data):
+                    print("Reservation added successfully, \(String(describing: data))")
+                    case .failure(let error):
+                        print(error)
+                
+            }
+        }
+    }
+
 }
