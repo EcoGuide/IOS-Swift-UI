@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		11CEEBDC2AF9746000175E74 /* HomeViewGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CEEBDB2AF9746000175E74 /* HomeViewGuide.swift */; };
 		11CEEBDF2AF9753D00175E74 /* RecentlyBookedGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CEEBDE2AF9753D00175E74 /* RecentlyBookedGuide.swift */; };
-		11CEEBE12AF9755D00175E74 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CEEBE02AF9755D00175E74 /* TestModel.swift */; };
 		11CEEBE32AF9756800175E74 /* TestVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CEEBE22AF9756800175E74 /* TestVM.swift */; };
 		11CEEBE52AF9761F00175E74 /* bookingFormGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CEEBE42AF9761F00175E74 /* bookingFormGuide.swift */; };
 		11CEEBE72AF9768D00175E74 /* bookmarksGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CEEBE62AF9768D00175E74 /* bookmarksGuide.swift */; };
@@ -24,13 +23,25 @@
 		11EA7D482AF96DF500141117 /* EcoGuide_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EA7D472AF96DF500141117 /* EcoGuide_SwiftUITests.swift */; };
 		11EA7D4A2AF96DF500141117 /* EcoGuide_SwiftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EA7D492AF96DF500141117 /* EcoGuide_SwiftUITestsLaunchTests.swift */; };
 		4A0639FE2B04BA4700FC42D7 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0639FD2B04BA4700FC42D7 /* ProfileView.swift */; };
-		4A063A012B04D17500FC42D7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A063A002B04D17500FC42D7 /* User.swift */; };
 		4A063A032B04EE7700FC42D7 /* Editprofile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A063A022B04EE7700FC42D7 /* Editprofile.swift */; };
 		4A063A052B06299A00FC42D7 /* testnav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A063A042B06299A00FC42D7 /* testnav.swift */; };
+		4A3AC30F2B0B70B400BA5B7E /* FacebookAEM in Frameworks */ = {isa = PBXBuildFile; productRef = 4A3AC30E2B0B70B400BA5B7E /* FacebookAEM */; };
+		4A3AC3112B0B70B400BA5B7E /* FacebookBasics in Frameworks */ = {isa = PBXBuildFile; productRef = 4A3AC3102B0B70B400BA5B7E /* FacebookBasics */; };
+		4A3AC3132B0B70B400BA5B7E /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 4A3AC3122B0B70B400BA5B7E /* FacebookCore */; };
+		4A3AC3152B0B70B400BA5B7E /* FacebookGamingServices in Frameworks */ = {isa = PBXBuildFile; productRef = 4A3AC3142B0B70B400BA5B7E /* FacebookGamingServices */; };
+		4A3AC3172B0B70B400BA5B7E /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 4A3AC3162B0B70B400BA5B7E /* FacebookLogin */; };
+		4A3AC3192B0B70B400BA5B7E /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = 4A3AC3182B0B70B400BA5B7E /* FacebookShare */; };
+		4A3AC3202B0CBF2200BA5B7E /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3AC31F2B0CBF2200BA5B7E /* Data.swift */; };
+		4A3AC3242B0D641800BA5B7E /* SignInWithAppleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3AC3232B0D641800BA5B7E /* SignInWithAppleButtonView.swift */; };
+		4A3AC3282B0D729C00BA5B7E /* appleiew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3AC3272B0D729C00BA5B7E /* appleiew.swift */; };
+		4A3AC32A2B0D72FE00BA5B7E /* AppleIdLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3AC3292B0D72FE00BA5B7E /* AppleIdLogin.swift */; };
+		4A3AC32C2B0E100B00BA5B7E /* HorsLigne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3AC32B2B0E100B00BA5B7E /* HorsLigne.swift */; };
 		4A5070C32AFA4B8B00A797D8 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5070C22AFA4B8B00A797D8 /* Login.swift */; };
 		4A5070C52AFA7AFA00A797D8 /* Welcome_User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5070C42AFA7AFA00A797D8 /* Welcome_User.swift */; };
 		4A5070C72AFA839600A797D8 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5070C62AFA839600A797D8 /* Register.swift */; };
 		4A5070C92AFAD60D00A797D8 /* VerifMail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5070C82AFAD60D00A797D8 /* VerifMail.swift */; };
+		4A6E277F2B07B57C002305CD /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E277E2B07B57C002305CD /* UserDetails.swift */; };
+		4A6E27812B07B7AE002305CD /* TestUserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E27802B07B7AE002305CD /* TestUserDetails.swift */; };
 		4AC349B22AFE4A1400731675 /* Reset_password .swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC349B12AFE4A1400731675 /* Reset_password .swift */; };
 		4AF065882AFB87B300F529A1 /* Reset_Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF065872AFB87B300F529A1 /* Reset_Password.swift */; };
 		4AF0658A2AFB87CF00F529A1 /* Forget_Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF065892AFB87CF00F529A1 /* Forget_Password.swift */; };
@@ -59,7 +70,6 @@
 /* Begin PBXFileReference section */
 		11CEEBDB2AF9746000175E74 /* HomeViewGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewGuide.swift; sourceTree = "<group>"; };
 		11CEEBDE2AF9753D00175E74 /* RecentlyBookedGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyBookedGuide.swift; sourceTree = "<group>"; };
-		11CEEBE02AF9755D00175E74 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 		11CEEBE22AF9756800175E74 /* TestVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVM.swift; sourceTree = "<group>"; };
 		11CEEBE42AF9761F00175E74 /* bookingFormGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookingFormGuide.swift; sourceTree = "<group>"; };
 		11CEEBE62AF9768D00175E74 /* bookmarksGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookmarksGuide.swift; sourceTree = "<group>"; };
@@ -78,13 +88,20 @@
 		11EA7D492AF96DF500141117 /* EcoGuide_SwiftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcoGuide_SwiftUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4A0639FD2B04BA4700FC42D7 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		4A0639FF2B04C71F00FC42D7 /* EcoGuide-Swift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "EcoGuide-Swift.entitlements"; sourceTree = "<group>"; };
-		4A063A002B04D17500FC42D7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4A063A022B04EE7700FC42D7 /* Editprofile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Editprofile.swift; sourceTree = "<group>"; };
 		4A063A042B06299A00FC42D7 /* testnav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testnav.swift; sourceTree = "<group>"; };
+		4A3AC31C2B0BA37600BA5B7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4A3AC31F2B0CBF2200BA5B7E /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		4A3AC3232B0D641800BA5B7E /* SignInWithAppleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleButtonView.swift; sourceTree = "<group>"; };
+		4A3AC3272B0D729C00BA5B7E /* appleiew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appleiew.swift; sourceTree = "<group>"; };
+		4A3AC3292B0D72FE00BA5B7E /* AppleIdLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleIdLogin.swift; sourceTree = "<group>"; };
+		4A3AC32B2B0E100B00BA5B7E /* HorsLigne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorsLigne.swift; sourceTree = "<group>"; };
 		4A5070C22AFA4B8B00A797D8 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		4A5070C42AFA7AFA00A797D8 /* Welcome_User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Welcome_User.swift; sourceTree = "<group>"; };
 		4A5070C62AFA839600A797D8 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		4A5070C82AFAD60D00A797D8 /* VerifMail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifMail.swift; sourceTree = "<group>"; };
+		4A6E277E2B07B57C002305CD /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
+		4A6E27802B07B7AE002305CD /* TestUserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUserDetails.swift; sourceTree = "<group>"; };
 		4AC349B12AFE4A1400731675 /* Reset_password .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reset_password .swift"; sourceTree = "<group>"; };
 		4AF065872AFB87B300F529A1 /* Reset_Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reset_Password.swift; sourceTree = "<group>"; };
 		4AF065892AFB87CF00F529A1 /* Forget_Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forget_Password.swift; sourceTree = "<group>"; };
@@ -98,6 +115,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A3AC3172B0B70B400BA5B7E /* FacebookLogin in Frameworks */,
+				4A3AC30F2B0B70B400BA5B7E /* FacebookAEM in Frameworks */,
+				4A3AC3192B0B70B400BA5B7E /* FacebookShare in Frameworks */,
+				4A3AC3132B0B70B400BA5B7E /* FacebookCore in Frameworks */,
+				4A3AC3112B0B70B400BA5B7E /* FacebookBasics in Frameworks */,
+				4A3AC3152B0B70B400BA5B7E /* FacebookGamingServices in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +176,7 @@
 		11EA7D262AF96DF400141117 /* EcoGuide-Swift */ = {
 			isa = PBXGroup;
 			children = (
+				4A3AC31C2B0BA37600BA5B7E /* Info.plist */,
 				4A0639FF2B04C71F00FC42D7 /* EcoGuide-Swift.entitlements */,
 				4AF0658E2AFBA2C800F529A1 /* Service */,
 				4AF0658D2AFBA2C200F529A1 /* New Group */,
@@ -197,8 +221,9 @@
 		11EA7D562AF96DFD00141117 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				11CEEBE02AF9755D00175E74 /* TestModel.swift */,
-				4A063A002B04D17500FC42D7 /* User.swift */,
+				4A6E277E2B07B57C002305CD /* UserDetails.swift */,
+				4A3AC31F2B0CBF2200BA5B7E /* Data.swift */,
+				4A3AC3292B0D72FE00BA5B7E /* AppleIdLogin.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -232,6 +257,10 @@
 				4AF0658B2AFB926700F529A1 /* OTP.swift */,
 				4A0639FD2B04BA4700FC42D7 /* ProfileView.swift */,
 				4A063A042B06299A00FC42D7 /* testnav.swift */,
+				4A6E27802B07B7AE002305CD /* TestUserDetails.swift */,
+				4A3AC3232B0D641800BA5B7E /* SignInWithAppleButtonView.swift */,
+				4A3AC3272B0D729C00BA5B7E /* appleiew.swift */,
+				4A3AC32B2B0E100B00BA5B7E /* HorsLigne.swift */,
 			);
 			path = "User_interface ";
 			sourceTree = "<group>";
@@ -270,6 +299,14 @@
 			dependencies = (
 			);
 			name = "EcoGuide-Swift";
+			packageProductDependencies = (
+				4A3AC30E2B0B70B400BA5B7E /* FacebookAEM */,
+				4A3AC3102B0B70B400BA5B7E /* FacebookBasics */,
+				4A3AC3122B0B70B400BA5B7E /* FacebookCore */,
+				4A3AC3142B0B70B400BA5B7E /* FacebookGamingServices */,
+				4A3AC3162B0B70B400BA5B7E /* FacebookLogin */,
+				4A3AC3182B0B70B400BA5B7E /* FacebookShare */,
+			);
 			productName = "EcoGuide-Swift";
 			productReference = 11EA7D242AF96DF400141117 /* EcoGuide-Swift.app */;
 			productType = "com.apple.product-type.application";
@@ -342,6 +379,9 @@
 				Base,
 			);
 			mainGroup = 11EA7D1B2AF96DF400141117;
+			packageReferences = (
+				4A3AC30D2B0B70B400BA5B7E /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+			);
 			productRefGroup = 11EA7D252AF96DF400141117 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -387,8 +427,10 @@
 				11CEEBE72AF9768D00175E74 /* bookmarksGuide.swift in Sources */,
 				11EA7D342AF96DF500141117 /* EcoGuide_Swift.xcdatamodeld in Sources */,
 				11EA7D312AF96DF500141117 /* Persistence.swift in Sources */,
+				4A6E277F2B07B57C002305CD /* UserDetails.swift in Sources */,
 				4AF0658C2AFB926700F529A1 /* OTP.swift in Sources */,
 				4AC349B22AFE4A1400731675 /* Reset_password .swift in Sources */,
+				4A3AC3282B0D729C00BA5B7E /* appleiew.swift in Sources */,
 				4A5070C52AFA7AFA00A797D8 /* Welcome_User.swift in Sources */,
 				4AF065942AFC37A000F529A1 /* forget_password.swift in Sources */,
 				4AF065882AFB87B300F529A1 /* Reset_Password.swift in Sources */,
@@ -399,16 +441,19 @@
 				4A5070C92AFAD60D00A797D8 /* VerifMail.swift in Sources */,
 				11CEEBE92AF976D300175E74 /* detailGuide.swift in Sources */,
 				11CEEBDF2AF9753D00175E74 /* RecentlyBookedGuide.swift in Sources */,
-				11CEEBE12AF9755D00175E74 /* TestModel.swift in Sources */,
 				11EA7D2A2AF96DF400141117 /* ContentView.swift in Sources */,
 				4AF0658A2AFB87CF00F529A1 /* Forget_Password.swift in Sources */,
+				4A6E27812B07B7AE002305CD /* TestUserDetails.swift in Sources */,
+				4A3AC32A2B0D72FE00BA5B7E /* AppleIdLogin.swift in Sources */,
 				11CEEBDC2AF9746000175E74 /* HomeViewGuide.swift in Sources */,
 				4A063A032B04EE7700FC42D7 /* Editprofile.swift in Sources */,
+				4A3AC3202B0CBF2200BA5B7E /* Data.swift in Sources */,
 				11CEEBE52AF9761F00175E74 /* bookingFormGuide.swift in Sources */,
+				4A3AC32C2B0E100B00BA5B7E /* HorsLigne.swift in Sources */,
 				4A063A052B06299A00FC42D7 /* testnav.swift in Sources */,
 				4A0639FE2B04BA4700FC42D7 /* ProfileView.swift in Sources */,
 				11EA7D282AF96DF400141117 /* EcoGuide_SwiftApp.swift in Sources */,
-				4A063A012B04D17500FC42D7 /* User.swift in Sources */,
+				4A3AC3242B0D641800BA5B7E /* SignInWithAppleButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,6 +616,7 @@
 				DEVELOPMENT_TEAM = 33BCD6LPM6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "EcoGuide-Swift/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -601,6 +647,7 @@
 				DEVELOPMENT_TEAM = 33BCD6LPM6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "EcoGuide-Swift/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -733,6 +780,50 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4A3AC30D2B0B70B400BA5B7E /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 14.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4A3AC30E2B0B70B400BA5B7E /* FacebookAEM */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4A3AC30D2B0B70B400BA5B7E /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookAEM;
+		};
+		4A3AC3102B0B70B400BA5B7E /* FacebookBasics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4A3AC30D2B0B70B400BA5B7E /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookBasics;
+		};
+		4A3AC3122B0B70B400BA5B7E /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4A3AC30D2B0B70B400BA5B7E /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookCore;
+		};
+		4A3AC3142B0B70B400BA5B7E /* FacebookGamingServices */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4A3AC30D2B0B70B400BA5B7E /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookGamingServices;
+		};
+		4A3AC3162B0B70B400BA5B7E /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4A3AC30D2B0B70B400BA5B7E /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
+		};
+		4A3AC3182B0B70B400BA5B7E /* FacebookShare */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4A3AC30D2B0B70B400BA5B7E /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookShare;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		11EA7D322AF96DF500141117 /* EcoGuide_Swift.xcdatamodeld */ = {

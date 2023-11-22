@@ -6,18 +6,26 @@
 //
 
 import SwiftUI
+//import FacebookCore
+ 
+
 
 @main
 struct EcoGuide_SwiftApp: App {
+ 
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
-//             Register()
-//            Forget_Password()
-//               VerifMail()
-//            testnav()
-            ProfileView()
+//            if UserDefaults.standard.string(forKey: "tokenAuth") != nil {
+//                ProfileView()
+//            }else{
+//                Register()
+//
+//            }
+            HorsLigne()
+ 
          }
     }
 }
+ 

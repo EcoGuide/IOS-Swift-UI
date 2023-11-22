@@ -1,12 +1,12 @@
 //
-//  User.swift
+//  UserDetails.swift
 //  EcoGuide-Swift
 //
-//  Created by ben romdhane fedi on 2023-11-15.
+//  Created by ben romdhane fedi on 2023-11-17.
 //
 
 import Foundation
-struct user: Codable {
+struct UserDetails: Codable {
     let name: String
     let email: String
     let telephone: String

@@ -12,7 +12,7 @@ struct Login: View {
     @State private var password: String = ""
     @State private var showingAlert = false
     @State private var isLoggedIn = false
-     @State private var sheetToggleView = false
+    @State private var sheetToggleView = false
     @State private var isLinkActive = false
     @State private var gonav = false
     @State private var isLoading = false
@@ -91,7 +91,7 @@ struct Login: View {
                                     isLoading = true // Activez le ProgressView après succes login
 
                                     // Simulez le chargement pendant 2 secondes (vous pouvez ajuster la durée)
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                                         isLoading = false // Désactivez le ProgressView après le chargement simulé
                                         isProfileViewPresented = true // Activez la navigation vers ProfileView
                                     }
@@ -183,7 +183,7 @@ struct Login: View {
 
         }
         .navigationBarBackButtonHidden(true)
-
+ 
     }
     
     

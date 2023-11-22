@@ -15,9 +15,12 @@ struct testnav: View {
     @State private var isLoading = false
 
     @State private var isAuthenticated = false
-      @State private var isAuthenticating = false
+    @State private var isAuthenticating = false
 
       var body: some View {
+          
+          
+          
           if isAuthenticated {
               Text("Authentication Successful")
                   .font(.title)

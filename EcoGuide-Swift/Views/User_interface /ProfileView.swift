@@ -10,10 +10,12 @@ import LocalAuthentication
 
 let editprofile = Editprofile()
 struct ProfileView: View {
-    @State private var name: String = "John"
-    @State private var surname: String = "Doe"
-    @State private var phoneNumber: String = "(123) 456-7890"
-    @State private var email: String = "john.doe@example.com"
+    let baseURL = "http://192.168.31.247:3000/"
+
+    @State private var name: String = " "
+    @State private var surname: String = "******"
+    @State private var phoneNumber: String = "( "
+    @State private var email: String = " "
     @State private var isEditing: Bool = false
     @State private var showMenu: Bool = false
     @State private var showingAlert = false
@@ -25,6 +27,85 @@ struct ProfileView: View {
     @State private var isAuthenticated = false
     @State private var isAuthenticating = false
     @State private var isEditProfileViewPresented = false
+    
+    @State private var isLoading = false
+    @State private var errorMessage: String?
+    
+    @State private var showingImagePicker = false
+    @State private var inputImage: UIImage?
+    @State private var displayedImage: Image = Image("background") // Image par défaut
+
+ 
+    //-------------------------------Tools------------------------------------
+    func setUserDetails(_ userDetails: UserDetails) {
+            self.name = userDetails.name
+            self.email = userDetails.email
+            self.phoneNumber = userDetails.telephone
+        }
+    
+    func uploadImage() {
+        guard let inputImage = inputImage,
+              let imageData = inputImage.jpegData(compressionQuality: 0.5) else { return }
+
+        // Préparer la requête HTTP
+ 
+        let url  = URL(string: baseURL + "EditImageProfile")
+        var request = URLRequest(url: url!)
+        request.httpMethod = "POST"
+        // Ajouter le token d'authentification
+          if let accessToken = UserDefaults.standard.string(forKey: "tokenAuth") {
+              request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+          }
+        // Définir le contenu de la requête
+        let boundary = "Boundary-\(UUID().uuidString)"
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+
+        var body = Data()
+
+        body.append("--\(boundary)\r\n")
+        body.append("Content-Disposition: form-data; name=\"image\"; filename=\"image.jpg\"\r\n")
+        body.append("Content-Type: image/jpeg\r\n\r\n")
+        body.append(imageData)
+        body.append("\r\n")
+        body.append("--\(boundary)--\r\n")
+
+        request.httpBody = body
+
+        // Envoyer la requête
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("Erreur: \(error)")
+                return
+            }
+            else{
+                UserDefaults.standard.set(imageData, forKey: "userProfileImage")
+
+            }
+             
+        }.resume()
+    }
+
+    //__________________________________User Details_________________________
+    func loadUserDetails() {
+        isLoading = true
+        errorMessage = nil
+
+        editprofile.fetchUserDetails { result in
+            DispatchQueue.main.async {
+                isLoading = false
+                switch result {
+                case .success(let userDetails):
+                self.name = userDetails.name
+                self.phoneNumber = userDetails.telephone
+                self.email = userDetails.email
+
+                    
+                case .failure(let error):
+                    self.errorMessage = error.localizedDescription
+                }
+            }
+        }
+    }
 
     var body: some View {
  
@@ -37,7 +118,7 @@ struct ProfileView: View {
                     
                     Section(header: Text("User Information")) {
                         HStack {
-                            Image("background")
+                            displayedImage
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: 60, height: 60)
@@ -45,12 +126,31 @@ struct ProfileView: View {
                                 .overlay(Circle().stroke(Color.gray, lineWidth: 1))
                             
                             VStack(alignment: .leading) {
-                                Text("Emma Phillips") // User's name
+                                Text( name) // User's name
                                     .font(.headline)
-                                Text("Fashion Model") // User's profession
-                                    .font(.subheadline)
                             }
+                            Spacer()
+                            Button(action: {
+                                showingImagePicker = true
+                            }) {
+                                Image(systemName: "square.and.pencil.circle")
+                                   
+                                    
+                            }
+                            .sheet(isPresented: $showingImagePicker, onDismiss: uploadImage) {
+                                ImagePicker(image: $inputImage, displayedImage: $displayedImage)
+                            }
+                            
                         }
+                        .onAppear {
+                                    // Charger l'image de UserDefaults par défaut
+                                    if let imageData = UserDefaults.standard.data(forKey: "userProfileImage") {
+                                        if let uiImage = UIImage(data: imageData) {
+                                            displayedImage = Image(uiImage: uiImage)
+                                        }
+                                    }
+                                }
+                        
                     }
                     
                     // Wallet and Orders section
@@ -61,7 +161,7 @@ struct ProfileView: View {
                                 .font(.headline)
                                 .fontWeight(.bold)
                             Spacer()
-                            Text("+216 55 428 615")
+                            Text(phoneNumber)
                                 .font(.headline)
                         }
                         HStack {
@@ -69,9 +169,12 @@ struct ProfileView: View {
                                 .font(.headline)
                                 .fontWeight(.bold)
                             Spacer()
-                            Text("fedi.benromdhan@espirt.tn")
+                            Text(email)
                                 .font(.headline)
                         }
+                    }
+                    .onAppear {
+                        loadUserDetails()
                     }
                     
                     // Menu options
@@ -161,6 +264,46 @@ struct ProfileView: View {
     }
     
 }
+
+//--------------------------------Tools FOR image ---------------------------------
+struct ImagePicker: UIViewControllerRepresentable {
+    @Environment(\.presentationMode) var presentationMode
+    @Binding var image: UIImage?
+    @Binding var displayedImage: Image // Ajouté
+
+    func makeUIViewController(context: Context) -> UIImagePickerController {
+        let picker = UIImagePickerController()
+        picker.delegate = context.coordinator
+        return picker
+    }
+
+    func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {}
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+
+    class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+        let parent: ImagePicker
+
+        init(_ parent: ImagePicker) {
+            self.parent = parent
+        }
+
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+            if let uiImage = info[.originalImage] as? UIImage {
+                parent.image = uiImage
+                DispatchQueue.main.async {
+                    self.parent.displayedImage = Image(uiImage: uiImage) // Mettre à jour l'image affichée
+                }
+            }
+            parent.presentationMode.wrappedValue.dismiss()
+        }
+    }
+}
+
+
+//--------------------------------------------------------------------------------
 struct ProfileOptionRow: View {
     var iconName: String
     var optionName: String
@@ -184,6 +327,16 @@ struct DynamicBackgroundView: View {
             .edgesIgnoringSafeArea(.all)
     }
 }
+
+
+
+
+
+
+
+
+
+// ----------- ---------------Edit profile View -------------------------------------------------------
 struct EditProfileView: View {
     @Binding var isEditing: Bool
     @Binding var name: String

@@ -9,7 +9,9 @@ import Foundation
 
 class AuthService {
     private let session: URLSession
+    let baseURL = "http://192.168.31.247:3000/"
 
+//    let url  = URL(string: baseURL + "EditImageProfile")
     init() {
             let configuration = URLSessionConfiguration.default
             configuration.timeoutIntervalForRequest = 30 // seconds
@@ -21,7 +23,7 @@ class AuthService {
     
     
     func signUp(email: String, password: String,name:String ,completion: @escaping (Bool, Error?) -> Void) {
-        let url = URL(string: "http://192.168.8.103:3000/signupU")!
+        let url  = URL(string: baseURL + "signupU")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         
@@ -50,7 +52,9 @@ class AuthService {
         task.resume()
     }
     func signInadmin(email: String, password: String, completion: @escaping (Result<String, Error>) -> Void) {
-        guard let url = URL(string: "http://192.168.8.103:3000/SignIn") else {
+        guard let url  = URL(string: baseURL + "SignIn")else {
+
+//        guard let url = URL(string: "http://192.168.1.126:3000/SignIn") else {
             completion(.failure(URLError(.badURL)))
             return
         }
@@ -102,7 +106,10 @@ class AuthService {
 
     
     func signIn(email: String, password: String,completion: @escaping (Bool, Error?) -> Void) {
-        let url = URL(string: "http://192.168.1.155:3000/SignIn")!
+
+        let url  = URL(string: baseURL + "SignIn")!
+
+//        let url = URL(string: "http://192.168.1.126:3000/SignIn")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
 

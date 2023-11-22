@@ -24,12 +24,12 @@ struct Forget_Password: View {
          
            VStack {
                Spacer()
-                   .navigationBarBackButtonHidden(true)
+//                   .navigationBarBackButtonHidden(true)
 
                 Image(systemName: "shared.with.you")
                    .resizable()
                    .aspectRatio(contentMode: .fill)
-                   .frame(width: 150, height: 150)
+                   .frame(width: 100, height: 90)
                    .foregroundColor(.blue)
                
                Spacer()
@@ -112,7 +112,8 @@ struct Forget_Password: View {
                                              }
                                          }
                    }
-               }) {
+               })
+               {
                    
                    Text("Send Code")
                        .foregroundColor(.white)
@@ -142,6 +143,7 @@ struct Forget_Password: View {
             }
            
            .padding()
+           Spacer()
        }
     
    }

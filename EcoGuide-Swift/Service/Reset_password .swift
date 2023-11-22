@@ -16,10 +16,13 @@ struct ResetPasswordResponse: Codable {
     // Ajoutez d'autres champs selon la réponse de votre API
 }
 class Reset_password {
-    
+    let baseURL = "http://192.168.31.247:3000/"
+ 
     
       func resetPassword(password: String, code: String, completion: @escaping (Bool, String) -> Void) {
-          let url = URL(string: "http://192.168.8.103:3000/reset-password")!
+          let url  = URL(string: baseURL + "reset-password")!
+
+//          let url = URL(string: "http://192.168.1.126:3000/reset-password")!
           var request = URLRequest(url: url)
           print(url)
           request.httpMethod = "POST"
