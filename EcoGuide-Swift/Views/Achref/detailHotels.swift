@@ -46,7 +46,6 @@ struct detailHotels: View {
                     }
                     
                     
-                    // Location du guide
                     Text(hotelInfo.location)
                         .foregroundColor(.gray)
                         .padding(.bottom, 16)

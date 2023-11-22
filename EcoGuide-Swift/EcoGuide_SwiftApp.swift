@@ -19,8 +19,9 @@ struct EcoGuide_SwiftApp: App {
         }
     var body: some Scene {
         WindowGroup {
-            //HomeAndHotelViews(hotelViewModel: hotelViewModel)
-            HomeViewGuide(guideViewModel: guideViewModel)
+//            HomeAndHotelViews(hotelViewModel: hotelViewModel)
+            Login()
+           // HomeViewGuide(guideViewModel: guideViewModel)
 
         }
     }
