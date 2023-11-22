@@ -166,8 +166,8 @@ struct detailHotels: View {
                         }
                         Spacer()
                         
-                        Section {
-                            NavigationLink(destination: bookingHotel(hotelViewModel: HotelViewModel(), hotel: .constant(hotelInfo), discountCode: $discountcode)){
+                       /* Section {
+                             NavigationLink(destination: bookingHotel(hotelViewModel: HotelViewModel(), hotel: .constant(hotelInfo), discountCode: $discountcode)){
                                 
                                 Text("Book Now")
                                     .font(.system(size: 16, weight: .semibold))
@@ -179,7 +179,7 @@ struct detailHotels: View {
                                 
                             }
                             
-                        }
+                        }*/
                         
                     }
                 }

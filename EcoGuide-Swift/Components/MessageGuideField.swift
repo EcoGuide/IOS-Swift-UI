@@ -10,13 +10,14 @@ import SwiftUI
 struct MessageGuideField: View {
     
     @State private var message = ""
-    
+    @EnvironmentObject var messagesManager: MessageManager
     
     var body: some View {
         HStack {
             CustomTextField(placeHolder: Text("Enter your message here"), text: $message)
             Button {
-                print("Message sent ")
+                messagesManager.sendMessage(text: message)
+                message =  ""
             } label: {
                 Image(systemName: "paperplane.fill").foregroundColor(.white).padding(10).background(Color.blue).cornerRadius(20)
             }
@@ -29,7 +30,7 @@ struct MessageGuideField: View {
 struct MessageGuideField_Previews: PreviewProvider {
     static var previews: some View {
         MessageGuideField()
-    }
+            .environmentObject(MessageManager())    }
 }
 
 
